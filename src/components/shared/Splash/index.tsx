@@ -18,13 +18,13 @@ export enum PAGE {
 const getPageProps = (page: PAGE, screen_width: number) => {
   const width = screen_width / 4;
   const PAGE_MAP: {[key: string]: JSX.Element[]} = {
-    [PAGE.HOME]: [<HomeHeading width={width}/> ],
-    [PAGE.ABOUT]: [<AboutHeading width={width}/> ],
-    [PAGE.PROJECTS]: [<ProjectsHeading width={width}/> ],
-    [PAGE.WORK]: [<WorkHeading width={width}/> ],
+    [PAGE.HOME]: [<HomeHeading width={width} key={'heading'}/> ],
+    [PAGE.ABOUT]: [<AboutHeading width={width} key={'heading'}/> ],
+    [PAGE.PROJECTS]: [<ProjectsHeading width={width} key={'heading'}/> ],
+    [PAGE.WORK]: [<WorkHeading width={width} key={'heading'}/> ],
   };
   return PAGE_MAP[page];
-}
+};
 
 export interface SplashProps {
   page: PAGE;

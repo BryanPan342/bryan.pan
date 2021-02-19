@@ -2,13 +2,13 @@ import { useState, useEffect } from 'react';
 
 // A hook to determine window size (used to calculate size of canvas)
 // Adapted from https://usehooks.com/useWindowSize/
-export function useWindowSize() {
+export function useWindowSize(): {width: number | undefined, height: number | undefined} {
   const isClient = typeof window === 'object';
 
   function getSize() {
     return {
       width: isClient ? window.innerWidth : undefined,
-      height: isClient ? window.innerHeight : undefined
+      height: isClient ? window.innerHeight : undefined,
     };
   }
 
@@ -27,4 +27,4 @@ export function useWindowSize() {
   }, []); // Empty array ensures that effect is only run on mount and unmount
 
   return windowSize;
-};
+}
