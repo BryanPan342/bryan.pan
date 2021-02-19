@@ -1,5 +1,5 @@
 import React from 'react';
-import './styles/Layout.scss';
+import '../styles/Layout.scss';
 
 interface LayoutProps {
   children: JSX.Element;
@@ -8,9 +8,9 @@ interface LayoutProps {
 function Layout(props: LayoutProps): JSX.Element {
   return (
     <div id={'layout-container'}>
-      <div id={'contents-container'}>
+      <main id={'contents-container'}>
         {props.children}
-      </div>
+      </main>
     </div>
   );
 }

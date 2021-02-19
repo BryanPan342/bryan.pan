@@ -16,6 +16,11 @@ $padding-horiz-mobile: 24px;
 $padding-vert:  48px;
 $padding-vert-mobile: 32px;
 $max-section-width: 1440px;
+$max-description-width: calc(100vw * .33);
+
+// Spacing
+$main-margin-left: 100px;
+$main-margin-between: 20px;
 
 $colors: (
   'black': #191919,
