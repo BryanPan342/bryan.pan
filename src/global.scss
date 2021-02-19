@@ -4,4 +4,32 @@ body {
   padding: 0;
   margin: 0;
   font: $body-reg-font;
+  background-color: map-get($colors, 'white');
+}
+
+div {
+  color: map-get($colors, 'black');
+}
+
+h1 {
+  font: $heading-xbold-font;
+  letter-spacing: $heading-kerning;
+}
+
+h2 {
+  font: $heading-bold-font;
+  letter-spacing: $heading-kerning;
+}
+
+h3 {
+  font: $heading-font;
+}
+
+p {
+  line-height: 1.6em;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
 }
