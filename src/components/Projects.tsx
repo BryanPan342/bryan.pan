@@ -1,10 +1,13 @@
 import React from 'react';
+import Layout from './Layout';
 
 function Projects(): JSX.Element {
   return (
-    <div>
-      Projects
-    </div>
+    <Layout>
+      <div>
+        Projects
+      </div>
+    </Layout>
   );
 }
 

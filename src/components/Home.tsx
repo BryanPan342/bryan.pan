@@ -1,10 +1,13 @@
 import React from 'react';
+import Layout from './Layout';
 
 function Home(): JSX.Element {
   return (
-    <div>
-      Home
-    </div>
+    <Layout>
+      <div>
+        Home
+      </div>
+    </Layout>
   );
 }
 

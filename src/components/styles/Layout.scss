@@ -1,0 +1,21 @@
+@import 'variables';
+
+#layout-container {
+  display: grid;
+  place-items: center;
+  width: 100vw;
+  height: 100vh;
+  background: url('../../assets/Contour.svg');
+  background-size: cover;
+}
+
+#contents-container {
+  z-index: 1;
+  display: flex;
+  background-color: map-get($colors, 'white');
+  width: calc(100vw - 2 * #{$padding-horiz});
+  height: calc(100vh - 2 * #{$padding-vert});
+  border: 2px;
+  border-style: solid;
+  border-color: map-get($colors, 'black');
+}
