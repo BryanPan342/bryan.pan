@@ -2,7 +2,8 @@ import React from 'react';
 import { HeadingProps } from './index';
 
 export function HomeHeading(props: HeadingProps): JSX.Element {
-  const { width, height } = props;
+  const { width } = props;
+  const height = width * .66;
 
   return (
     <svg width={width} height={height} viewBox="0 0 343 210" fill="none" xmlns="http://www.w3.org/2000/svg">

@@ -1,12 +1,14 @@
 import React from 'react';
 import Layout from './shared/Layout';
+import Splash, { PAGE } from './shared/Splash';
 
 function Work(): JSX.Element {
   return (
     <Layout>
-      <div>
-        Work
-      </div>
+      <Splash
+        page={PAGE.WORK}
+        description={'I like working with fun and creative people.'}
+        />
     </Layout>
   );
 }
