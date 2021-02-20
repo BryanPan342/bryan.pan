@@ -34,4 +34,5 @@ $colors: (
   @each $key, $value in $colors {
     #{unquote($key)}: $value;
   }
+  marginLeft: calc(#{$main-margin-left} + 10px);
 }

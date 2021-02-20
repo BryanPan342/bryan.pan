@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import {animate_heading} from '../../../utils/animations';
+import {animate_description, animate_heading} from '../../../utils/animations';
 import '../../styles/Splash.scss';
 import { useWindowSize } from '../../../utils/hooks';
 
@@ -41,6 +41,7 @@ function Splash(props: SplashProps): JSX.Element {
 
   useEffect(() => {
     animate_heading();
+    animate_description();
   }, []);
 
   return (

@@ -18,7 +18,7 @@
 
 .description {
   margin-top: $main-margin-between;
-  margin-left: calc(#{$main-margin-left} + 10px);
   max-width: $max-description-width;
   font-size: 24px;
+  opacity: 0;
 }

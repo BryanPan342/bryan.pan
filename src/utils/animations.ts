@@ -10,7 +10,7 @@ export function animate_heading(): void {
     fill: [
       {value: style.black, delay: 1500, duration: 500, easing: 'easeInExpo' },
     ],
-    delay: 500,
+    delay: 300,
   });
   anime({
     targets: '#heading .lines .dot',
@@ -20,6 +20,17 @@ export function animate_heading(): void {
     fill: [
       {value: style.yellow, delay: 1000, duration: 500, easing: 'easeInExpo' },
     ],
-    delay: 500,
+    delay: 300,
   });
+}
+
+export function animate_description(): void {
+  anime({
+    targets: '.description',
+    easing: 'easeInOutExpo',
+    duration: 1200,
+    opacity: 1,
+    translateX: style.marginLeft,
+    delay: 300,
+  })
 }
