@@ -10,6 +10,8 @@ import Home from './Home';
 import Projects from './Projects';
 import Work from './Work';
 
+import '../assets/Bryan_Pan_Resume.pdf';
+
 function App(): JSX.Element {
 
   return (
