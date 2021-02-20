@@ -1,0 +1,24 @@
+@import 'variables';
+
+#nav-container {
+  display: flex;
+  align-items: center;
+}
+
+#routes {
+  display: flex;
+  z-index: 1;
+  flex-direction: column;
+  margin-left: $main-margin-left;
+
+  a {
+    font: $heading-bold-font;
+    margin-top: $main-margin-between;
+  }
+}
+
+#highlight {
+  z-index: 0;
+  position: fixed;
+  background-color: map-get($colors, 'yellow');
+}

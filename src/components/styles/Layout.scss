@@ -19,3 +19,36 @@
   border-style: solid;
   border-color: map-get($colors, 'black');
 }
+
+#nav-icon {
+  z-index: 99;
+  height: 50px;
+  width: 50px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  position: fixed;
+  top: 50%;
+  left: calc(#{$padding-horiz} - 32.5px);
+  &:focus{
+    outline: none;
+  }
+  &::-moz-focus-inner{
+    outline: none;
+  }
+  div {
+    outline: none;
+    transition: background-image .3s linear;
+    height: 50px;
+    width: 50px;
+    background-size: 50px 50px;
+  }
+}
+
+#nav-close {
+  background-image: url('../../assets/nav-close.svg');
+}
+
+#nav-open {
+  background-image: url('../../assets/nav-open.svg');
+}

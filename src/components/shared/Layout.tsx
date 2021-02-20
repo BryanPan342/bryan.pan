@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState } from 'react';
+import Nav from '../Nav';
 import '../styles/Layout.scss';
 
 interface LayoutProps {
@@ -6,10 +7,15 @@ interface LayoutProps {
 }
 
 function Layout(props: LayoutProps): JSX.Element {
+  const [showNav, setShowNav] = useState(false);
+
   return (
     <div id={'layout-container'}>
+      <button id={'nav-icon'} onClick={() => setShowNav(!showNav)}>
+        <div id={showNav ? 'nav-close' : 'nav-open'}/>
+      </button>
       <main id={'contents-container'}>
-        {props.children}
+        {showNav ? <Nav /> : props.children}
       </main>
     </div>
   );

@@ -6,21 +6,19 @@ export function animate_heading(): void {
     targets: '#heading .lines .words',
     strokeDashoffset: [anime.setDashoffset, 0],
     easing: 'easeInOutExpo',
-    duration: 2500,
+    duration: 1250,
     fill: [
-      {value: style.black, delay: 1500, duration: 500, easing: 'easeInExpo' },
+      {value: style.black, delay: 500, duration: 750, easing: 'easeInExpo' },
     ],
-    delay: 300,
   });
   anime({
     targets: '#heading .lines .dot',
     strokeDashoffset: [anime.setDashoffset, 0],
     easing: 'easeInExpo',
-    duration: 1500,
+    duration: 1250,
     fill: [
-      {value: style.yellow, delay: 1000, duration: 500, easing: 'easeInExpo' },
+      {value: style.yellow, delay: 500, duration: 750, easing: 'easeInExpo' },
     ],
-    delay: 300,
   });
 }
 
@@ -28,9 +26,17 @@ export function animate_description(): void {
   anime({
     targets: '.description',
     easing: 'easeInOutExpo',
-    duration: 1200,
+    duration: 1000,
     opacity: 1,
     translateX: style.marginLeft,
-    delay: 300,
-  })
+  });
+}
+
+export function animate_highlight(): void {
+  anime({
+    targets: '#highlight',
+    easing: 'easeInOutExpo',
+    duration: 500,
+    scaleX: [0, 1],
+  });
 }
