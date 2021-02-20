@@ -25,7 +25,9 @@ function Nav(): JSX.Element {
   useEffect(() => {
     if (currentRef) {
       const dim = currentRef.getBoundingClientRect();
-      setStyle({width: dim.width + 10, height: Math.max(dim.height - 50, 15), top: dim.top + 25, left: dim.left - 5});
+      const height = Math.max(dim.height - 50, 15);
+      const top = dim.top + (dim.height - height) / 2;
+      setStyle({width: dim.width + 10, height, top, left: dim.left - 5});
       animate_highlight();
     }
   }, [currentRef, height]);
