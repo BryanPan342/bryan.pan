@@ -9,15 +9,25 @@
   background-size: cover;
 }
 
-#contents-container {
+#border-container {
   z-index: 1;
   display: flex;
-  background-color: map-get($colors, 'white');
+
   width: calc(100vw - 2 * #{$padding-horiz});
   height: calc(100vh - 2 * #{$padding-vert});
   border: 2px;
   border-style: solid;
   border-color: map-get($colors, 'black');
+
+  // Overflow Controls
+  overflow-x: hidden;
+  overflow-y: scroll;
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
 }
 
 #nav-icon {
@@ -28,7 +38,7 @@
   background: none;
   cursor: pointer;
   position: fixed;
-  top: 50%;
+  top: calc((100vh/2) - 25px);
   left: calc(#{$padding-horiz} - 32.5px);
 
   &::-moz-focus-inner {

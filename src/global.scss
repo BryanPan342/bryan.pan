@@ -22,7 +22,7 @@ h2 {
 }
 
 h3 {
-  font: $heading-font;
+  font: $heading-reg-font;
 }
 
 p {
@@ -32,4 +32,10 @@ p {
 a {
   color: inherit;
   text-decoration: none;
+}
+
+.section {
+  background-color: map-get($colors, 'white');
+  height: calc(100vh - 2 * #{$padding-vert});
+  width: calc(100vw - 2 * #{$padding-horiz});
 }

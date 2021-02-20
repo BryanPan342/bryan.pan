@@ -45,7 +45,7 @@ function Splash(props: SplashProps): JSX.Element {
   }, []);
 
   return (
-    <div id={'splash-container'}>
+    <div id={'splash-container'} className={'section'}>
       <div id={'headline-container'}>
         <div id={'heading'}>
           { Heading }

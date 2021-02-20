@@ -40,3 +40,26 @@ export function animate_highlight(): void {
     scaleX: [0, 1],
   });
 }
+
+export function animate_content(classList: DOMTokenList): void {
+  let classes: string[] = [];
+  classList.forEach(t => classes.push(t));
+  if (classes.includes('details')) {
+    anime({
+      targets: classes.reduce((acc: string, v: string) => `${acc}.${v}`,''),
+      easing: 'easeInOutExpo',
+      duration: 1000,
+      opacity: 1,
+      translateY: [{ value: style.marginUp, direction: 'reverse', duration: 1000 }],
+    });
+  }
+  else {
+    anime({
+      targets: classes.reduce((acc: string, v: string) => `${acc}.${v}`,''),
+      easing: 'easeInOutExpo',
+      duration: 1000,
+      opacity: 1,
+      translateX: style.marginLeft,
+    });
+  }
+}

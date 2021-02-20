@@ -33,7 +33,7 @@ function Nav(): JSX.Element {
   }, [currentRef, height]);
 
   return (
-    <nav id={'nav-container'}>
+    <nav id={'nav-container'} className={'section'}>
       { currentRef && style && <div style={style} id={'highlight'} />}
       <div id={'routes'}>
         <Link id='home-link' to='/'>HOME</Link>

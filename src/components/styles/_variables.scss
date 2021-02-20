@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@400;700;800&family=Raleway:wght@400;700&display=swap');
 
 // Fonts
-$heading-font:  normal 400 2.4em 'Frank Ruhl Libre', serif;
+$heading-reg-font:  normal 400 1.8em 'Frank Ruhl Libre', serif;
 $heading-bold-font:  normal 700 2.6em 'Frank Ruhl Libre', serif;
 $heading-xbold-font: normal 800 2.2em 'Frank Ruhl Libre', serif;
 $body-reg-font:  normal 400 1.2em 'Raleway', serif;
@@ -21,6 +21,7 @@ $max-description-width: calc(100vw * 0.33);
 // Spacing
 $main-margin-left: 100px;
 $main-margin-between: 20px;
+$content-margin-left: 64px;
 
 $colors: (
   'black': #191919,
@@ -37,4 +38,5 @@ $colors: (
   }
   /* stylelint-disable-next-line property-no-unknown */
   marginLeft: calc(#{$main-margin-left} + 5px);
+  marginUp: calc(-1*(#{$content-margin-left} + 5px));
 }
