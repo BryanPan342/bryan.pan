@@ -1,0 +1,71 @@
+[
+  {
+    "heading": "AL",
+    "id": "al",
+    "description": "A recipe saver, aggregator, and recommender for anyone.",
+    "content": [
+      {
+        "block": "Al is a recipe aggregator that allows budding and experienced cooks to centralize their recipes. With Al, you can save recipes from other sites in the format you desire and easily sift through great recipes."
+      },
+      {
+        "list": {
+          "heading": "Skills Used",
+          "content": [
+            "Amazon Web Services",
+            "Typescript",
+            "Graphql",
+            "TravisCI",
+            "Express",
+            "Docker",
+            "React"
+          ],
+          "split": true
+        }
+      }
+    ]
+  },
+  {
+    "heading": "AGORA",
+    "id": "agora",
+    "description": "A collaborative canvas where every user can only draw a single stroke every 20 seconds.",
+    "content": [
+      {
+        "block": "Agora is a collaborative canvas centered around community. Agora was build such that every individual can only contribute one stroke at a time with the hope that people would come together to build something amazing."
+      },
+      {
+        "list": {
+          "heading": "Skills Used",
+          "content": [
+            "Oracle Cloud Infrastructure",
+            "PostgreSQL",
+            "Typescript",
+            "Express",
+            "Redis",
+            "React"
+          ],
+          "split": true
+        }
+      }
+    ]
+  },
+  {
+    "heading": "STORYTIME",
+    "id": "fish",
+    "description": "A story on coral bleaching by Sam Chai and Bryan Pan.",
+    "content": [
+      {
+        "block": "Storytime was the example site for Bloom, a UCLA Creative Labs program. It was inspired by the documentary Chasing Coral and born out of my love for the ocean/nature. I hope that people will see it and seek to learn more about coral bleaching and its affect on the world."
+      },
+      {
+        "list": {
+          "heading": "Skills Used",
+          "content": [
+            "JavaScript",
+            "HTML",
+            "CSS"
+          ]
+        }
+      }
+    ]
+  }
+]

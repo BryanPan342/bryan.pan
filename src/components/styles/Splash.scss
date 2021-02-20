@@ -15,6 +15,7 @@
 }
 
 .description {
+  font: $heading-bold-font;
   margin-top: $main-margin-between;
   max-width: $max-description-width;
   font-size: 24px;

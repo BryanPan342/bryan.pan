@@ -16,7 +16,7 @@ export enum PAGE {
 }
 
 const getPageProps = (page: PAGE, screen_width: number) => {
-  const width = screen_width / 4;
+  const width = screen_width / 4.5;
   const PAGE_MAP: {[key: string]: JSX.Element[]} = {
     [PAGE.HOME]: [<HomeHeading width={width} key={'heading'}/> ],
     [PAGE.ABOUT]: [<AboutHeading width={width} key={'heading'}/> ],

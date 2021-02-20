@@ -1,0 +1,25 @@
+@import 'variables';
+
+.text-block, .text-list {
+  display: flex;
+  flex-direction: column;
+  opacity: 0;
+  margin-top: $main-margin-between;
+  margin-left: $content-margin-left;
+  max-width: $max-description-width;
+}
+
+.text-list-heading {
+  font: $body-bold-font;
+}
+
+.text-list-contents {
+  width: 100%;
+  display: grid;
+  place-items: start;
+}
+
+.split {
+  grid-auto-flow: row;
+  grid-template-columns: 70% 30%;
+}
