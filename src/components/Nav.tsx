@@ -9,7 +9,7 @@ const path2Id: {[key: string]: string} = {
   '/about': 'about-link',
   '/projects': 'projects-link',
   '/work': 'work-link',
-}
+};
 
 function Nav(): JSX.Element {
   const { height } = useWindowSize();

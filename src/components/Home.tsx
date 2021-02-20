@@ -7,8 +7,7 @@ function Home(): JSX.Element {
     <Layout>
       <Splash
         page={PAGE.HOME}
-        description={'I love building software for others, meeting new people, and drinking coffee.'}
-        />
+        description={'I love building software for others, meeting new people, and drinking coffee.'}/>
     </Layout>
   );
 }

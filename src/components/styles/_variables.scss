@@ -16,7 +16,7 @@ $padding-horiz-mobile: 24px;
 $padding-vert:  48px;
 $padding-vert-mobile: 32px;
 $max-section-width: 1440px;
-$max-description-width: calc(100vw * .33);
+$max-description-width: calc(100vw * 0.33);
 
 // Spacing
 $main-margin-left: 100px;
@@ -30,9 +30,11 @@ $colors: (
 );
 
 // Export colors to JS
+/* stylelint-disable-next-line selector-pseudo-class-no-unknown */
 :export {
   @each $key, $value in $colors {
     #{unquote($key)}: $value;
   }
+  /* stylelint-disable-next-line property-no-unknown */
   marginLeft: calc(#{$main-margin-left} + 5px);
 }

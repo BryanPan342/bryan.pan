@@ -7,8 +7,7 @@ function About(): JSX.Element {
     <Layout>
       <Splash
         page={PAGE.ABOUT}
-        description={'I enjoy sunrise hikes and listening to music (specifically indie pop).'}
-        />
+        description={'I enjoy sunrise hikes and listening to music (specifically indie pop).'}/>
     </Layout>
   );
 }

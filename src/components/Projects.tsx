@@ -7,8 +7,7 @@ function Projects(): JSX.Element {
     <Layout>
       <Splash
         page={PAGE.PROJECTS}
-        description={'I like building things, just because.'}
-        />
+        description={'I like building things, just because.'}/>
     </Layout>
   );
 }

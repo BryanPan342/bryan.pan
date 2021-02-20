@@ -7,8 +7,7 @@ function Work(): JSX.Element {
     <Layout>
       <Splash
         page={PAGE.WORK}
-        description={'I like working with fun and creative people.'}
-        />
+        description={'I like working with fun and creative people.'}/>
     </Layout>
   );
 }

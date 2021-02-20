@@ -30,15 +30,18 @@
   position: fixed;
   top: 50%;
   left: calc(#{$padding-horiz} - 32.5px);
-  &:focus{
+
+  &::-moz-focus-inner {
     outline: none;
   }
-  &::-moz-focus-inner{
+
+  &:focus {
     outline: none;
   }
+
   div {
     outline: none;
-    transition: background-image .3s linear;
+    transition: background-image 0.3s linear;
     height: 50px;
     width: 50px;
     background-size: 50px 50px;
