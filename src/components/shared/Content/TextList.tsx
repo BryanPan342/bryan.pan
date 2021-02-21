@@ -1,5 +1,4 @@
 import React from 'react';
-import '../../styles/Text.scss';
 
 export interface TextListProps {
   heading: string;

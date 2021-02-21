@@ -29,6 +29,9 @@ $colors: (
   'teal': #718f94,
 );
 
+// Misc
+$bezier: cubic-bezier(0,.5,0,1);
+
 // Export colors to JS
 /* stylelint-disable-next-line selector-pseudo-class-no-unknown */
 :export {

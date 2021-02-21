@@ -21,6 +21,9 @@
           ],
           "split": true
         }
+      },
+      {
+        "block": "Currently tinkering"
       }
     ]
   },
@@ -45,6 +48,22 @@
           ],
           "split": true
         }
+      },
+      {
+        "links": [
+          {
+            "link": "https://agora.creativelabsucla.com",
+            "description": "Check it out"
+          },
+          {
+            "link": "https://github.com/UCLA-Creative-Labs/agora-gaia",
+            "description": "Frontend"
+          },
+          {
+            "link": "https://github.com/UCLA-Creative-Labs/agora-ouranos",
+            "description": "Backend"
+          }
+        ]
       }
     ]
   },
@@ -65,6 +84,18 @@
             "CSS"
           ]
         }
+      },
+      {
+        "links": [
+          {
+            "link": "https://coral.bryanpan.co",
+            "description": "Check it out"
+          },
+          {
+            "link": "https://github.com/BryanPan342/storytime",
+            "description": "Github"
+          }
+        ]
       }
     ]
   }
