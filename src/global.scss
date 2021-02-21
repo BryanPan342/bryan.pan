@@ -49,3 +49,7 @@ a {
   height: calc(100vh);
   padding-bottom: 0px;
 }
+
+.section:nth-child(1).section:last-child {
+  height: calc(100vh - 2 * #{$padding-vert});
+}

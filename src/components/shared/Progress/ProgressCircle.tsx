@@ -17,7 +17,7 @@ function ProgressCircle(props: ProgressCircleProps): JSX.Element {
   const circumference = 2 * Math.PI * radius;
 
   useEffect(() => {
-    const normalized_progress = Math.min(progress / 90 * 100, 100);
+    const normalized_progress = Math.min(progress / 80 * 100, 100);
     const progressOffset = ((100 - normalized_progress) / 100 * circumference);
     setOffset(progressOffset);
     circleRef.current.style = 'transition: stroke-dashoffset 500ms ease-in-out;';
@@ -29,6 +29,7 @@ function ProgressCircle(props: ProgressCircleProps): JSX.Element {
         className="svg-circle-bg"
         stroke={'#1919194D'}
         fillOpacity={'0'}
+        opacity={progress < 10 ? '0': '1'}
         cx={center}
         cy={center}
         r={radius}
@@ -37,6 +38,7 @@ function ProgressCircle(props: ProgressCircleProps): JSX.Element {
         className="svg-circle"
         stroke={'#191919'}
         fillOpacity={'0'}
+        opacity={progress < 10 ? '0': '1'}
         ref={circleRef}
         cx={center}
         cy={center}

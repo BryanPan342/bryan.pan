@@ -67,7 +67,7 @@ function Layout(props: LayoutProps): JSX.Element {
 
   return (
     <div id={'layout-container'}>
-      <Progress handle={scrollIntoView} size={25} />
+      {!showNav && 'children' in props.children.props && <Progress handle={scrollIntoView} size={25} /> }
       <button id={'nav-icon'} onClick={() => setShowNav(!showNav)}>
         <div id={showNav ? 'nav-close' : 'nav-open'}/>
       </button>

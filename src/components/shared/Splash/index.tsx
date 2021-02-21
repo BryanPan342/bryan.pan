@@ -26,13 +26,13 @@ const getPageProps = (page: PAGE, screen_width: number) => {
   return PAGE_MAP[page];
 };
 
+export interface HeadingProps {
+  width: number;
+}
+
 export interface SplashProps {
   page: PAGE;
   description: string;
-}
-
-export interface HeadingProps {
-  width: number;
 }
 
 function Splash(props: SplashProps): JSX.Element {
