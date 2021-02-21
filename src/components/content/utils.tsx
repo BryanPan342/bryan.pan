@@ -34,6 +34,7 @@ export function generateContent(id: string, data: IContent[]): JSX.Element {
           description={content.description}
           postDescription={content.postDescription}
           heroColor={id2color(content.id)}
+          idx={idx}
           key={`${id}-${idx}`}>
           <>
             {content.content.map((details: Details, i: number) => {
@@ -56,7 +57,6 @@ export function generateContent(id: string, data: IContent[]): JSX.Element {
                   />
                 );
               } else if (details.links) {
-                console.log(details.links);
                 return (
                   <Links links={details.links}/>
                 );

@@ -28,12 +28,10 @@ function Layout(props: LayoutProps): JSX.Element {
     const last_top = last.getBoundingClientRect().top;
 
     const add = (splash_top != el_top && last_top != el_top);
-    console.log(add);
-
     const borderHeight = border?.getBoundingClientRect().top ?? document.body.offsetHeight - el.offsetHeight;
-    
+
     animate_section(el.getBoundingClientRect().top - borderHeight - splash_top + 24, add);
-  }
+  };
 
   useEffect(() => {
     const content_observer = new IntersectionObserver((entries, obs) => {
@@ -58,7 +56,7 @@ function Layout(props: LayoutProps): JSX.Element {
           scrollIntoView(entry.target);
         }
       });
-    }, { rootMargin: '0px 0px 50px 0px' });
+    }, { rootMargin: '50px 0px 50px 0px' });
 
     document.querySelectorAll('div.section').forEach(p => {
       sections.push(p);

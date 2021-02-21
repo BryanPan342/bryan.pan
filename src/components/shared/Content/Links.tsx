@@ -14,12 +14,12 @@ function Links(props: LinksProps): JSX.Element {
 
   return (
     <div className='details links-container'>
-      {links.map(({link, description}) =>
-        <div className='link'>
-          <a target='_blank' rel='noreferer' href={link}>
+      {links.map(({link, description}, i) =>
+        <div className='link' key={`${description}-${i}`}>
+          <a target='_blank' rel='noreferrer' href={link}>
             {description}
           </a>
-        </div>
+        </div>,
       )}
     </div>
   );

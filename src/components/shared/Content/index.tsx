@@ -6,6 +6,7 @@ export interface ContentProps {
   heading: string,
   description: string,
   postDescription?: string,
+  idx: number
   heroColor: HERO_COLORS,
   children: JSX.Element,
 }
@@ -20,10 +21,10 @@ function Content(props: ContentProps): JSX.Element {
   return (
     <div className={'section content-container'} >
       <div style={{backgroundColor: props.heroColor}} className={`contents-hero ${setWhite ? 'white' : ''}`}>
-        <div className={`${props.heading} contents-heading`}>{props.heading}<a className={'period'}>.</a></div>
-        <div className={`${props.heading} contents-description `}>{props.description}</div>
+        <div className={`${props.heading}-${props.idx} contents-heading`}>{props.heading}<a className={'period'}>.</a></div>
+        <div className={`${props.heading}-${props.idx} contents-description `}>{props.description}</div>
         { props.postDescription &&
-          <div className={`${props.heading} contents-description`}>{props.postDescription}</div> }
+          <div className={`${props.heading}-${props.idx} contents-description`}>{props.postDescription}</div> }
       </div>
       <div className={'contents-details'}>
         {props.children}

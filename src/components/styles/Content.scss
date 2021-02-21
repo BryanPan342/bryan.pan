@@ -50,13 +50,13 @@
   margin-top: $main-margin-between;
   margin-left: $content-margin-left;
   width: $max-content-width;
+  opacity: 0;
 }
 
 // Text Block Text List
 .text-block, .text-list {
   display: flex;
   flex-direction: column;
-  opacity: 0;
 }
 
 .text-list-heading {
@@ -95,10 +95,6 @@
     text-decoration: none;
   }
   
-  a:hover:after {
-    right: 0;
-  }
-  
   a:after {
     border-radius: 1em;
     border-top: .1em solid;
@@ -108,5 +104,9 @@
     bottom: .05em;
     left: 0;
     transition: right .4s $bezier;
+  }
+
+  a:hover:after {
+    right: 0;
   }
 }

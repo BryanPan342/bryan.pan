@@ -44,7 +44,4 @@ $bezier: cubic-bezier(0,.5,0,1);
 
   /* stylelint-disable-next-line property-no-unknown */
   marginUpTo: calc(-1 * (#{$content-margin-left} + 5px) / 2);
-
-  /* stylelint-disable-next-line property-no-unknown */
-  marginUpFrom: calc((#{$content-margin-left} + 5px) / 2);
 }
