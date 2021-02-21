@@ -6,7 +6,7 @@
   opacity: 0;
   margin-top: $main-margin-between;
   margin-left: $content-margin-left;
-  max-width: $max-content-width;
+  width: $max-content-width;
 }
 
 .text-list-heading {
@@ -14,7 +14,6 @@
 }
 
 .text-list-contents {
-  width: $max-content-width;
   display: flex;
   flex-wrap: wrap;
   div {

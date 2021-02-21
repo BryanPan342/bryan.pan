@@ -11,16 +11,14 @@ $logo-kerning: 0.1rem;
 $heading-kerning: 0.1rem;
 
 // General
-$padding-horiz: 64px;
-$padding-horiz-mobile: 24px;
-$padding-vert:  48px;
-$padding-vert-mobile: 32px;
+$padding-horiz: 48px;
+$padding-vert:  24px;
 $max-section-width: 1440px;
 $max-description-width: calc(100vw * 0.33);
 $max-content-width: calc(100vw * 0.4);
 
 // Spacing
-$main-margin-left: 100px;
+$main-margin-left: 80px;
 $main-margin-between: 20px;
 $content-margin-left: 64px;
 
@@ -42,5 +40,8 @@ $colors: (
   marginLeft: calc(#{$main-margin-left} + 5px);
 
   /* stylelint-disable-next-line property-no-unknown */
-  marginUp: calc(-1 * (#{$content-margin-left} + 5px));
+  marginUpTo: calc(-1 * (#{$content-margin-left} + 5px) / 2);
+
+  /* stylelint-disable-next-line property-no-unknown */
+  marginUpFrom: calc((#{$content-margin-left} + 5px) / 2);
 }

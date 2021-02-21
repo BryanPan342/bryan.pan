@@ -32,6 +32,7 @@ export function generateContent(id: string, data: IContent[]): JSX.Element {
         <Content
           heading={content.heading}
           description={content.description}
+          postDescription={content.postDescription}
           heroColor={id2color(content.id)}
           key={`${id}-${idx}`}>
           <>
@@ -40,7 +41,7 @@ export function generateContent(id: string, data: IContent[]): JSX.Element {
                 return (
                   <TextBlock
                     content={details.block}
-                    classList={`${content.id}-description-${i}`}
+                    classList={`${content.id}-description-${idx}-${i}`}
                     key={`${content.id}-${i}`}
                   />
                 );
@@ -49,7 +50,7 @@ export function generateContent(id: string, data: IContent[]): JSX.Element {
                   <TextList
                     heading={details.list.heading}
                     content={details.list.content}
-                    classList={`${content.id}-description-${i}`}
+                    classList={`${content.id}-description-${idx}-${i}`}
                     split={details.list.split}
                     key={`${content.id}-${i}`}
                   />

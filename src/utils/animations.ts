@@ -44,13 +44,14 @@ export function animate_highlight(): void {
 export function animate_content(classList: DOMTokenList): void {
   const classes: string[] = [];
   classList.forEach(t => classes.push(t));
+  console.log(classes);
   if (classes.includes('details')) {
     anime({
       targets: classes.reduce((acc: string, v: string) => `${acc}.${v}`,''),
       easing: 'easeInOutExpo',
       duration: 1000,
       opacity: 1,
-      translateY: [{ value: style.marginUp, direction: 'reverse', duration: 1000 }],
+      translateY: [style.marginUpFrom, style.marginUpTo],
     });
   }
   else {
