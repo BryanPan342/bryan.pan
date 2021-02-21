@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import {animate_content} from '../../utils/animations';
+import {animate_content, animate_section} from '../../utils/animations';
 import Nav from '../Nav';
 import '../styles/Layout.scss';
 
@@ -9,6 +9,7 @@ interface LayoutProps {
 
 function Layout(props: LayoutProps): JSX.Element {
   const [showNav, setShowNav] = useState(false);
+  const sections: Element[] = [];
 
   const valid_animations = [
     'div.contents-details > div',
@@ -17,22 +18,51 @@ function Layout(props: LayoutProps): JSX.Element {
     'div.contents-post-description',
   ];
 
+  const scrollIntoView = (el: HTMLElement) => {
+    const border = document.getElementById('border-container');
+    const splash = document.getElementById('splash-container');
+    const [last] = sections.slice(-1);
+
+    const splash_top = splash?.getBoundingClientRect().top ?? 24;
+    const el_top = el.getBoundingClientRect().top;
+    const last_top = last.getBoundingClientRect().top;
+
+    const add = (splash_top != el_top && last_top != el_top);
+    console.log(add);
+
+    const borderHeight = border?.getBoundingClientRect().top ?? document.body.offsetHeight - el.offsetHeight;
+    
+    animate_section(el.getBoundingClientRect().top - borderHeight - splash_top + 24, add);
+  }
+
   useEffect(() => {
-    const observer = new IntersectionObserver((entries, obs) => {
+    const content_observer = new IntersectionObserver((entries, obs) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           animate_content(entry.target.classList);
           obs.unobserve(entry.target);
         }
       });
-    }, {
-      threshold: .2,
-    });
+    }, { rootMargin: '0px 0px -100px 0px' });
+
     const contentsContainer = document.getElementById('contents-container') ?? document;
     contentsContainer.querySelectorAll('div.content-container').forEach((section) => {
       section.querySelectorAll(valid_animations.join(', ')).forEach(p => {
-        observer.observe(p);
+        content_observer.observe(p);
       });
+    });
+
+    const section_observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting && entry.intersectionRatio < .8) {
+          scrollIntoView(entry.target);
+        }
+      });
+    }, { rootMargin: '0px 0px 50px 0px' });
+
+    document.querySelectorAll('div.section').forEach(p => {
+      sections.push(p);
+      section_observer.observe(p);
     });
   }, []);
 

@@ -63,3 +63,13 @@ export function animate_content(classList: DOMTokenList): void {
     });
   }
 }
+
+export function animate_section(top: number, add: boolean): void {
+  console.log((add ? (screen.height / 10) : 0))
+  anime({
+    targets: '#border-container',
+    easing: 'easeInOutExpo',
+    duration: 1000,
+    scrollTop: top + (add ? (screen.height / 10) : 0),
+  })
+}

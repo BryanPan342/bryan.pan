@@ -36,16 +36,16 @@ a {
 
 .section {
   background-color: map-get($colors, 'white');
-  height: calc(100vh + 4 * #{$padding-vert});
+  height: calc(100vh + 20vh);
   width: calc(100vw - 2 * #{$padding-horiz});
 }
 
 .section:nth-child(1) {
   height: calc(100vh - 2 * #{$padding-vert});
-  padding-bottom: calc(2 * #{$padding-vert});
+  padding-bottom: calc(10vh);
 }
 
-.section:last-child {  padding-bottom: 0px;
-  height: calc(100vh - 2 * #{$padding-vert});
+.section:last-child {
+  height: calc(100vh);
   padding-bottom: 0px;
 }
