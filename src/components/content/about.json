@@ -1,0 +1,85 @@
+[
+  {
+    "heading": "BRYAN PAN",
+    "id": "me",
+    "description": "I am a software devloper and a third-year computer science student at UCLA.",
+    "content": [
+      {
+        "block": "Thanks for wanting to get to know me! I love coffee, sunrise hikes, indie pop, and bright colors (look around). I aspire to make the perfect brunch meal, take pretty photos of nature, and collect beautiful watches."
+      },
+      {
+        "block": "I love meeting new people so feel free to reach out to chat!"
+      }
+    ]
+  },
+  {
+    "heading": "SKILLS",
+    "id": "skills",
+    "description": "Here are a few things I know.",
+    "content": [
+      {
+        "list": {
+          "heading": "Web Development",
+          "content": [
+            "React",
+            "Node/Express",
+            "GraphQL",
+            "HTML/CSS/SCSS",
+            "PostgreSQL",
+            "Redis",
+            "Firebase",
+            "Authentication"
+          ],
+          "split": true
+        }
+      },
+      {
+        "list": {
+          "heading": "Cloud Infrastructure",
+          "content": [
+            "Amazon Web Services",
+            "Oracle Cloud Infrastructure",
+            "Azure"
+          ]
+        }
+      },
+      {
+        "list": {
+          "heading": "Dev Ops",
+          "content": [
+            "Kubernetes",
+            "Docker",
+            "TravisCI",
+            "CI/CD"
+          ],
+          "split": true
+        }
+      },
+      {
+        "list": {
+          "heading": "Theory",
+          "content": [
+            "Quantum Programming",
+            "Operating Systems",
+            "Distributed Systems",
+            "Health Analytics",
+            "Computer Vision",
+            "Data Mining"
+          ],
+          "split": true
+        }
+      },
+      {
+        "list": {
+          "heading": "Programming Languages",
+          "content": [
+            "Typescript",
+            "Python",
+            "C/C++",
+            "Bash"
+          ]
+        }
+      }
+    ]
+  }
+]

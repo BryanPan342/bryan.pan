@@ -18,13 +18,13 @@ type Details = ITextBlock | ITextList;
 
 export interface IContent {
   heading: string;
+  id: string;
   description: string;
-  id: string,
-  content: Details[]
+  postDescription?: string;
+  content: Details[];
 }
 
 export function generateContent(id: string, data: IContent[]): JSX.Element {
-
 
   return (
     <>

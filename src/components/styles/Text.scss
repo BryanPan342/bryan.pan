@@ -6,7 +6,7 @@
   opacity: 0;
   margin-top: $main-margin-between;
   margin-left: $content-margin-left;
-  max-width: $max-description-width;
+  max-width: $max-content-width;
 }
 
 .text-list-heading {
@@ -14,12 +14,16 @@
 }
 
 .text-list-contents {
-  width: 100%;
-  display: grid;
-  place-items: start;
+  width: $max-content-width;
+  display: flex;
+  flex-wrap: wrap;
+  div {
+    flex: 0 0 100%;
+  }
 }
 
 .split {
-  grid-auto-flow: row;
-  grid-template-columns: 70% 30%;
+  div {
+    flex: 0 0 50%;
+  }
 }
