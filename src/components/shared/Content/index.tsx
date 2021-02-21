@@ -19,7 +19,7 @@ function Content(props: ContentProps): JSX.Element {
   ].includes(props.heroColor);
 
   return (
-    <div className={'section content-container'} >
+    <div className={`section content-container ${props.idx}`} >
       <div style={{backgroundColor: props.heroColor}} className={`contents-hero ${setWhite ? 'white' : ''}`}>
         <div className={`${props.heading}-${props.idx} contents-heading`}>{props.heading}<a className={'period'}>.</a></div>
         <div className={`${props.heading}-${props.idx} contents-description `}>{props.description}</div>

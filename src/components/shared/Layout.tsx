@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import {animate_content, animate_section} from '../../utils/animations';
 import Nav from '../Nav';
 import '../styles/Layout.scss';
+import Progress from './Progress';
 
 interface LayoutProps {
   children: JSX.Element;
@@ -29,7 +30,7 @@ function Layout(props: LayoutProps): JSX.Element {
 
     const add = (splash_top != el_top && last_top != el_top);
     const borderHeight = border?.getBoundingClientRect().top ?? document.body.offsetHeight - el.offsetHeight;
-
+  
     animate_section(el.getBoundingClientRect().top - borderHeight - splash_top + 24, add);
   };
 
@@ -66,6 +67,7 @@ function Layout(props: LayoutProps): JSX.Element {
 
   return (
     <div id={'layout-container'}>
+      <Progress handle={scrollIntoView} size={25} />
       <button id={'nav-icon'} onClick={() => setShowNav(!showNav)}>
         <div id={showNav ? 'nav-close' : 'nav-open'}/>
       </button>

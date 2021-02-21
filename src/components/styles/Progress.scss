@@ -1,0 +1,14 @@
+@import 'variables';
+
+#progress-container {
+  position: absolute;
+  z-index: 99;
+  display: flex;
+  flex-direction: column;
+  left: calc(#{$padding-horiz} * 1.5);
+  bottom: calc(#{$padding-vert} * 2);
+}
+
+.progress-circle {
+  margin-top: 12px;
+}
