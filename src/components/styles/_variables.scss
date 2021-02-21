@@ -37,7 +37,10 @@ $colors: (
   @each $key, $value in $colors {
     #{unquote($key)}: $value;
   }
+
   /* stylelint-disable-next-line property-no-unknown */
   marginLeft: calc(#{$main-margin-left} + 5px);
-  marginUp: calc(-1*(#{$content-margin-left} + 5px));
+
+  /* stylelint-disable-next-line property-no-unknown */
+  marginUp: calc(-1 * (#{$content-margin-left} + 5px));
 }

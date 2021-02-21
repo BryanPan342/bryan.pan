@@ -12,7 +12,7 @@ const path2Id: {[key: string]: string} = {
 };
 
 function Nav(): JSX.Element {
-  const { height } = useWindowSize();
+  const size = useWindowSize();
   const path = window.location.pathname;
   const id = path2Id[path];
   const [currentRef, setCurrentRef] = useState<HTMLElement | null>(null);
@@ -30,10 +30,10 @@ function Nav(): JSX.Element {
       setStyle({width: dim.width + 10, height, top, left: dim.left - 5});
       animate_highlight();
     }
-  }, [currentRef, height]);
+  }, [currentRef, size]);
 
   return (
-    <nav id={'nav-container'} className={'section'}>
+    <nav id={'nav-container'}className={'section'}>
       { currentRef && style && <div style={style} id={'highlight'} />}
       <div id={'routes'}>
         <Link id='home-link' to='/'>HOME</Link>

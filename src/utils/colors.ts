@@ -6,9 +6,9 @@ export enum HERO_COLORS {
   AL_PURPLE='#ECE5F0',
   AGORA_GREEN='#718F94',
   STORYTIME_BLUE='#1261B0CC',
-};
+}
 
-export const id2color = (cid: string): HERO_COLORS => {
+export function id2color (cid: string): HERO_COLORS {
   let color = HERO_COLORS.FAV_COLOR;
   switch (cid) {
     case 'fb':

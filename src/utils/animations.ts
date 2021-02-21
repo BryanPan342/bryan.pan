@@ -42,7 +42,7 @@ export function animate_highlight(): void {
 }
 
 export function animate_content(classList: DOMTokenList): void {
-  let classes: string[] = [];
+  const classes: string[] = [];
   classList.forEach(t => classes.push(t));
   if (classes.includes('details')) {
     anime({

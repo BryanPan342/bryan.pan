@@ -13,9 +13,9 @@ function TextList(props: TextListProps): JSX.Element {
 
   return (
     <div className={`details text-list ${classList}`}>
-      <div className={`text-list-heading`}>{heading}</div>
+      <div className={'text-list-heading'}>{heading}</div>
       <div className={`text-list-contents ${split ? 'split' : ''}`}>
-        {content.map((c) => <div>{c}</div>)}
+        {content.map((c, i) => <div key={`${heading}-${i}`}>{c}</div>)}
       </div>
     </div>
   );

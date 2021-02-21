@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import Nav from '../Nav';
 import {animate_content} from '../../utils/animations';
+import Nav from '../Nav';
 import '../styles/Layout.scss';
 
 interface LayoutProps {
@@ -10,8 +10,6 @@ interface LayoutProps {
 function Layout(props: LayoutProps): JSX.Element {
   const [showNav, setShowNav] = useState(false);
 
-
-
   const valid_animations = [
     'div.contents-details > div',
     'div.contents-heading',
@@ -20,11 +18,11 @@ function Layout(props: LayoutProps): JSX.Element {
   ];
 
   useEffect(() => {
-    let observer = new IntersectionObserver((entries, observer) => {
+    const observer = new IntersectionObserver((entries, obs) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           animate_content(entry.target.classList);
-          observer.unobserve(entry.target);
+          obs.unobserve(entry.target);
         }
       });
     }, {
@@ -35,11 +33,8 @@ function Layout(props: LayoutProps): JSX.Element {
       section.querySelectorAll(valid_animations.join(', ')).forEach(p => {
         observer.observe(p);
       });
-    })
-
+    });
   }, []);
-
-
 
   return (
     <div id={'layout-container'}>
@@ -47,11 +42,11 @@ function Layout(props: LayoutProps): JSX.Element {
         <div id={showNav ? 'nav-close' : 'nav-open'}/>
       </button>
       <main id={'border-container'}>
-        {showNav 
-          ? <Nav /> 
-          : <div id={'contents-container'}>
-              {props.children}
-            </div>}
+        {showNav ?
+          <Nav /> :
+          <div id={'contents-container'}>
+            {props.children}
+          </div>}
       </main>
     </div>
   );

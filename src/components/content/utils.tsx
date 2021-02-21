@@ -28,7 +28,7 @@ export function generateContent(id: string, data: IContent[]): JSX.Element {
 
   return (
     <>
-      {data.map((content: IContent, idx: number) => 
+      {data.map((content: IContent, idx: number) =>
         <Content
           heading={content.heading}
           description={content.description}
@@ -38,7 +38,7 @@ export function generateContent(id: string, data: IContent[]): JSX.Element {
             {content.content.map((details: Details, i: number) => {
               if (details.block) {
                 return (
-                  <TextBlock 
+                  <TextBlock
                     content={details.block}
                     classList={`${content.id}-description-${i}`}
                     key={`${content.id}-${i}`}
@@ -59,7 +59,8 @@ export function generateContent(id: string, data: IContent[]): JSX.Element {
               }
             })}
           </>
-        </Content>)}
+        </Content>,
+      )}
     </>
   );
 }
