@@ -39,3 +39,7 @@
   flex-direction: column;
   justify-content: center;
 }
+
+.period {
+  color: map-get($colors, 'yellow');
+}
