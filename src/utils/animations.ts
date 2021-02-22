@@ -64,6 +64,15 @@ export function animate_content(classList: DOMTokenList): void {
   }
 }
 
+export function animate_routes(): void {
+  anime({
+    targets: '#routes',
+    easing: 'easeInOutExpo',
+    duration: 1000,
+    opacity: 1,
+  });
+}
+
 let lock = false;
 
 export function animate_section(top: number, add: boolean): void {

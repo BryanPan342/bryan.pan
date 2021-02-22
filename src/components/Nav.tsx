@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { animate_highlight } from '../utils/animations';
+import { animate_highlight, animate_routes } from '../utils/animations';
 import { useWindowSize } from '../utils/hooks';
+import Toggle, { ToggleProps } from './shared/Toggle';
 import './styles/Nav.scss';
 
 const path2Id: {[key: string]: string} = {
@@ -11,7 +12,9 @@ const path2Id: {[key: string]: string} = {
   '/work': 'work-link',
 };
 
-function Nav(): JSX.Element {
+function Nav(props: ToggleProps): JSX.Element {
+  const {isOn, handleToggle} = props;
+
   const size = useWindowSize();
   const path = window.location.pathname;
   const id = path2Id[path];
@@ -20,6 +23,7 @@ function Nav(): JSX.Element {
 
   useEffect(() => {
     setCurrentRef(document.getElementById(id));
+    animate_routes();
   }, []);
 
   useEffect(() => {
@@ -33,15 +37,18 @@ function Nav(): JSX.Element {
   }, [currentRef, size]);
 
   return (
-    <nav id={'nav-container'}className={'section'}>
+    <nav id={'nav-container'} className={'section'}>
       { currentRef && style && <div style={style} id={'highlight'} />}
-      <div id={'routes'}>
+      <div id={'routes'} className={'route-animation'}>
         <Link id='home-link' to='/'>HOME</Link>
         <Link id='about-link' to='/about'>ABOUT</Link>
         <Link id='projects-link' to='/projects'>PROJECTS</Link>
         <Link id='work-link' to='/work'>WORK</Link>
         <a id='work-link' href='/assets/Bryan_Pan_Resume.pdf'>RESUME</a>
       </div>
+      <Toggle 
+          isOn={isOn}
+          handleToggle={handleToggle}/>
     </nav>
   );
 }

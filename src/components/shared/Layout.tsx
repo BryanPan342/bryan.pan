@@ -1,3 +1,4 @@
+import { set } from 'animejs';
 import React, { useEffect, useState } from 'react';
 import {animate_content, animate_section} from '../../utils/animations';
 import Nav from '../Nav';
@@ -6,10 +7,14 @@ import Progress from './Progress';
 
 interface LayoutProps {
   children: JSX.Element;
+  autoNavigate: boolean;
+  setAutoNavigate: () => void;
 }
 
 function Layout(props: LayoutProps): JSX.Element {
   const [showNav, setShowNav] = useState(false);
+  const {autoNavigate, setAutoNavigate} = props;
+
   const sections: Element[] = [];
 
   const valid_animations = [
@@ -53,7 +58,7 @@ function Layout(props: LayoutProps): JSX.Element {
 
     const section_observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
-        if (entry.isIntersecting && entry.intersectionRatio < .8) {
+        if (autoNavigate && entry.isIntersecting && entry.intersectionRatio < .8) {
           scrollIntoView(entry.target);
         }
       });
@@ -65,6 +70,8 @@ function Layout(props: LayoutProps): JSX.Element {
     });
   }, []);
 
+
+
   return (
     <div id={'layout-container'}>
       {!showNav && 'children' in props.children.props && <Progress handle={scrollIntoView} size={25} /> }
@@ -73,7 +80,7 @@ function Layout(props: LayoutProps): JSX.Element {
       </button>
       <main id={'border-container'}>
         {showNav ?
-          <Nav /> :
+          <Nav isOn={autoNavigate} handleToggle={() => setAutoNavigate(!autoNavigate)}/> :
           <div id={'contents-container'}>
             {props.children}
           </div>}

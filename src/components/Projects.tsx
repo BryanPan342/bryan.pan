@@ -3,9 +3,9 @@ import {generateContent, projects} from './content';
 import Layout from './shared/Layout';
 import Splash, { PAGE } from './shared/Splash';
 
-function Projects(): JSX.Element {
+function Projects({autoNavigate, setAutoNavigate}): JSX.Element {
   return (
-    <Layout>
+    <Layout autoNavigate={autoNavigate} setAutoNavigate={setAutoNavigate}>
       <>
         <Splash
           page={PAGE.PROJECTS}

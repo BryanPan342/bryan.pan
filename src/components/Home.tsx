@@ -2,9 +2,9 @@ import React from 'react';
 import Layout from './shared/Layout';
 import Splash, { PAGE } from './shared/Splash';
 
-function Home(): JSX.Element {
+function Home({autoNavigate, setAutoNavigate}): JSX.Element {
   return (
-    <Layout>
+    <Layout autoNavigate={autoNavigate} setAutoNavigate={setAutoNavigate}>
       <Splash
         page={PAGE.HOME}
         description={'I love building software for others, meeting new people, and drinking coffee.'}/>

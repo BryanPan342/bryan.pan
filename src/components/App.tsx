@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   BrowserRouter as Router,
   Switch,
@@ -13,21 +13,22 @@ import Work from './Work';
 import '../assets/Bryan_Pan_Resume.pdf';
 
 function App(): JSX.Element {
+  const [autoNavigate, setAutoNavigate] = useState(true);
 
   return (
     <Router>
       <Switch>
         <Route exact path='/about'>
-          <About />
+          <About autoNavigate={autoNavigate} setAutoNavigate={setAutoNavigate} />
         </Route>
         <Route exact path='/projects'>
-          <Projects />
+          <Projects autoNavigate={autoNavigate} setAutoNavigate={setAutoNavigate} />
         </Route>
         <Route exact path='/work'>
-          <Work />
+          <Work autoNavigate={autoNavigate} setAutoNavigate={setAutoNavigate} />
         </Route>
         <Route path='/'>
-          <Home />
+          <Home autoNavigate={autoNavigate} setAutoNavigate={setAutoNavigate} />
         </Route>
       </Switch>
     </Router>
