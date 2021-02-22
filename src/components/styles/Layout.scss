@@ -5,8 +5,21 @@
   place-items: center;
   width: 100vw;
   height: 100vh;
+}
+
+#layout-container:before {
+  content: "";
+  position: absolute;
+  width : 100%;
+  height: 100%;
   background: url('../../assets/Contour.svg');
   background-size: cover;
+  z-index: -2;
+
+  filter        : blur($blur);
+  -moz-filter   : blur($blur);
+  -webkit-filter: blur($blur);
+  -o-filter     : blur($blur);
 }
 
 #border-container {

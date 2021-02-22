@@ -17,6 +17,8 @@ $max-section-width: 1440px;
 $max-description-width: calc(100vw * 0.33);
 $max-content-width: calc(100vw * 0.4);
 
+$full-height: calc((var(--vh, 1vh) * 100));
+
 // Spacing
 $main-margin-left: 80px;
 $main-margin-between: 20px;
@@ -31,9 +33,8 @@ $colors: (
 );
 
 // Misc
-$bezier: cubic-bezier(0,.5,0,1);
-
-$full-height: calc((var(--vh, 1vh) * 100));
+$bezier: cubic-bezier(0, 0.5, 0, 1);
+$blur: 0.5px;
 
 // Export colors to JS
 /* stylelint-disable-next-line selector-pseudo-class-no-unknown */
