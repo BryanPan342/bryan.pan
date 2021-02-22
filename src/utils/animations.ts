@@ -1,6 +1,7 @@
 import anime from 'animejs';
 import style from '../components/styles/_variables.scss';
 
+// SPLASH
 export function animate_heading(): void {
   anime({
     targets: '#heading .lines .words',
@@ -22,6 +23,7 @@ export function animate_heading(): void {
   });
 }
 
+// CONTENT
 export function animate_description(): void {
   anime({
     targets: '.description',
@@ -29,15 +31,6 @@ export function animate_description(): void {
     duration: 1000,
     opacity: 0.75,
     translateX: style.marginLeft,
-  });
-}
-
-export function animate_highlight(): void {
-  anime({
-    targets: '#highlight',
-    easing: 'easeInOutExpo',
-    duration: 500,
-    scaleX: [0, 1],
   });
 }
 
@@ -64,6 +57,21 @@ export function animate_content(classList: DOMTokenList): void {
   }
 }
 
+// LAYOUT
+let lock = false;
+export function animate_section(top: number, add: boolean): void {
+  if (lock) return;
+  lock = true;
+  const ani = anime({
+    targets: '#border-container',
+    easing: 'easeInOutExpo',
+    duration: 1000,
+    scrollTop: top + (add ? (screen.height / 10) : 0),
+  });
+  void ani.finished.then(() => lock = false);
+}
+
+// NAV
 export function animate_toggle(): void {
   anime({
     targets: '#toggle-container',
@@ -83,16 +91,22 @@ export function animate_routes(): void {
   });
 }
 
-let lock = false;
+export function animate_highlight(): void {
+  anime({
+    targets: '#highlight',
+    easing: 'easeInOutExpo',
+    duration: 500,
+    scaleX: [0, 1],
+  });
+}
 
-export function animate_section(top: number, add: boolean): void {
-  if (lock) return;
-  lock = true;
-  const ani = anime({
-    targets: '#border-container',
+// PROGRESS
+export function animate_progress(): void {
+  anime({
+    targets: '#progress-container',
     easing: 'easeInOutExpo',
     duration: 1000,
-    scrollTop: top + (add ? (screen.height / 10) : 0),
+    opacity: 1,
+    translateY: style.marginUpTo,
   });
-  void ani.finished.then(() => lock = false);
 }

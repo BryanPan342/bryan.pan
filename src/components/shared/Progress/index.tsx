@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import ProgressCircle from './ProgressCircle';
 import '../../styles/Progress.scss';
+import { animate_progress } from '../../../utils/animations';
 
 export interface ProgressProps {
   size: number;
@@ -13,6 +14,7 @@ const generate_threshold_list = (steps: number) => {
 
 function Progress(props: ProgressProps): JSX.Element {
   const {size, handle} = props;
+  const radius = size / 2;
   const sections = useRef([]);
   const sectionState = useRef<number[]>([]);
   const [sectionProgress, setSectionProgress] = useState<number[]>([]);
@@ -49,9 +51,10 @@ function Progress(props: ProgressProps): JSX.Element {
 
     sectionState.current[0] = 100;
     setSectionProgress(sectionState.current);
-  }, []);
+    animate_progress();
 
-  const radius = size / 2;
+    return () => section_observer.disconnect();
+  }, []);
 
   return (
     <div id={'progress-container'}>

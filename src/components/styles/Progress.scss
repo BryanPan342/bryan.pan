@@ -7,9 +7,10 @@
   z-index: 100;
 }
 
-#progress-container, .progress-line {
-  left: calc(#{$padding-horiz} * 1.5);
-  bottom: calc(#{$padding-vert} * 2);
+#progress-container {
+  opacity: 0;
+  left: calc(#{$padding-horiz} * 1.75);
+  bottom: calc(#{$padding-vert});
 }
 
 #progress-container {
@@ -20,6 +21,7 @@
 }
 
 .progress-line {
+  bottom: 0;
   position: fixed;
   z-index: 98;
 }
