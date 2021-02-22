@@ -1,17 +1,16 @@
-import React, { createContext, useEffect, useState } from 'react';
+import React, { createContext, useState } from 'react';
 import {
   BrowserRouter as Router,
   Switch,
   Route,
 } from 'react-router-dom';
 
+import { useWindowSize } from '../utils/hooks';
 import About from './About';
 import Home from './Home';
 import Projects from './Projects';
 import Work from './Work';
-
 import '../assets/Bryan_Pan_Resume.pdf';
-import { useWindowSize } from '../utils/hooks';
 
 interface IAppContext {
   autoNavigate?: boolean;

@@ -17,8 +17,7 @@ function Toggle(props: ToggleProps): JSX.Element {
         onChange={handleToggle}
         className={'toggle-checkbox'}
         id={'toggle'}
-        type="checkbox"
-        />
+        type="checkbox"/>
       <label
         style={isOn ? { background: '#FEC600CC' } : {}}
         id={'toggle-label'}

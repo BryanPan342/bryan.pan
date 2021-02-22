@@ -1,13 +1,12 @@
 import React, { useContext, useEffect } from 'react';
 import {animate_description, animate_heading} from '../../../utils/animations';
 import '../../styles/Splash.scss';
-import { useWindowSize } from '../../../utils/hooks';
 
+import { AppContext } from '../../App';
 import { AboutHeading } from './About';
 import {HomeHeading} from './Home';
 import { ProjectsHeading } from './Projects';
 import { WorkHeading } from './Work';
-import { AppContext } from '../../App';
 
 export enum PAGE {
   HOME='HOME',

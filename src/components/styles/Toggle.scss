@@ -40,11 +40,11 @@
   box-shadow: 0 0 2px 0 rgba(10, 10, 10, 0.29);
 }
 
+#toggle-label:active #toggle-button {
+  width: 30px;
+}
+
 .toggle-checkbox:checked + #toggle-label #toggle-button {
   left: calc(100% - 2px);
   transform: translateX(-100%);
-}
-
-#toggle-label:active #toggle-button {
-  width: 30px;
 }

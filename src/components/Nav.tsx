@@ -47,9 +47,9 @@ function Nav(props: ToggleProps): JSX.Element {
         <Link id='work-link' to='/work'>WORK</Link>
         <a id='work-link' href='/assets/Bryan_Pan_Resume.pdf'>RESUME</a>
       </div>
-      <Toggle 
-          isOn={isOn}
-          handleToggle={handleToggle}/>
+      <Toggle
+        isOn={isOn}
+        handleToggle={handleToggle}/>
     </nav>
   );
 }

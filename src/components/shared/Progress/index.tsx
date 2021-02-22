@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
+import { animate_progress } from '../../../utils/animations';
 import ProgressCircle from './ProgressCircle';
 import '../../styles/Progress.scss';
-import { animate_progress } from '../../../utils/animations';
 
 export interface ProgressProps {
   size: number;
@@ -30,7 +30,7 @@ function Progress(props: ProgressProps): JSX.Element {
   useEffect(() => {
     const section_observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
-        if (document.readyState !== "complete") {
+        if (document.readyState !== 'complete') {
           return;
         }
         let index = 0;
