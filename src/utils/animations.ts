@@ -6,18 +6,18 @@ export function animate_heading(): void {
     targets: '#heading .lines .words',
     strokeDashoffset: [anime.setDashoffset, 0],
     easing: 'easeInOutExpo',
-    duration: 1250,
+    duration: 1000,
     fill: [
-      {value: style.black, delay: 500, duration: 750, easing: 'easeInExpo' },
+      {value: style.black, delay: 250, duration: 750, easing: 'easeInExpo' },
     ],
   });
   anime({
     targets: '#heading .lines .dot',
     strokeDashoffset: [anime.setDashoffset, 0],
     easing: 'easeInExpo',
-    duration: 1250,
+    duration: 1000,
     fill: [
-      {value: style.yellow, delay: 500, duration: 750, easing: 'easeInExpo' },
+      {value: style.yellow, delay: 250, duration: 750, easing: 'easeInExpo' },
     ],
   });
 }
