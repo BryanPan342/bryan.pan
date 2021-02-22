@@ -56,11 +56,22 @@ function Progress(props: ProgressProps): JSX.Element {
     setSectionProgress(sectionState.current);
   }, []);
 
+  const radius = size / 2;
+
   return (
     <div id={'progress-container'}>
+      <svg width={size} height={sections.current.length * 37 - 12} className={'progress-line'}>
+        <line
+          x1={radius}
+          y1={radius}
+          x2={radius}
+          y2={sections.current.length * 37 - size}
+          stroke={'#1919194D'}
+          strokeWidth={2}/>
+      </svg>
       {sections.current.map((el, i) => 
-        <a onClick={() => handle(el)}>
-          <ProgressCircle size={size} progress={sectionProgress[i]} idx={i}/>
+        <a className={'progress-circle-anchor'} style={{width: size, height: size}} onClick={() => handle(el)}>
+          <ProgressCircle size={size} progress={sectionProgress[i]} idx={i} reference={i == 0 ? firstProgressCircle : (i == sections.current.length - 1 ? lastProgressCircle : undefined)}/>
         </a>
       )}
     </div>
