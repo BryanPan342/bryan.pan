@@ -53,3 +53,12 @@ a {
 .section:nth-child(1).section:last-child {
   height: calc(100vh - 2 * #{$padding-vert});
 }
+
+#construction {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: $main-margin-left;
+  max-width: calc(100vw - 2 * #{$padding-horiz});
+  height: 100vh;
+}

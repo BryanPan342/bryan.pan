@@ -15,6 +15,15 @@ import '../assets/Bryan_Pan_Resume.pdf';
 function App(): JSX.Element {
   const [autoNavigate, setAutoNavigate] = useState(true);
 
+  if(screen.width < 600) {
+    return (
+      <div id={'construction'}>
+        <h2>Unfortunately, I am still constructing the mobile version.</h2>
+        <h3>Check out my site on desktop!</h3>
+      </div>
+    );
+  }
+
   return (
     <Router>
       <Switch>
