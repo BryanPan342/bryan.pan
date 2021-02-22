@@ -60,5 +60,5 @@ a {
   justify-content: center;
   margin-left: $main-margin-left;
   max-width: calc(100vw - 2 * #{$padding-horiz});
-  height: 100vh;
+  height: calc(var(--vh, 1vh) * 100);
 }

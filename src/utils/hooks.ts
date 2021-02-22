@@ -14,12 +14,20 @@ export function useWindowSize(): {width: number | undefined, height: number | un
 
   const [windowSize, setWindowSize] = useState(getSize);
 
+  const updateVh = () => {
+    const vh = window.innerHeight * 0.01;
+    document.documentElement.style.setProperty('--vh', `${vh}px`);
+  };
+
   useEffect(() => {
     if (!isClient) {
       return;
     }
 
+    updateVh();
+
     function handleResize() {
+      updateVh();
       setWindowSize(getSize());
     }
     window.addEventListener('resize', handleResize);
