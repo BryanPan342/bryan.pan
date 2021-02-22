@@ -83,19 +83,36 @@
   grid-auto-flow: column;
 }
 
+.svg-link {
+  width: 32px;
+  height: 32px;
+}
+
+.github {
+  background-image: url('../../assets/github.svg');
+}
+
+.linkedin {
+  background-image: url('../../assets/linkedin.svg');
+}
+
+.instagram {
+  background-image: url('../../assets/instagram.svg');
+}
+
 .link {
-  a {
+  a.text {
     color: inherit;
     position: relative;
     text-decoration: none;
   }
   
-  a:hover {
+  a.text:hover {
     right: 0;
     text-decoration: none;
   }
   
-  a:after {
+  a.text:after {
     border-radius: 1em;
     border-top: .1em solid;
     content: "";
@@ -106,7 +123,7 @@
     transition: right .4s $bezier;
   }
 
-  a:hover:after {
+  a.text:hover:after {
     right: 0;
   }
 }

@@ -8,7 +8,7 @@ export interface ProgressProps {
 }
 
 const generate_threshold_list = (steps: number) => {
-  return Array(steps + 1).map((_, i) => i / (steps));
+  return (Array(steps + 1).fill(0).map((_, i) => i / steps));
 };
 
 function Progress(props: ProgressProps): JSX.Element {
@@ -28,7 +28,7 @@ function Progress(props: ProgressProps): JSX.Element {
   useEffect(() => {
     const section_observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
-        if (document.readyState !== 'complete') {
+        if (document.readyState !== "complete") {
           return;
         }
         let index = 0;
@@ -55,7 +55,7 @@ function Progress(props: ProgressProps): JSX.Element {
 
   return (
     <div id={'progress-container'}>
-      <svg width={size} height={sections.current.length * 37 - 12} className={'progress-line'}>
+      <svg width={size} height={Math.max(sections.current.length * 37 - 12, 0)} className={'progress-line'}>
         <line
           x1={radius}
           y1={radius}

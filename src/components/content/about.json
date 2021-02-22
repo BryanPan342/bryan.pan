@@ -9,6 +9,25 @@
       },
       {
         "block": "I love meeting new people so feel free to reach out to chat!"
+      },
+      {
+        "links": [
+          {
+            "link": "https://github.com/BryanPan342",
+            "description": "Github",
+            "graphic": "github"
+          },
+          {
+            "link": "https://linkedin.com/blpan",
+            "description": "LinkedIn",
+            "graphic": "linkedin"
+          },
+          {
+            "link": "https://instagram.com/bryanthesnob",
+            "description": "Instagram",
+            "graphic": "instagram"
+          }
+        ]
       }
     ]
   },
