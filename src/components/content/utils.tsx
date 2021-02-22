@@ -1,7 +1,8 @@
 import React from 'react';
 import { id2color } from '../../utils/colors';
-import Content, {Links, TextBlock, TextList} from '../shared/Content';
+import Content, {Image, Links, TextBlock, TextList} from '../shared/Content';
 import {LinksProps as ILinks} from '../shared/Content/Links';
+import {ImageProps as IImage} from '../shared/Content/Image';
 
 export interface ITextBlock {
   block: string;
@@ -14,7 +15,7 @@ export interface ITextList {
     split: boolean,
   };
 }
-type Details = ITextBlock | ITextList | ILinks;
+type Details = ITextBlock | ITextList | ILinks | IImage;
 
 export interface IContent {
   heading: string;
@@ -61,6 +62,11 @@ export function generateContent(id: string, data: IContent[]): JSX.Element {
                   <Links
                     links={details.links}
                     classList={`${content.id}-description-${idx}-${i}`}/>
+                );
+              } else if ('image' in details) {
+                return (
+                  <Image
+                    image={details.image}/>
                 );
               } else {
                 return (<div></div>);

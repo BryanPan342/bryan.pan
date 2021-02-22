@@ -37,3 +37,4 @@ export default Content;
 export {default as TextBlock} from './TextBlock';
 export {default as TextList} from './TextList';
 export {default as Links} from './Links';
+export {default as Image} from './Image';

@@ -127,3 +127,16 @@
     right: 0;
   }
 }
+
+// Image
+.image {
+  width: 250px;
+  height: 300px;
+  opacity: 0.8;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+#profile {
+  background-image: url('../../assets/profile.png');
+}
