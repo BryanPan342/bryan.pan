@@ -64,6 +64,16 @@ export function animate_content(classList: DOMTokenList): void {
   }
 }
 
+export function animate_toggle(): void {
+  anime({
+    targets: '#toggle-container',
+    easing: 'easeInOutExpo',
+    duration: 1000,
+    translateX: 40,
+    opacity: 1,
+  });
+}
+
 export function animate_routes(): void {
   anime({
     targets: '#routes',

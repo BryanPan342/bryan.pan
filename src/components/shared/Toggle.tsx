@@ -20,7 +20,7 @@ function Toggle(props: ToggleProps): JSX.Element {
         type="checkbox"
         />
       <label
-        style={isOn ? { background: '#06D6A0' } : {}}
+        style={isOn ? { background: '#FEC600CC' } : {}}
         id={'toggle-label'}
         htmlFor={'toggle'}>
         <span id={'toggle-button'}/>

@@ -10,7 +10,7 @@ interface LayoutProps {
 }
 
 function Layout(props: LayoutProps): JSX.Element {
-  const {autoNavigate, setAutoNavigate}= useContext(AppContext);
+  const {autoNavigate, setAutoNavigate} = useContext(AppContext);
   const [showNav, setShowNav] = useState(false);
 
   const sections: Element[] = [];

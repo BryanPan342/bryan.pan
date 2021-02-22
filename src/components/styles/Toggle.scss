@@ -4,8 +4,8 @@
   position: fixed;
   align-items: center;
   display: flex;
-  left: $main-margin-left;
   top: calc(2 * #{$padding-vert});
+  opacity: 0;
 }
 
 .toggle-checkbox {
@@ -21,7 +21,7 @@
   cursor: pointer;
   width: 50px;
   height: 25px;
-  background: grey;
+  background: map-get($colors, 'faded-black');
   border-radius: 50px;
   position: relative;
   transition: background-color .2s;
@@ -36,7 +36,7 @@
   height: 20px;
   border-radius: 20px;
   transition: 0.2s;
-  background: #fff;
+  background: map-get($colors, 'white');
   box-shadow: 0 0 2px 0 rgba(10, 10, 10, 0.29);
 }
 

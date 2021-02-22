@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { animate_highlight, animate_routes } from '../utils/animations';
+import { animate_highlight, animate_routes, animate_toggle } from '../utils/animations';
 import { useWindowSize } from '../utils/hooks';
 import Toggle, { ToggleProps } from './shared/Toggle';
 import './styles/Nav.scss';
@@ -23,6 +23,7 @@ function Nav(props: ToggleProps): JSX.Element {
 
   useEffect(() => {
     setCurrentRef(document.getElementById(id));
+    animate_toggle();
     animate_routes();
   }, []);
 
