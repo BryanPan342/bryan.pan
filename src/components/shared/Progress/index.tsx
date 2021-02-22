@@ -8,13 +8,8 @@ export interface ProgressProps {
 }
 
 const generate_threshold_list = (steps: number) => {
-  const thresholds = [];
-  for (let i=1.0; i<=steps; i++) {
-    let ratio = i/steps;
-    thresholds.push(ratio);
-  }
-  return [...thresholds, 0];
-}
+  return Array(steps + 1).map((_, i) => i / (steps));
+};
 
 function Progress(props: ProgressProps): JSX.Element {
   const {size, handle} = props;
@@ -28,12 +23,12 @@ function Progress(props: ProgressProps): JSX.Element {
   const updateSectionProgress = (index: number, ratio: number) => {
     sectionState.current[index] = ratio * 100;
     setSectionProgress([...sectionState.current]);
-  }
+  };
 
   useEffect(() => {
     const section_observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
-        if (document.readyState !== "complete") {
+        if (document.readyState !== 'complete') {
           return;
         }
         let index = 0;
@@ -69,10 +64,14 @@ function Progress(props: ProgressProps): JSX.Element {
           stroke={'#1919194D'}
           strokeWidth={2}/>
       </svg>
-      {sections.current.map((el, i) => 
-        <a className={'progress-circle-anchor'} style={{width: size, height: size}} onClick={() => handle(el)}>
-          <ProgressCircle size={size} progress={sectionProgress[i]} idx={i} reference={i == 0 ? firstProgressCircle : (i == sections.current.length - 1 ? lastProgressCircle : undefined)}/>
-        </a>
+      {sections.current.map((el, i) =>
+        <a
+          className={'progress-circle-anchor'}
+          style={{width: size, height: size}}
+          onClick={() => handle(el)}
+          key={`circle-${i}`}>
+          <ProgressCircle size={size} progress={sectionProgress[i]} idx={i} />
+        </a>,
       )}
     </div>
   );

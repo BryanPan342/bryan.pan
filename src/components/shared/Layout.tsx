@@ -30,7 +30,7 @@ function Layout(props: LayoutProps): JSX.Element {
 
     const add = (splash_top != el_top && last_top != el_top);
     const borderHeight = border?.getBoundingClientRect().top ?? document.body.offsetHeight - el.offsetHeight;
-  
+
     animate_section(el.getBoundingClientRect().top - borderHeight - splash_top + 24, add);
   };
 

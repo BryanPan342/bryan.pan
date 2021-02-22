@@ -75,5 +75,5 @@ export function animate_section(top: number, add: boolean): void {
     duration: 1000,
     scrollTop: top + (add ? (screen.height / 10) : 0),
   });
-  ani.finished.then(() => lock = false);
+  void ani.finished.then(() => lock = false);
 }

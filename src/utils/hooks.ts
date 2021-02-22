@@ -29,29 +29,25 @@ export function useWindowSize(): {width: number | undefined, height: number | un
   return windowSize;
 }
 
-export const useIntersecting = ({ root = null, rootMargin, threshold = 0 }) => {
+export function useIntersecting({ root = null, rootMargin, threshold = 0 }: IntersectionObserverInit)  {
   const [entry, updateEntry] = useState({});
   const [node, setNode] = useState<Element | null>(null);
-
   const observer = useRef(
-    new window.IntersectionObserver(([entry]) => updateEntry(entry), {
+    new window.IntersectionObserver(([e]) => updateEntry(e), {
       root,
       rootMargin,
-      threshold
-    })
+      threshold,
+    }),
   );
 
-  useEffect(
-    () => {
-      const { current: currentObserver } = observer;
-      currentObserver.disconnect();
+  useEffect(() => {
+    const { current: currentObserver } = observer;
+    currentObserver.disconnect();
 
-      if (node) currentObserver.observe(node);
+    if (node) currentObserver.observe(node);
 
-      return () => currentObserver.disconnect();
-    },
-    [node]
-  );
+    return () => currentObserver.disconnect();
+  }, [node]);
 
   return [setNode, entry];
-};
+}

@@ -58,7 +58,7 @@ export function generateContent(id: string, data: IContent[]): JSX.Element {
                 );
               } else if ('links' in details) {
                 return (
-                  <Links 
+                  <Links
                     links={details.links}
                     classList={`${content.id}-description-${idx}-${i}`}/>
                 );
