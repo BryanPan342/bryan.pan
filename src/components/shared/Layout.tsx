@@ -1,19 +1,17 @@
-import { set } from 'animejs';
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import {animate_content, animate_section} from '../../utils/animations';
+import { AppContext } from '../App';
 import Nav from '../Nav';
 import '../styles/Layout.scss';
 import Progress from './Progress';
 
 interface LayoutProps {
   children: JSX.Element;
-  autoNavigate: boolean;
-  setAutoNavigate: () => void;
 }
 
 function Layout(props: LayoutProps): JSX.Element {
+  const {autoNavigate, setAutoNavigate}= useContext(AppContext);
   const [showNav, setShowNav] = useState(false);
-  const {autoNavigate, setAutoNavigate} = props;
 
   const sections: Element[] = [];
 

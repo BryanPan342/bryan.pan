@@ -32,6 +32,8 @@ $colors: (
 // Misc
 $bezier: cubic-bezier(0,.5,0,1);
 
+$full-height: calc((var(--vh, 1vh) * 100));
+
 // Export colors to JS
 /* stylelint-disable-next-line selector-pseudo-class-no-unknown */
 :export {

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { createContext, useEffect, useState } from 'react';
 import {
   BrowserRouter as Router,
   Switch,
@@ -11,9 +11,20 @@ import Projects from './Projects';
 import Work from './Work';
 
 import '../assets/Bryan_Pan_Resume.pdf';
+import { useWindowSize } from '../utils/hooks';
+
+interface IAppContext {
+  autoNavigate?: boolean;
+  setAutoNavigate?: React.Dispatch<React.SetStateAction<boolean>>;
+  width?: number;
+  height?: number;
+}
+
+export const AppContext = createContext<IAppContext>({});
 
 function App(): JSX.Element {
   const [autoNavigate, setAutoNavigate] = useState(true);
+  const {width, height} = useWindowSize();
 
   if(screen.width < 600) {
     return (
@@ -25,22 +36,30 @@ function App(): JSX.Element {
   }
 
   return (
-    <Router>
-      <Switch>
-        <Route exact path='/about'>
-          <About autoNavigate={autoNavigate} setAutoNavigate={setAutoNavigate} />
-        </Route>
-        <Route exact path='/projects'>
-          <Projects autoNavigate={autoNavigate} setAutoNavigate={setAutoNavigate} />
-        </Route>
-        <Route exact path='/work'>
-          <Work autoNavigate={autoNavigate} setAutoNavigate={setAutoNavigate} />
-        </Route>
-        <Route path='/'>
-          <Home autoNavigate={autoNavigate} setAutoNavigate={setAutoNavigate} />
-        </Route>
-      </Switch>
-    </Router>
+    <AppContext.Provider
+      value={{
+        autoNavigate: autoNavigate,
+        setAutoNavigate: setAutoNavigate,
+        width: width,
+        height: height,
+      }}>
+      <Router>
+        <Switch>
+          <Route exact path='/about'>
+            <About />
+          </Route>
+          <Route exact path='/projects'>
+            <Projects />
+          </Route>
+          <Route exact path='/work'>
+            <Work />
+          </Route>
+          <Route path='/'>
+            <Home />
+          </Route>
+        </Switch>
+      </Router>
+    </AppContext.Provider>
   );
 }
 
