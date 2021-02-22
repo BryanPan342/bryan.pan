@@ -56,6 +56,7 @@ function Layout(props: LayoutProps): JSX.Element {
 
     const section_observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
+        console.log(autoNavigate);
         if (autoNavigate && entry.isIntersecting && entry.intersectionRatio < .8) {
           scrollIntoView(entry.target);
         }
@@ -66,9 +67,12 @@ function Layout(props: LayoutProps): JSX.Element {
       sections.push(p);
       section_observer.observe(p);
     });
-  }, []);
 
-
+    return () => {
+      content_observer.disconnect();
+      section_observer.disconnect();
+    }
+  }, [showNav]);
 
   return (
     <div id={'layout-container'}>
