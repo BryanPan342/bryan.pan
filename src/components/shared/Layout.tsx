@@ -81,7 +81,7 @@ function Layout(props: LayoutProps): JSX.Element {
       </button>
       <main id={'border-container'}>
         {showNav ?
-          <Nav isOn={autoNavigate} handleToggle={() => setAutoNavigate(!autoNavigate)}/> :
+          <Nav isOn={autoNavigate} handleToggle={() => setAutoNavigate(!autoNavigate)} setShowNav={setShowNav}/> :
           <div id={'contents-container'}>
             {props.children}
           </div>}

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { animate_highlight, animate_routes, animate_toggle } from '../utils/animations';
 import { useWindowSize } from '../utils/hooks';
-import Toggle, { ToggleProps } from './shared/Toggle';
+import Toggle from './shared/Toggle';
 import './styles/Nav.scss';
 
 const path2Id: {[key: string]: string} = {
@@ -12,8 +12,14 @@ const path2Id: {[key: string]: string} = {
   '/work': 'work-link',
 };
 
-function Nav(props: ToggleProps): JSX.Element {
-  const {isOn, handleToggle} = props;
+export interface NavProps {
+  isOn: boolean;
+  handleToggle: () => void;
+  setShowNav: (x: boolean) => void;
+}
+
+function Nav(props: NavProps): JSX.Element {
+  const {isOn, handleToggle, setShowNav} = props;
 
   const size = useWindowSize();
   const path = window.location.pathname;
@@ -39,12 +45,20 @@ function Nav(props: ToggleProps): JSX.Element {
 
   return (
     <nav id={'nav-container'} className={'section'}>
-      { currentRef && style && <div style={style} id={'highlight'} />}
+      {currentRef && style && <div style={style} id={'highlight'} />}
       <div id={'routes'} className={'route-animation'}>
-        <Link id='home-link' to='/'>HOME</Link>
-        <Link id='about-link' to='/about'>ABOUT</Link>
-        <Link id='projects-link' to='/projects'>PROJECTS</Link>
-        <Link id='work-link' to='/work'>WORK</Link>
+        {Object.keys(path2Id).map((url, i) => {
+          const page = url.slice(1) ?url.slice(1) : 'home';
+          return (
+            <Link
+              id={`${page}-link`}
+              to={url}
+              key={`route-${i}`}
+              onClick={() => path == url && setShowNav(false)}>
+              {page.toUpperCase()}
+            </Link>
+          );
+        })}
         <a id='work-link' href='/assets/Bryan_Pan_Resume.pdf'>RESUME</a>
       </div>
       <Toggle
