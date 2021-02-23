@@ -62,6 +62,7 @@ export function generateContent(id: string, data: IContent[]): JSX.Element {
                 return (
                   <Links
                     links={details.links}
+                    classList={`${content.id}-description-${idx}-${i}`}
                     key={`${content.id}-${i}`}/>
                 );
               } else if ('image' in details) {
