@@ -116,7 +116,7 @@
 
 #nav-icon-display.open {
   span:nth-child(1), span:nth-child(3) {
-    right: 9px;
+    right: 8.5px;
     width: 25px;
   }
   span:nth-child(1) {
@@ -124,7 +124,7 @@
     -moz-transform: rotate(45deg);
     -o-transform: rotate(45deg);
     transform: rotate(45deg);
-    top: 16px;
+    top: 15px;
   }
   span:nth-child(2) {
     opacity: 0;
@@ -134,6 +134,6 @@
     -moz-transform: rotate(-45deg);
     -o-transform: rotate(-45deg);
     transform: rotate(-45deg);
-    top: 33.5px;
+    top: 33px;
   }
 }
