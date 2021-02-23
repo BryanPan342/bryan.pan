@@ -61,20 +61,79 @@
   &:focus {
     outline: none;
   }
+}
 
-  div {
-    outline: none;
-    transition: background-image 0.3s linear;
-    height: 50px;
-    width: 50px;
-    background-size: 50px 50px;
+#nav-icon-display {
+  outline: none;
+  height: 50px;
+  width: 50px;
+  border-radius: 50px;
+  background-color: map-get($colors, 'yellow');
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+  transform: rotate(0deg);
+  -webkit-transition: .5s ease-in-out;
+  -moz-transition: .5s ease-in-out;
+  -o-transition: .5s ease-in-out;
+  transition: .5s ease-in-out;
+  cursor: pointer;
+
+  span {
+    display: block;
+    position: absolute;
+    background-color: map-get($colors, 'white');
+    height: 2px;
+    border-radius: 4px;
+    right: 12.5px;
+    -webkit-transform-origin: left center;
+    -moz-transform-origin: left center;
+    -o-transform-origin: left center;
+    transform-origin: left center;
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+    -webkit-transition: .25s ease-in-out;
+    -moz-transition: .25s ease-in-out;
+    -o-transition: .25s ease-in-out;
+    transition: .25s ease-in-out;
+  }
+
+  span:nth-child(1) {
+    top: 17px;
+    width: 18px;
+  }
+  span:nth-child(2) {
+    top: 24px;
+    width: 25px;
+  }
+  span:nth-child(3) {
+    top: 31px;
+    width: 12px;
   }
 }
 
-#nav-close {
-  background-image: url('../../assets/nav-close.svg');
-}
-
-#nav-open {
-  background-image: url('../../assets/nav-open.svg');
+#nav-icon-display.open {
+  span:nth-child(1), span:nth-child(3) {
+    right: 9px;
+    width: 25px;
+  }
+  span:nth-child(1) {
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    transform: rotate(45deg);
+    top: 16px;
+  }
+  span:nth-child(2) {
+    opacity: 0;
+  }
+  span:nth-child(3) {
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    -o-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+    top: 33.5px;
+  }
 }
