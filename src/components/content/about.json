@@ -60,8 +60,8 @@
           "heading": "Cloud Infrastructure",
           "content": [
             "Amazon Web Services",
-            "Oracle Cloud Infrastructure",
-            "Azure"
+            "Microsoft Azure",
+            "Oracle Cloud Infrastructure"
           ]
         }
       },
@@ -99,7 +99,8 @@
             "Python",
             "C/C++",
             "Bash"
-          ]
+          ],
+         "split": true
         }
       }
     ]
