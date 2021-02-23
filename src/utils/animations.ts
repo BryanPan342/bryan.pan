@@ -1,6 +1,27 @@
 import anime from 'animejs';
 import style from '../components/styles/_variables.scss';
 
+// SHARED
+function animate_up(targets: string): void {
+  anime({
+    targets,
+    easing: 'easeInOutExpo',
+    duration: 1000,
+    opacity: 1,
+    translateY: style.marginUpTo,
+  });
+}
+
+function animate_left(targets: string, opacity?: number): void {
+  anime({
+    targets,
+    opacity: opacity ?? 1,
+    easing: 'easeInOutExpo',
+    duration: 1000,
+    translateX: style.marginLeft,
+  });
+}
+
 // SPLASH
 export function animate_heading(): void {
   anime({
@@ -25,35 +46,18 @@ export function animate_heading(): void {
 
 // CONTENT
 export function animate_description(): void {
-  anime({
-    targets: '.description',
-    easing: 'easeInOutExpo',
-    duration: 1000,
-    opacity: 0.75,
-    translateX: style.marginLeft,
-  });
+  animate_left('.description', 0.75);
 }
 
 export function animate_content(classList: DOMTokenList): void {
   const classes: string[] = [];
   classList.forEach(t => classes.push(t));
+  const targets = classes.reduce((acc: string, v: string) => `${acc}.${v}`,'')
   if (classes.includes('details')) {
-    anime({
-      targets: classes.reduce((acc: string, v: string) => `${acc}.${v}`,''),
-      easing: 'easeInOutExpo',
-      duration: 1000,
-      opacity: 1,
-      translateY: style.marginUpTo,
-    });
+    animate_up(targets);
   }
   else {
-    anime({
-      targets: classes.reduce((acc: string, v: string) => `${acc}.${v}`,''),
-      easing: 'easeInOutExpo',
-      duration: 1000,
-      opacity: classes.includes('contents-description') ? .75 : 1,
-      translateX: style.marginLeft,
-    });
+    animate_left(targets, classes.includes('contents-description') ? .75 : 1);
   }
 }
 
@@ -102,11 +106,5 @@ export function animate_highlight(): void {
 
 // PROGRESS
 export function animate_progress(): void {
-  anime({
-    targets: '#progress-container',
-    easing: 'easeInOutExpo',
-    duration: 1000,
-    opacity: 1,
-    translateY: style.marginUpTo,
-  });
+  animate_up('#progress-container');
 }
