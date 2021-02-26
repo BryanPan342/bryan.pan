@@ -2,12 +2,12 @@ import anime from 'animejs';
 import style from '../components/styles/_variables.scss';
 
 // SHARED
-function animate_up(targets: string): void {
+function animate_up(targets: string, opacity?: number): void {
   anime({
     targets,
+    opacity: opacity ?? 1,
     easing: 'easeInOutExpo',
     duration: 1000,
-    opacity: 1,
     translateY: style.marginUpTo,
   });
 }

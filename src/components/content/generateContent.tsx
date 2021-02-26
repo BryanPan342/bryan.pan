@@ -26,12 +26,7 @@ export interface IContent {
   content: Details[];
 }
 
-export interface Inject {
-  section: number;
-  child: JSX.Element;
-}
-
-export function generateContent(id: string, data: IContent[], options?: Inject[]): JSX.Element {
+export function generateContent(id: string, data: IContent[]): JSX.Element {
 
   return (
     <>
@@ -42,7 +37,6 @@ export function generateContent(id: string, data: IContent[], options?: Inject[]
           postDescription={content.postDescription}
           heroColor={id2color(content.id)}
           idx={idx}
-          inject={options?.find((_v, i) => i === idx)?.child}
           key={`${id}-${idx}`}>
           <>
             {content.content.map((details: Details, i: number) => {
