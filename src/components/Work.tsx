@@ -5,7 +5,7 @@ import Splash, { PAGE } from './shared/Splash';
 
 function Work(): JSX.Element {
   return (
-    <Layout >
+    <Layout>
       <>
         <Splash
           page={PAGE.WORK}
