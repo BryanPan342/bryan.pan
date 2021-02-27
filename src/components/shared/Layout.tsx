@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import {animate_content, animate_section} from '../../utils/animations';
 import { AppContext } from '../App';
-import Nav from '../Nav';
+import Nav from './Nav';
 import '../styles/Layout.scss';
 import Progress from './Progress';
 

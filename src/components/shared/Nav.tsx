@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { animate_highlight, animate_routes, animate_toggle } from '../utils/animations';
-import { useWindowSize } from '../utils/hooks';
-import Toggle from './shared/Toggle';
-import './styles/Nav.scss';
+import { animate_highlight, animate_routes, animate_toggle } from '../../utils/animations';
+import { useWindowSize } from '../../utils/hooks';
+import Toggle from './Toggle';
+import '../styles/Nav.scss';
 
 const path2Id: {[key: string]: string} = {
   '/': 'home-link',
