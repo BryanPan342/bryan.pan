@@ -6,10 +6,13 @@
     "postDescription": null,
     "content": [
       {
-        "image": "https://images.ctfassets.net/ilxmse9884ei/R0OFUiT5AO6h0DQOFtBDS/f5e38705c3d9f20939d618559290a358/profile.png"
+        "image": {
+          "alt": "A profile view of me in Yosemite",
+          "url": "https://images.ctfassets.net/ilxmse9884ei/R0OFUiT5AO6h0DQOFtBDS/f5e38705c3d9f20939d618559290a358/profile.png"
+        }
       },
       {
-        "block": "Thanks for wanting to get to know me! I love coffee, sunrise hikes, indie pop, and bright colors (look around). I aspire to make the perfect brunch meal, take pretty photos of nature, and collect beautiful watches."
+        "block": "Thanks for wanting to get to know me! I love coffee, sunrise hikes, indie pop, and bright colors (look around). I aspire to make the perfect brunch meal, build products in healthcare, and, hopefully make a difference in the world."
       },
       {
         "block": "I love meeting new people so feel free to reach out to chat!"

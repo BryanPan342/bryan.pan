@@ -30,6 +30,7 @@ const query = `{
                 }
               }
               ... on Image {
+                alt
                 image {
                   url
                 }
@@ -40,7 +41,7 @@ const query = `{
       }
     }
   }
-}`
+}`;
 
 module.exports = {
   query

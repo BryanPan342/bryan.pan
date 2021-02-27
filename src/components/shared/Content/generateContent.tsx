@@ -1,11 +1,15 @@
 import React from 'react';
-import { id2color } from '../../../utils/colors';
 import Content, {Image, Links, TextBlock, TextList} from '.';
-import {ImageProps as IImage} from './Image';
+import { id2color } from '../../../utils/colors';
+import {ImageProps} from './Image';
 import {LinksProps as ILinks} from './Links';
 
 export interface ITextBlock {
   block: string;
+}
+
+export interface IImage {
+  image: ImageProps;
 }
 
 export interface ITextList {
@@ -67,7 +71,8 @@ function generateContent(id: string, data: IContent[]): JSX.Element {
               } else if ('image' in details) {
                 return (
                   <Image
-                    image={details.image}
+                    url={details.image.url}
+                    alt={details.image.alt}
                     key={`${content.id}-${i}`}/>
                 );
               } else {

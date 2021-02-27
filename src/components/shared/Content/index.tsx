@@ -1,6 +1,5 @@
 import React from 'react';
 import { HERO_COLORS } from '../../../utils/colors';
-import { generateContent } from '../../content';
 import '../../styles/Content.scss';
 
 export interface ContentProps {

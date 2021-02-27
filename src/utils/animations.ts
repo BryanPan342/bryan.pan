@@ -52,7 +52,7 @@ export function animate_description(): void {
 export function animate_content(classList: DOMTokenList): void {
   const classes: string[] = [];
   classList.forEach(t => classes.push(t));
-  const targets = classes.reduce((acc: string, v: string) => `${acc}.${v}`,'')
+  const targets = classes.reduce((acc: string, v: string) => `${acc}.${v}`,'');
   if (classes.includes('details')) {
     animate_up(targets);
   }

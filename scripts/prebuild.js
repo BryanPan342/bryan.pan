@@ -14,7 +14,7 @@ const query_contentful = async () => {
     },
     body: JSON.stringify({query}),
   });
-  const {data, error} = await res.json();
+  const {data} = await res.json();
   data.pageCollection.items.map(({pageName, sectionsCollection}) => {
     generate_json(pageName, sectionsCollection.items);
   });
@@ -27,11 +27,11 @@ const generate_json = (pageName, items) => {
       if (T.block) { return T; }
       else if (T.content) { return { list: T }; }
       else if (T.linksCollection) { return { links: T.linksCollection.items } }
-      else if (T.image) { return { image: T.image.url } }
-    })
-    return {...info, content}
+      else if (T.image) { return { image: { alt: T.alt, url: T.image.url } } }
+    });
+    return {...info, content};
   });
-  writeFileSync(`${__dirname}/../src/assets/content/${pageName}-test.json`,
+  writeFileSync(`${__dirname}/../src/assets/content/${pageName}.json`,
     JSON.stringify(normalized_items, null, 2));
 };
 
