@@ -1,5 +1,5 @@
 import React from 'react';
-import { generateContent, work } from './content';
+import { generateContent, work } from './shared/Content';
 import Layout from './shared/Layout';
 import Splash, { PAGE } from './shared/Splash';
 

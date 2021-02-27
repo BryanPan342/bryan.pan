@@ -1,8 +1,8 @@
 import React from 'react';
-import { id2color } from '../../utils/colors';
-import Content, {Image, Links, TextBlock, TextList} from '../shared/Content';
-import {ImageProps as IImage} from '../shared/Content/Image';
-import {LinksProps as ILinks} from '../shared/Content/Links';
+import { id2color } from '../../../utils/colors';
+import Content, {Image, Links, TextBlock, TextList} from '.';
+import {ImageProps as IImage} from './Image';
+import {LinksProps as ILinks} from './Links';
 
 export interface ITextBlock {
   block: string;
@@ -26,8 +26,7 @@ export interface IContent {
   content: Details[];
 }
 
-export function generateContent(id: string, data: IContent[]): JSX.Element {
-
+function generateContent(id: string, data: IContent[]): JSX.Element {
   return (
     <>
       {data.map((content: IContent, idx: number) =>
@@ -82,3 +81,4 @@ export function generateContent(id: string, data: IContent[]): JSX.Element {
   );
 }
 
+export default generateContent;

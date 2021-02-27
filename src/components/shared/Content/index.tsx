@@ -1,5 +1,6 @@
 import React from 'react';
 import { HERO_COLORS } from '../../../utils/colors';
+import { generateContent } from '../../content';
 import '../../styles/Content.scss';
 
 export interface ContentProps {
@@ -34,7 +35,12 @@ function Content(props: ContentProps): JSX.Element {
 }
 
 export default Content;
+
 export {default as TextBlock} from './TextBlock';
 export {default as TextList} from './TextList';
 export {default as Links} from './Links';
 export {default as Image} from './Image';
+export {default as about} from '../../../assets/content/about.json';
+export {default as projects} from '../../../assets/content/projects.json';
+export {default as work} from '../../../assets/content/work.json';
+export {default as generateContent} from './generateContent';
