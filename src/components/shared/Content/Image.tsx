@@ -8,7 +8,9 @@ function Image(props: ImageProps): JSX.Element {
   const {image} = props;
 
   return (
-    <div className={'details image'} id={image}/>
+    <div className={'details image'}>
+      <img src={image}/>  
+    </div>
   );
 }
 

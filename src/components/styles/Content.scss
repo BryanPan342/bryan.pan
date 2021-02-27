@@ -88,18 +88,6 @@
   height: 32px;
 }
 
-.github {
-  background-image: url('../../assets/github.svg');
-}
-
-.linkedin {
-  background-image: url('../../assets/linkedin.svg');
-}
-
-.instagram {
-  background-image: url('../../assets/instagram.svg');
-}
-
 .link {
   a.text {
     color: inherit;
@@ -133,10 +121,4 @@
   width: 250px;
   height: 300px;
   opacity: 0;
-  background-size: cover;
-  background-repeat: no-repeat;
-}
-
-#profile {
-  background-image: url('../../assets/profile.png');
 }

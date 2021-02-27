@@ -1,11 +1,12 @@
 [
   {
-    "heading": "BRYAN PAN",
     "id": "me",
-    "description": "I am a software devloper and a third-year computer science student at UCLA.",
+    "heading": "BRYAN PAN",
+    "description": "I am a software developer and a third-year computer science student at UCLA.",
+    "postDescription": null,
     "content": [
       {
-        "image": "profile"
+        "image": "https://images.ctfassets.net/ilxmse9884ei/R0OFUiT5AO6h0DQOFtBDS/f5e38705c3d9f20939d618559290a358/profile.png"
       },
       {
         "block": "Thanks for wanting to get to know me! I love coffee, sunrise hikes, indie pop, and bright colors (look around). I aspire to make the perfect brunch meal, take pretty photos of nature, and collect beautiful watches."
@@ -17,27 +18,34 @@
         "links": [
           {
             "link": "https://github.com/BryanPan342",
-            "description": "Github",
-            "graphic": "github"
+            "description": "GitHub",
+            "graphic": {
+              "url": "https://images.ctfassets.net/ilxmse9884ei/41CHi0SdGVUucUbQ6j6543/2b44fbc90544753a48a1a4e70c1da700/github.svg"
+            }
           },
           {
             "link": "https://www.linkedin.com/in/blpan/",
             "description": "LinkedIn",
-            "graphic": "linkedin"
+            "graphic": {
+              "url": "https://images.ctfassets.net/ilxmse9884ei/6k9RXZL8p552nyVQUrjIm4/7d0d6de7ad2f007f13c6f7fb875aa822/linkedin.svg"
+            }
           },
           {
             "link": "https://instagram.com/bryanthesnob",
             "description": "Instagram",
-            "graphic": "instagram"
+            "graphic": {
+              "url": "https://images.ctfassets.net/ilxmse9884ei/7qw2yvpDc5hsUpPUrR5QvZ/1b6abce1b27b83a65db5165eed14a651/instagram.svg"
+            }
           }
         ]
       }
     ]
   },
   {
-    "heading": "SKILLS",
     "id": "skills",
+    "heading": "SKILLS",
     "description": "Here are a few things I know.",
+    "postDescription": null,
     "content": [
       {
         "list": {
@@ -62,7 +70,8 @@
             "Amazon Web Services",
             "Microsoft Azure",
             "Oracle Cloud Infrastructure"
-          ]
+          ],
+          "split": null
         }
       },
       {
@@ -100,7 +109,7 @@
             "C/C++",
             "Bash"
           ],
-         "split": true
+          "split": true
         }
       }
     ]

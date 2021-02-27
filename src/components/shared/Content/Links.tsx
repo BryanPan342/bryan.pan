@@ -3,7 +3,7 @@ import React from 'react';
 export interface Link {
   link: string;
   description: string;
-  graphic?: string
+  graphic?: {url: string};
 }
 
 export interface LinksProps {
@@ -20,7 +20,7 @@ function Links(props: LinksProps): JSX.Element {
         <div className={'link'} key={`${description}-${i}`} style={graphic ? {placeSelf: 'center', marginTop: '24px'} : {}}>
           <a className={graphic ? 'graphic' : 'text'} target='_blank' rel='noreferrer' href={link}>
             {graphic
-              ? <div className={`svg-link ${graphic}`} alt={description}/>
+              ? <img className={`svg-link ${graphic}`} alt={description} src={graphic.url}/>
               : description}
           </a>
         </div>,

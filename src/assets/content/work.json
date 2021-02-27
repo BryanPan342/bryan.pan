@@ -1,7 +1,7 @@
 [
   {
-    "heading": "FACEBOOK",
     "id": "fb",
+    "heading": "FACEBOOK",
     "description": "Software Engineer Intern",
     "postDescription": "Fall 2021",
     "content": [
@@ -11,8 +11,8 @@
     ]
   },
   {
-    "heading": "AMAZON WEB SERVICES",
     "id": "aws",
+    "heading": "AMAZON WEB SERVICES",
     "description": "Software Engineer Intern",
     "postDescription": "Summer 2021",
     "content": [
@@ -22,8 +22,8 @@
     ]
   },
   {
-    "heading": "AMAZON WEB SERVICES",
     "id": "aws",
+    "heading": "AMAZON WEB SERVICES",
     "description": "Software Engineer Intern",
     "postDescription": "Summer 2020",
     "content": [
@@ -40,7 +40,8 @@
             "200+ Unit/Integration Tests",
             "13k+ Lines of Code",
             "35 Contributions"
-          ]
+          ],
+          "split": null
         }
       },
       {
@@ -51,7 +52,7 @@
             "Amazon Web Services",
             "Typescript",
             "GraphQL",
-            "CI/CD"
+            "CI/D"
           ],
           "split": true
         }
@@ -59,9 +60,9 @@
     ]
   },
   {
-    "heading": "BOOZ ALLEN HAMILTON",
     "id": "bah",
-    "description": "Software Engineer Intern",
+    "heading": "BOOZ ALLEN HAMILTON",
+    "description": "Summer Games Intern",
     "postDescription": "Summer 2019",
     "content": [
       {
@@ -72,7 +73,8 @@
           "heading": "Key Perfomance Indicators",
           "content": [
             "Booz Allen Challenge Cup Champion"
-          ]
+          ],
+          "split": null
         }
       },
       {
@@ -82,8 +84,9 @@
             "React/Redux",
             "Kubernetes",
             "Docker",
-            "JavaScript"
-          ]
+            "Javascript"
+          ],
+          "split": null
         }
       }
     ]
