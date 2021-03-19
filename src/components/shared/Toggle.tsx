@@ -11,7 +11,7 @@ function Toggle(props: ToggleProps): JSX.Element {
 
   return (
     <div id={'toggle-container'}>
-      <span>Auto Navigate</span>
+      <span>Auto Scroll</span>
       <input
         checked={isOn}
         onChange={handleToggle}
