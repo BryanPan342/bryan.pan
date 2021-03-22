@@ -13,13 +13,16 @@ import Work from './Work';
 import '../assets/Bryan_Pan_Resume.pdf';
 
 interface IAppContext {
-  autoNavigate?: boolean;
-  setAutoNavigate?: React.Dispatch<React.SetStateAction<boolean>>;
+  autoNavigate: boolean;
+  setAutoNavigate: React.Dispatch<React.SetStateAction<boolean>>;
   width?: number;
   height?: number;
 }
 
-export const AppContext = createContext<IAppContext>({});
+export const AppContext = createContext<IAppContext>({
+  autoNavigate: true,
+  setAutoNavigate: () => undefined,
+});
 
 function App(): JSX.Element {
   const [autoNavigate, setAutoNavigate] = useState(true);
