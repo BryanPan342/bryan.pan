@@ -34,7 +34,31 @@ $colors: (
 
 // Misc
 $bezier: cubic-bezier(0, 0.5, 0, 1);
-$blur:1px;
+$blur:0px;
+
+$padding-horiz-countor: calc(#{$padding-horiz + 2px});
+$padding-vert-countor: calc(#{$padding-vert + 2px});
+$padding-horiz-countor-ext: calc(100vw - #{$padding-horiz-countor});
+$padding-vert-countor-ext: calc(100vh - #{$padding-vert-countor});
+
+$padding-horiz-ext: calc(100vw - #{$padding-horiz});
+$padding-vert-ext: calc(100vh - #{$padding-vert});
+
+$points-outer: (0 0, 0 100vh, 100vw 100vh, 100vw 0, 0 0);
+$points-border-outer: (
+  $padding-horiz $padding-vert,
+  $padding-horiz $padding-vert-ext,
+  $padding-horiz-ext $padding-vert-ext,
+  $padding-horiz-ext $padding-vert,
+  $padding-horiz $padding-vert,
+);
+$points-inner: (
+  $padding-horiz-countor $padding-vert-countor,
+  $padding-horiz-countor-ext $padding-vert-countor,
+  $padding-horiz-countor-ext $padding-vert-countor-ext,
+  $padding-horiz-countor $padding-vert-countor-ext,
+  $padding-horiz-countor $padding-vert-countor,
+);
 
 // Export colors to JS
 /* stylelint-disable-next-line selector-pseudo-class-no-unknown */

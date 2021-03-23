@@ -27,6 +27,7 @@ export function useWindowSize(): {width: number | undefined, height: number | un
     updateVh();
 
     function handleResize() {
+      window.fullpage_api.reBuild();
       updateVh();
       setWindowSize(getSize());
     }

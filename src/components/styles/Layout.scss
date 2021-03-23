@@ -1,8 +1,6 @@
 @import 'variables';
 
 #layout-container {
-  display: grid;
-  place-items: center;
   width: 100vw;
   height: 100vh;
 }
@@ -14,33 +12,14 @@
   height: 100%;
   background: url('../../assets/Contour.svg');
   background-size: cover;
-  z-index: -2;
+  clip-path: polygon(join($points-outer, $points-inner));
+  background-color: map-get($colors, 'white');
+  z-index: 1;
 
   filter        : blur($blur);
   -moz-filter   : blur($blur);
   -webkit-filter: blur($blur);
   -o-filter     : blur($blur);
-}
-
-#border-container {
-  z-index: 1;
-  display: flex;
-
-  width: calc(100vw - 2 * #{$padding-horiz});
-  height: calc(100vh - 2 * #{$padding-vert});
-  border: 2px;
-  border-style: solid;
-  border-color: map-get($colors, 'black');
-
-  // Overflow Controls
-  overflow-x: hidden;
-  overflow-y: scroll;
-  -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none;  /* Firefox */
-
-  &::-webkit-scrollbar {
-    display: none;
-  }
 }
 
 #nav-icon {
@@ -132,4 +111,9 @@
     transform: rotate(-45deg);
     top: 33px;
   }
+}
+
+.contents-container {
+  z-index: 0;
+  margin: 0 calc(#{$padding-horiz} + 2px);
 }

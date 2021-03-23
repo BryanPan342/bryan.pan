@@ -61,20 +61,6 @@ export function animate_content(classList: DOMTokenList): void {
   }
 }
 
-// LAYOUT
-let lock = false;
-export function animate_section(top: number, add: boolean): void {
-  if (lock) return;
-  lock = true;
-  const ani = anime({
-    targets: '#border-container',
-    easing: 'easeInOutExpo',
-    duration: 1000,
-    scrollTop: top + (add ? (screen.height / 10) : 0),
-  });
-  void ani.finished.then(() => lock = false);
-}
-
 // NAV
 export function animate_toggle(): void {
   anime({

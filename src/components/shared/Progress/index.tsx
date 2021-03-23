@@ -5,7 +5,7 @@ import '../../styles/Progress.scss';
 
 export interface ProgressProps {
   size: number;
-  handle: (el: HTMLElement) => void;
+  handle: (el: number) => void;
 }
 
 const generate_threshold_list = (steps: number) => {
@@ -67,11 +67,11 @@ function Progress(props: ProgressProps): JSX.Element {
           stroke={'#1919194D'}
           strokeWidth={2}/>
       </svg>
-      {sections.current.map((el, i) =>
+      {sections.current.map((_, i: number) =>
         <a
           className={'progress-circle-anchor'}
           style={{width: size, height: size}}
-          onClick={() => handle(el)}
+          onClick={() => handle(i+1)}
           key={`circle-${i}`}>
           <ProgressCircle size={size} progress={sectionProgress[i]} idx={i} />
         </a>,

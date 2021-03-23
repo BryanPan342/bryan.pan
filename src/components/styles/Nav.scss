@@ -1,6 +1,7 @@
 @import 'variables';
 
 #nav-container {
+  margin: 0 calc(#{$padding-horiz} + 2px);
   display: flex;
   align-items: center;
 }

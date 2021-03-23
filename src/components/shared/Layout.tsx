@@ -1,19 +1,20 @@
 import React, { useContext, useEffect, useState } from 'react';
-import {animate_content, animate_section} from '../../utils/animations';
+import {animate_content} from '../../utils/animations';
+import fullpage from 'fullpage.js';
 import { AppContext } from '../App';
 import Nav from './Nav';
 import '../styles/Layout.scss';
 import Progress from './Progress';
+import { useWindowSize } from '../../utils/hooks';
 
 interface LayoutProps {
   children: JSX.Element;
 }
 
 function Layout(props: LayoutProps): JSX.Element {
+  const {width, height} = useWindowSize();
   const {autoNavigate, setAutoNavigate} = useContext(AppContext);
   const [showNav, setShowNav] = useState(false);
-
-  const sections: Element[] = [];
 
   const valid_animations = [
     'div.contents-details > div',
@@ -22,20 +23,17 @@ function Layout(props: LayoutProps): JSX.Element {
     'div.contents-post-description',
   ];
 
-  const scrollIntoView = (el: HTMLElement) => {
-    const border = document.getElementById('border-container');
-    const splash = document.getElementById('splash-container');
-    const [last] = sections.slice(-1);
-
-    const splash_top = splash?.getBoundingClientRect().top ?? 24;
-    const el_top = el.getBoundingClientRect().top;
-    const last_top = last.getBoundingClientRect().top;
-
-    const add = (splash_top != el_top && last_top != el_top);
-    const borderHeight = border?.getBoundingClientRect().top ?? document.body.offsetHeight - el.offsetHeight;
-
-    animate_section(el.getBoundingClientRect().top - borderHeight - splash_top + 24, add);
+  const scrollIntoView = (index: number) => {
+    window.fullpage_api.moveTo(index);
   };
+
+  useEffect(() => {
+    new fullpage('#fullpage', {
+      licenseKey: 'dfjadskfajsdlkfasdf',
+      autoScrolling: true,
+      verticalCentered: false,
+    });
+  }, []);
 
   useEffect(() => {
     const content_observer = new IntersectionObserver((entries, obs) => {
@@ -54,22 +52,14 @@ function Layout(props: LayoutProps): JSX.Element {
       });
     });
 
-    const section_observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (autoNavigate && entry.isIntersecting && entry.intersectionRatio < .8) {
-          scrollIntoView(entry.target);
-        }
-      });
-    }, { rootMargin: '50px 0px 50px 0px' });
-
-    document.querySelectorAll('div.section').forEach(p => {
-      sections.push(p);
-      section_observer.observe(p);
-    });
+    if (!showNav) {
+      window.fullpage_api.reBuild();
+    } else {
+      window.fullpage_api.destroy('all');
+    }
 
     return () => {
       content_observer.disconnect();
-      section_observer.disconnect();
     };
   }, [showNav]);
 
@@ -83,13 +73,26 @@ function Layout(props: LayoutProps): JSX.Element {
           <span/>
         </div>
       </button>
-      <main id={'border-container'}>
-        {showNav ?
-          <Nav isOn={autoNavigate} handleToggle={() => setAutoNavigate(!autoNavigate)} setShowNav={setShowNav}/> :
-          <div id={'contents-container'}>
-            {props.children}
-          </div>}
-      </main>
+      <svg width={width-48} height={2} style={{top: '24px', left: '48px', position: 'fixed', zIndex: 10}}>
+        <path d={`M 0 0 H ${width-96}`} stroke="black" strokeWidth={4}/>
+      </svg>
+      <svg width={width-48} height={2} style={{bottom: '24px', left: '48px', position: 'fixed', zIndex: 10}}>
+        <path d={`M 0 0 H ${width-96}`} stroke="black" strokeWidth={4}/>
+      </svg>
+      <svg width={2} height={height-24} style={{top: '24px', left: '48px', position: 'fixed', zIndex: 10}}>
+        <path d={`M 0 0 V ${height-48}`} stroke="black" strokeWidth={4}/>
+      </svg>
+      <svg width={2} height={height-24} style={{top: '24px', right: '48px', position: 'fixed', zIndex: 10}}>
+        <path d={`M 0 0 V ${height-48}`} stroke="black" strokeWidth={4}/>
+      </svg>
+      {showNav
+          ?
+            <Nav isOn={autoNavigate} handleToggle={() => setAutoNavigate(!autoNavigate)} setShowNav={setShowNav}/>
+          :
+            <div id={'fullpage'} className={'contents-container'}>
+              {props.children}
+            </div>
+        }
     </div>
   );
 }
