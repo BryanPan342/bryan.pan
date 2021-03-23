@@ -1,11 +1,12 @@
-import React, { useContext, useEffect, useState } from 'react';
-import {animate_content} from '../../utils/animations';
 import fullpage from 'fullpage.js';
+import React, { useContext, useEffect, useState } from 'react';
+import { animate_content } from '../../utils/animations';
+import { useWindowSize } from '../../utils/hooks';
 import { AppContext } from '../App';
 import Nav from './Nav';
 import '../styles/Layout.scss';
 import Progress from './Progress';
-import { useWindowSize } from '../../utils/hooks';
+
 
 interface LayoutProps {
   children: JSX.Element;
@@ -13,7 +14,7 @@ interface LayoutProps {
 
 function Layout(props: LayoutProps): JSX.Element {
   const {width, height} = useWindowSize();
-  const {autoNavigate, setAutoNavigate} = useContext(AppContext);
+  const {autoScroll, setAutoScroll} = useContext(AppContext);
   const [showNav, setShowNav] = useState(false);
 
   const valid_animations = [
@@ -63,6 +64,21 @@ function Layout(props: LayoutProps): JSX.Element {
     };
   }, [showNav]);
 
+  const borderWidth = (width ?? window.innerWidth) - 96;
+  const borderHeight = (height ?? window.innerHeight) - 48;
+
+  const path = (isHorizontal: boolean) => {
+    const d = isHorizontal ? `M 0 0 H ${borderWidth}` : `M 0 0 V ${borderHeight}`;
+    return <path d={d} stroke='#191919' strokeWidth={4}/>;
+  };
+
+  const borderIds = [
+    'border-top-horiz',
+    'border-bot-horiz',
+    'border-left-vert',
+    'border-right-vert',
+  ];
+
   return (
     <div id={'layout-container'}>
       {!showNav && 'children' in props.children.props && <Progress handle={scrollIntoView} size={25} /> }
@@ -73,26 +89,20 @@ function Layout(props: LayoutProps): JSX.Element {
           <span/>
         </div>
       </button>
-      <svg width={width-48} height={2} style={{top: '24px', left: '48px', position: 'fixed', zIndex: 10}}>
-        <path d={`M 0 0 H ${width-96}`} stroke="black" strokeWidth={4}/>
-      </svg>
-      <svg width={width-48} height={2} style={{bottom: '24px', left: '48px', position: 'fixed', zIndex: 10}}>
-        <path d={`M 0 0 H ${width-96}`} stroke="black" strokeWidth={4}/>
-      </svg>
-      <svg width={2} height={height-24} style={{top: '24px', left: '48px', position: 'fixed', zIndex: 10}}>
-        <path d={`M 0 0 V ${height-48}`} stroke="black" strokeWidth={4}/>
-      </svg>
-      <svg width={2} height={height-24} style={{top: '24px', right: '48px', position: 'fixed', zIndex: 10}}>
-        <path d={`M 0 0 V ${height-48}`} stroke="black" strokeWidth={4}/>
-      </svg>
+      {borderIds.map((id: string) => {
+        const isHorizontal = id.includes('horiz');
+        return isHorizontal
+          ? <svg width={borderWidth} height={2} id={id}>{path(isHorizontal)}</svg>
+          : <svg width={2} height={borderHeight} id={id}>{path(isHorizontal)}</svg> ;
+      })}
       {showNav
-          ?
-            <Nav isOn={autoNavigate} handleToggle={() => setAutoNavigate(!autoNavigate)} setShowNav={setShowNav}/>
-          :
-            <div id={'fullpage'} className={'contents-container'}>
-              {props.children}
-            </div>
-        }
+        ?
+        <Nav isOn={autoScroll} handleToggle={() => setAutoScroll(!autoScroll)} setShowNav={setShowNav}/>
+        :
+        <div id={'fullpage'} className={'contents-container'}>
+          {props.children}
+        </div>
+      }
     </div>
   );
 }

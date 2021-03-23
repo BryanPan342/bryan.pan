@@ -1,4 +1,4 @@
-import React, { createContext, useState } from 'react';
+import React, { createContext, useEffect, useState } from 'react';
 import {
   BrowserRouter as Router,
   Switch,
@@ -13,20 +13,24 @@ import Work from './Work';
 import '../assets/Bryan_Pan_Resume.pdf';
 
 interface IAppContext {
-  autoNavigate: boolean;
-  setAutoNavigate: React.Dispatch<React.SetStateAction<boolean>>;
+  autoScroll: boolean;
+  setAutoScroll: React.Dispatch<React.SetStateAction<boolean>>;
   width?: number;
   height?: number;
 }
 
 export const AppContext = createContext<IAppContext>({
-  autoNavigate: true,
-  setAutoNavigate: () => undefined,
+  autoScroll: true,
+  setAutoScroll: () => undefined,
 });
 
 function App(): JSX.Element {
-  const [autoNavigate, setAutoNavigate] = useState(true);
+  const [autoScroll, setAutoScroll] = useState(true);
   const {width, height} = useWindowSize();
+
+  useEffect(() => {
+    window.fullpage_api.setAllowScrolling(!autoScroll);
+  }, [autoScroll]);
 
   if(screen.width < 600) {
     return (
@@ -40,8 +44,8 @@ function App(): JSX.Element {
   return (
     <AppContext.Provider
       value={{
-        autoNavigate: autoNavigate,
-        setAutoNavigate: setAutoNavigate,
+        autoScroll: autoScroll,
+        setAutoScroll: setAutoScroll,
         width: width,
         height: height,
       }}>

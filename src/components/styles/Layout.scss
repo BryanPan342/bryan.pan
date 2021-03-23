@@ -7,7 +7,7 @@
 
 #layout-container:before {
   content: "";
-  position: absolute;
+  position: fixed;
   width : 100%;
   height: 100%;
   background: url('../../assets/Contour.svg');
@@ -20,6 +20,30 @@
   -moz-filter   : blur($blur);
   -webkit-filter: blur($blur);
   -o-filter     : blur($blur);
+}
+
+#border-top-horiz,
+#border-bot-horiz,
+#border-left-vert,
+#border-right-vert {
+  position: fixed;
+  z-index: 3;
+}
+
+#border-top-horiz,
+#border-left-vert {
+  top: 24px;
+  left: 48px;
+}
+
+#border-bot-horiz {
+  bottom: 24px;
+  left: 48px;
+}
+
+#border-right-vert {
+  top: 24px;
+  right: 48px;
 }
 
 #nav-icon {
