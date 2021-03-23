@@ -99,9 +99,9 @@ function Layout(props: LayoutProps): JSX.Element {
         ?
         <Nav isOn={autoScroll} handleToggle={() => setAutoScroll(!autoScroll)} setShowNav={setShowNav}/>
         :
-        <div id={'fullpage'} className={'contents-container'}>
+        <main id={'fullpage'} className={'contents-container'}>
           {props.children}
-        </div>
+        </main>
       }
     </div>
   );
