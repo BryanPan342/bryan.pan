@@ -1,6 +1,6 @@
 const {query} = require('./graphql');
 const fetch = require('node-fetch');
-const {writeFileSync} = require('fs');
+const {writeFileSync, mkdirSync, existsSync} = require('fs');
 require('dotenv').config()
 
 const url = `https://graphql.contentful.com/content/v1/spaces/${process.env.SPACE_ID}`;
@@ -31,6 +31,9 @@ const generate_json = (pageName, items) => {
     });
     return {...info, content};
   });
+  if (!existsSync(`${__dirname}/../src/assets/content`)) {
+    mkdirSync(`${__dirname}/../src/assets/content`);
+  }
   writeFileSync(`${__dirname}/../src/assets/content/${pageName}.json`,
     JSON.stringify(normalized_items, null, 2));
 };
