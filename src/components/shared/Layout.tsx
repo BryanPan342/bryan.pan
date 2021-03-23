@@ -44,13 +44,13 @@ function Layout(props: LayoutProps): JSX.Element {
       verticalCentered: false,
     });
     built.current = true;
-  }
+  };
 
   const destroy = () => {
     if (!built.current) return;
     window.fullpage_api.destroy('all');
     built.current = false;
-  }
+  };
 
   useEffect(() => {
     if (!autoScroll) return;
