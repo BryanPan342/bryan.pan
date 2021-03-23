@@ -111,8 +111,8 @@ function Layout(props: LayoutProps): JSX.Element {
   return (
     <div id={'layout-container'}>
       {!showNav && 'children' in props.children.props && <Progress handle={scrollIntoView} size={25} /> }
-      <button id={'nav-icon'} onClick={() => setShowNav(!showNav)}>
-        <div id={'nav-icon-display'} className={showNav ? 'open' : ''}>
+      <button id={'nav-icon'} aria-label='Navigation' onClick={() => setShowNav(!showNav)}>
+        <div id={'nav-icon-display'} aria-hidden='true' className={showNav ? 'open' : ''}>
           <span/>
           <span/>
           <span/>

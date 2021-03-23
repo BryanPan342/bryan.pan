@@ -51,6 +51,7 @@ function Nav(props: NavProps): JSX.Element {
           const page = url.slice(1) ?url.slice(1) : 'home';
           return (
             <Link
+              aria-label={page}
               id={`${page}-link`}
               to={url}
               key={`route-${i}`}
