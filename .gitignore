@@ -1,6 +1,7 @@
 # Never commit build specific folders
 node_modules/
 dist/
+**/*/content/
 
 # Never commit individual sessions
 .vscode/
