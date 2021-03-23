@@ -1,12 +1,11 @@
 import fullpage from 'fullpage.js';
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState, useRef } from 'react';
 import { animate_content } from '../../utils/animations';
 import { useWindowSize } from '../../utils/hooks';
 import { AppContext } from '../App';
 import Nav from './Nav';
 import '../styles/Layout.scss';
 import Progress from './Progress';
-
 
 interface LayoutProps {
   children: JSX.Element;
@@ -16,6 +15,8 @@ function Layout(props: LayoutProps): JSX.Element {
   const {width, height} = useWindowSize();
   const {autoScroll, setAutoScroll} = useContext(AppContext);
   const [showNav, setShowNav] = useState(false);
+  const built = useRef(false);
+  const sections: Element[] = [];
 
   const valid_animations = [
     'div.contents-details > div',
@@ -25,15 +26,39 @@ function Layout(props: LayoutProps): JSX.Element {
   ];
 
   const scrollIntoView = (index: number) => {
-    window.fullpage_api.moveTo(index);
+    if (built.current) {
+      window.fullpage_api.moveTo(index);
+    } else {
+      window.scrollTo({
+        top: sections[index-1].getBoundingClientRect().top,
+        behavior: 'smooth',
+      });
+    }
   };
 
-  useEffect(() => {
+  const build = () => {
+    if (built.current) return;
     new fullpage('#fullpage', {
       licenseKey: 'dfjadskfajsdlkfasdf',
       autoScrolling: true,
       verticalCentered: false,
     });
+    built.current = true;
+  }
+
+  const destroy = () => {
+    if (!built.current) return;
+    window.fullpage_api.destroy('all');
+    built.current = false;
+  }
+
+  useEffect(() => {
+    if (!autoScroll) return;
+
+    build();
+    return () => {
+      destroy();
+    };
   }, []);
 
   useEffect(() => {
@@ -53,10 +78,14 @@ function Layout(props: LayoutProps): JSX.Element {
       });
     });
 
-    if (!showNav) {
-      window.fullpage_api.reBuild();
+    Array.from(document.getElementsByClassName('section')).forEach(p => {
+      sections.push(p);
+    });
+
+    if (!showNav && autoScroll) {
+      build();
     } else {
-      window.fullpage_api.destroy('all');
+      destroy();
     }
 
     return () => {

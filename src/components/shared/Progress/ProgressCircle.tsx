@@ -17,8 +17,7 @@ function ProgressCircle(props: ProgressCircleProps): JSX.Element {
   const circumference = 2 * Math.PI * radius;
 
   useEffect(() => {
-    const normalized_progress = Math.min(progress / 80 * 100, 100);
-    const progressOffset = ((100 - normalized_progress) / 100 * circumference);
+    const progressOffset = ((100 - progress) / 100 * circumference);
     setOffset(progressOffset);
     circleRef.current.style = 'transition: stroke-dashoffset 1000ms ease-in-out;';
   }, [setOffset, circumference, progress, offset]);
