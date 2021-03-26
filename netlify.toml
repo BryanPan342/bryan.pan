@@ -9,3 +9,4 @@
 
 [[plugins]]
   package = "@netlify/plugin-lighthouse"
+  package = "netlify-plugin-a11y"
