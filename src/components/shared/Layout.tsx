@@ -23,6 +23,7 @@ function Layout(props: LayoutProps): JSX.Element {
     'div.contents-heading',
     'div.contents-description',
     'div.contents-post-description',
+    'div.contents-hero',
   ];
 
   const scrollIntoView = (index: number) => {

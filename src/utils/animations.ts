@@ -49,11 +49,23 @@ export function animate_description(): void {
   animate_left('.description', 0.75);
 }
 
+export function animate_background_image(targets: string): void {
+  anime({
+    targets,
+    duration: 500,
+    easing: 'easeInOutExpo',
+    backgroundPosition: ['100% 0%', '0% 0%'],
+  });
+}
+
 export function animate_content(classList: DOMTokenList): void {
   const classes: string[] = [];
   classList.forEach(t => classes.push(t));
   const targets = classes.reduce((acc: string, v: string) => `${acc}.${v}`,'');
-  if (classes.includes('details')) {
+  if (classes.includes('contents-hero')) {
+    animate_background_image(`#contents-hero-${classes[0]}`);
+  }
+  else if (classes.includes('details')) {
     animate_up(targets);
   }
   else {

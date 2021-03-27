@@ -12,19 +12,23 @@ export interface ContentProps {
 }
 
 function Content(props: ContentProps): JSX.Element {
+  const {heading, idx, heroColor} = props;
+
   const setWhite = [
     HERO_COLORS.FACEBOOK_BLUE,
     HERO_COLORS.AGORA_GREEN,
     HERO_COLORS.STORYTIME_BLUE,
-  ].includes(props.heroColor);
+  ].includes(heroColor);
+
+  const background = `linear-gradient(to left, #f8f8f8 50%, ${heroColor} 50%) right`;
 
   return (
-    <div className={`section content-container ${props.idx}`} >
-      <div style={{backgroundColor: props.heroColor}} className={`contents-hero ${setWhite ? 'white' : ''}`}>
-        <div className={`${props.heading}-${props.idx} contents-heading`}>{props.heading}<a className={'period'}>.</a></div>
-        <div className={`${props.heading}-${props.idx} contents-description `}>{props.description}</div>
+    <div className={`section content-container ${idx}`} >
+      <div style={{background: background, backgroundSize: '200%'}} id={`contents-hero-${idx}`} className={`${idx} contents-hero${setWhite ? ' white' : ''}`}>
+        <div className={`${heading}-${idx} contents-heading`}>{heading}<a className={'period'}>.</a></div>
+        <div className={`${heading}-${idx} contents-description `}>{props.description}</div>
         { props.postDescription &&
-          <div className={`${props.heading}-${props.idx} contents-description`}>{props.postDescription}</div> }
+          <div className={`${heading}-${idx} contents-description`}>{props.postDescription}</div> }
       </div>
       <div className={'contents-details'}>
         {props.children}
