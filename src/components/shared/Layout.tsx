@@ -121,9 +121,9 @@ function Layout(props: LayoutProps): JSX.Element {
       </button>
       {borderIds.map((id: string) => {
         const isHorizontal = id.includes('horiz');
-        return isHorizontal
-          ? <svg width={borderWidth} height={2} id={id}>{path(isHorizontal)}</svg>
-          : <svg width={2} height={borderHeight} id={id}>{path(isHorizontal)}</svg> ;
+        const width = isHorizontal ? borderWidth : 2;
+        const height = isHorizontal ? 2 : borderHeight;
+        return <svg width={width} height={height} id={id} key={id}>{path(isHorizontal)}</svg>;
       })}
       {showNav
         ?
