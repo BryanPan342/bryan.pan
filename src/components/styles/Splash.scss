@@ -21,3 +21,10 @@
   font-size: 24px;
   opacity: 0;
 }
+
+#hero {
+  display: grid;
+  place-content: center;
+  height: 100%;
+  width: calc(100vw * 0.66);
+}

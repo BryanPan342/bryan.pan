@@ -1,12 +1,12 @@
 import React, { useContext, useEffect } from 'react';
-import {animate_description, animate_heading} from '../../../utils/animations';
+import {animate_description, animate_heading, animate_splash} from '../../../utils/animations';
 import '../../styles/Splash.scss';
 
 import { AppContext } from '../../App';
-import { AboutHeading } from './About';
-import {HomeHeading} from './Home';
-import { ProjectsHeading } from './Projects';
-import { WorkHeading } from './Work';
+import { AboutHeading, AboutSplash } from './About';
+import { HomeHeading, HomeSplash } from './Home';
+import { ProjectsHeading, ProjectsSplash } from './Projects';
+import { WorkHeading, WorkSplash } from './Work';
 
 export enum PAGE {
   HOME='HOME',
@@ -18,10 +18,22 @@ export enum PAGE {
 const getPageProps = (page: PAGE, screen_width: number) => {
   const width = screen_width / 4.5;
   const PAGE_MAP: {[key: string]: JSX.Element[]} = {
-    [PAGE.HOME]: [<HomeHeading width={width} key={'heading'}/> ],
-    [PAGE.ABOUT]: [<AboutHeading width={width} key={'heading'}/> ],
-    [PAGE.PROJECTS]: [<ProjectsHeading width={width} key={'heading'}/> ],
-    [PAGE.WORK]: [<WorkHeading width={width} key={'heading'}/> ],
+    [PAGE.HOME]: [
+      <HomeHeading width={width} key={'home-heading'}/>,
+      <HomeSplash width={width} key={'home-splash'} />,
+    ],
+    [PAGE.ABOUT]: [
+      <AboutHeading width={width} key={'about-heading'}/>,
+      <AboutSplash width={width} key={'home-splash'} />,
+    ],
+    [PAGE.PROJECTS]: [
+      <ProjectsHeading width={width} key={'projects-heading'}/>,
+      <ProjectsSplash width={width} key={'home-splash'} />,
+    ],
+    [PAGE.WORK]: [
+      <WorkHeading width={width} key={'work-heading'}/>,
+      <WorkSplash width={width} key={'home-splash'} />,
+    ],
   };
   return PAGE_MAP[page];
 };
@@ -37,11 +49,12 @@ export interface SplashProps {
 
 function Splash(props: SplashProps): JSX.Element {
   const { width } = useContext(AppContext);
-  const [ Heading ] = getPageProps(props.page, width ?? screen.width);
+  const [ Heading, Splash ] = getPageProps(props.page, width ?? screen.width);
 
   useEffect(() => {
     animate_heading();
     animate_description();
+    animate_splash();
   }, []);
 
   return (
@@ -52,7 +65,9 @@ function Splash(props: SplashProps): JSX.Element {
         </div>
         <div className={'description'}>{props.description}</div>
       </div>
-      <div id={'hero'}></div>
+      <div id={'hero'}>
+        {Splash}
+      </div>
     </div>
   );
 }
