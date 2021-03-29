@@ -20,9 +20,9 @@ $max-content-width: calc(100vw * 0.4);
 $full-height: calc((var(--vh, 1vh) * 100));
 
 // Spacing
-$main-margin-left: 80px;
+$main-margin-left: clamp(3rem, 5vw, 5rem);
 $main-margin-between: 20px;
-$content-margin-left: 64px;
+$content-margin-left: clamp(2rem, 3vw, 3rem);
 
 $colors: (
   'black': #191919,

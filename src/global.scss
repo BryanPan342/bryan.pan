@@ -1,5 +1,9 @@
 @import './components/styles/variables';
 
+html {
+  font-size: clamp(10px, 1.5vw, 16px)
+}
+
 body {
   padding: 0;
   margin: 0;
