@@ -1,7 +1,8 @@
 import React from 'react';
+import { PAGE } from '../utils/page';
 import { generateContent, work } from './shared/Content';
 import Layout from './shared/Layout';
-import Splash, { PAGE } from './shared/Splash';
+import Splash from './shared/Splash';
 
 function Work(): JSX.Element {
   return (

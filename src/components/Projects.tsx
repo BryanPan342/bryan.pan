@@ -1,7 +1,9 @@
 import React from 'react';
+import { PAGE } from '../utils/page';
 import {generateContent, projects} from './shared/Content';
 import Layout from './shared/Layout';
-import Splash, { PAGE } from './shared/Splash';
+import Splash from './shared/Splash';
+
 
 function Projects(): JSX.Element {
   return (

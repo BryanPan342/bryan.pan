@@ -6,6 +6,11 @@
   align-items: center;
 }
 
+#routes-container {
+  display: flex;
+  width: $max-description-width;
+}
+
 #routes {
   display: flex;
   z-index: 1;
@@ -24,4 +29,11 @@
   z-index: 0;
   position: fixed;
   background-color: map-get($colors, 'yellow');
+}
+
+#hero-preview {
+  display: grid;
+  place-content: center;
+  height: 100%;
+  width: calc(100vw * 0.66);
 }

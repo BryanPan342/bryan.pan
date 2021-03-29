@@ -44,21 +44,33 @@ export function animate_heading(): void {
   });
 }
 
-export function animate_splash(): void {
+export function animate_splash(isWork: boolean): void {
   anime({
     targets: '#hero .line',
     strokeDashoffset: [anime.setDashoffset, 0],
     easing: 'easeInOutExpo',
     duration: 2000,
   });
-  anime({
-    targets: '#hero .colors',
-    translateX: ['25px', '0px'],
-    opacity: [0, 1],
-    easing: 'easeInOutExpo',
-    duration: 1000,
-    delay: 1000,
-  });
+  if (isWork) {
+    anime({
+      targets: '#hero .colors',
+      translateY: ['25px', '0px'],
+      opacity: [0, 1],
+      easing: 'easeInOutExpo',
+      duration: 1000,
+      delay: 1000,
+    });
+  }
+  else {
+    anime({
+      targets: '#hero .colors',
+      translateX: ['25px', '0px'],
+      opacity: [0, 1],
+      easing: 'easeInOutExpo',
+      duration: 1000,
+      delay: 1000,
+    });
+  }
 }
 
 // CONTENT

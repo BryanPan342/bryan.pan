@@ -1,6 +1,7 @@
 import React from 'react';
+import { PAGE } from '../utils/page';
 import Layout from './shared/Layout';
-import Splash, { PAGE } from './shared/Splash';
+import Splash from './shared/Splash';
 
 function Home(): JSX.Element {
   return (
