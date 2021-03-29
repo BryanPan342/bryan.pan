@@ -34,7 +34,7 @@
 
 .contents-description {
   max-width: calc(#{$max-description-width} * .8);
-  font-size: 1.2em;
+  font-size: 1.2rem;
 }
 
 // Content Details
@@ -101,12 +101,12 @@
   }
   
   a.text:after {
-    border-radius: 1em;
-    border-top: .1em solid;
+    border-radius: 1rem;
+    border-top: .1rem solid;
     content: "";
     position: absolute;
     right: 100%;
-    bottom: .05em;
+    bottom: .05rem;
     left: 0;
     transition: right .4s $bezier;
   }
