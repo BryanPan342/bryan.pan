@@ -106,13 +106,9 @@
     content: "";
     position: absolute;
     bottom: .4rem;
-    right: 100%;
-    left: 0;
+    right: -5px;
+    left: -5px;
     transition: right .4s $bezier;
-  }
-
-  a.text:hover:after {
-    right: 0;
   }
 }
 

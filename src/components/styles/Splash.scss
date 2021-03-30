@@ -42,13 +42,9 @@
     content: "";
     position: absolute;
     bottom: .5rem;
-    right: 100%;
-    left: 0;
+    right: -5px;
+    left: -5px;
     transition: right .4s $bezier;
-  }
-
-  &:hover:after {
-    right: 0;
   }
 }
 
