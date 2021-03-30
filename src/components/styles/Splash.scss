@@ -60,12 +60,11 @@
     justify-content: flex-start;
   }
 
-  #heading {
+  #heading, .description, .splash-link {
     margin-left: 0px;
   }
 
   .description {
-    margin-left: 0px;
     max-width: calc(100vw - 64px);
   }
 
