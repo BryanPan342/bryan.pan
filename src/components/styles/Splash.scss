@@ -10,7 +10,7 @@
   flex-direction: column;
 }
 
-#heading {
+#heading, .description {
   margin-left: $main-margin-left;
 }
 
@@ -65,6 +65,7 @@
   }
 
   .description {
+    margin-left: 0px;
     max-width: calc(100vw - 64px);
   }
 

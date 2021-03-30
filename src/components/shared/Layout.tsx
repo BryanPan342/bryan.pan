@@ -89,6 +89,11 @@ function Layout(props: LayoutProps): JSX.Element {
       destroy();
     }
 
+    if (showNav) {
+      document.body.style.overflow = 'hidden';
+      document.body.style.height = '100%';
+    }
+
     return () => {
       content_observer.disconnect();
     };
@@ -119,7 +124,7 @@ function Layout(props: LayoutProps): JSX.Element {
           <span/>
         </div>
       </button>
-      {screen.width > 600 && borderIds.map((id: string) => {
+      {borderIds.map((id: string) => {
         const isHorizontal = id.includes('horiz');
         const w = isHorizontal ? borderWidth : 2;
         const h = isHorizontal ? 2 : borderHeight;

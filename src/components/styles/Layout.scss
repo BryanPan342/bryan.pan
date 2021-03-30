@@ -165,4 +165,11 @@ $inner-shadow: inset 0px 0px 50px rgba(0,0,0,.03);
     right: 40px;
     left: auto;
   }
+
+  #border-top-horiz,
+  #border-bot-horiz,
+  #border-left-vert,
+  #border-right-vert {
+    visibility: hidden;
+  }
 }

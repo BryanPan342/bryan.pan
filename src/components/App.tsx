@@ -17,6 +17,7 @@ interface IAppContext {
   setAutoScroll: React.Dispatch<React.SetStateAction<boolean>>;
   width: number;
   height: number;
+  isMobile: boolean;
 }
 
 export const AppContext = createContext<IAppContext>({
@@ -24,20 +25,12 @@ export const AppContext = createContext<IAppContext>({
   setAutoScroll: () => undefined,
   width: window.innerWidth,
   height: window.innerHeight,
+  isMobile: false,
 });
 
 function App(): JSX.Element {
   const [autoScroll, setAutoScroll] = useState(true);
   const {width, height} = useWindowSize();
-
-  if(screen.width < 600) {
-    return (
-      <div id={'construction'}>
-        <h2>Unfortunately, I am still constructing the mobile version.</h2>
-        <h3>Check out my site on desktop!</h3>
-      </div>
-    );
-  }
 
   return (
     <AppContext.Provider
@@ -46,6 +39,7 @@ function App(): JSX.Element {
         setAutoScroll: setAutoScroll,
         width: width ?? window.innerWidth,
         height: height ?? window.innerHeight,
+        isMobile: (width ?? window.innerWidth) <= 600,
       }}>
       <Router>
         <Switch>

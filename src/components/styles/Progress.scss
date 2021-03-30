@@ -22,3 +22,31 @@
   position: fixed;
   z-index: 98;
 }
+
+@media screen and (max-width: 600px) {
+  #progress-container {
+    position: relative;
+    flex-direction: row;
+    left: 0px;
+    bottom: 0px;
+  }
+
+  .progress-circle-anchor {
+    margin-top: 0px;
+    margin-right: 12px;
+
+    &:last-child {
+      margin-right: 0px;
+    }
+  }
+
+  #progress-wrapper {
+    z-index: 90;
+    position: fixed;
+    display: grid;
+    place-content: center;
+    height: 10%;
+    width: 100%;
+    bottom: 0px;
+  }
+}

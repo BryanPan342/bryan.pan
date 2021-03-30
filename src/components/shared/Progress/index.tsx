@@ -1,7 +1,8 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useContext, useEffect, useRef, useState } from 'react';
 import { animate_progress } from '../../../utils/animations';
-import ProgressCircle from './ProgressCircle';
+import { AppContext } from '../../App';
 import '../../styles/Progress.scss';
+import ProgressCircle from './ProgressCircle';
 
 export interface ProgressProps {
   size: number;
@@ -14,6 +15,7 @@ const generate_threshold_list = (steps: number) => {
 
 function Progress(props: ProgressProps): JSX.Element {
   const {size, handle} = props;
+  const {isMobile} = useContext(AppContext);
   const radius = size / 2;
   const sections = useRef([]);
   const sectionState = useRef<number[]>([]);
@@ -56,26 +58,33 @@ function Progress(props: ProgressProps): JSX.Element {
     return () => section_observer.disconnect();
   }, []);
 
+  const length = Math.max(sections.current.length * 37 - 12, 0);
+  const line_end = sections.current.length * 37 - size;
+  const dims = isMobile ? [length, size] : [size, length];
+  const line_dims = isMobile ? [line_end, radius] : [radius, line_end];
+
   return (
-    <div id={'progress-container'}>
-      <svg width={size} height={Math.max(sections.current.length * 37 - 12, 0)} className={'progress-line'}>
-        <line
-          x1={radius}
-          y1={radius}
-          x2={radius}
-          y2={sections.current.length * 37 - size}
-          stroke={'#1919194D'}
-          strokeWidth={2}/>
-      </svg>
-      {sections.current.map((_, i: number) =>
-        <a
-          className={'progress-circle-anchor'}
-          style={{width: size, height: size}}
-          onClick={() => handle(i+1)}
-          key={`circle-${i}`}>
-          <ProgressCircle size={size} progress={sectionProgress[i]} idx={i} />
-        </a>,
-      )}
+    <div id={'progress-wrapper'}>
+      <div id={'progress-container'}>
+        <svg width={dims[0]} height={dims[1]} className={'progress-line'}>
+          <line
+            x1={radius}
+            y1={radius}
+            x2={line_dims[0]}
+            y2={line_dims[1]}
+            stroke={'#1919194D'}
+            strokeWidth={2}/>
+        </svg>
+        {sections.current.map((_, i: number) =>
+          <a
+            className={'progress-circle-anchor'}
+            style={{width: size, height: size}}
+            onClick={() => handle(i+1)}
+            key={`circle-${i}`}>
+            <ProgressCircle size={size} progress={sectionProgress[i]} idx={i} />
+          </a>,
+        )}
+      </div>
     </div>
   );
 }

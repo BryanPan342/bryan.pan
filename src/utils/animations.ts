@@ -19,7 +19,7 @@ function animate_left(targets: string, opacity?: number): void {
     opacity: opacity ?? 1,
     easing: 'easeInOutQuart',
     duration: 1000,
-    translateX: window.innerWidth > 600 ? style.marginLeft : ['-25px', '0px'],
+    translateX: ['-50px', '0px'],
   });
 }
 
