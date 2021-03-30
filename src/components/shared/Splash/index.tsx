@@ -10,7 +10,7 @@ import { ProjectsHeading, ProjectsSplash } from './Projects';
 import { WorkHeading, WorkSplash } from './Work';
 
 const getPageProps = (page: PAGE, screen_width: number, screen_height: number) => {
-  const height_multipliers = screen_width > 600 ? [9, 5] : [20, 2];
+  const height_multipliers = screen_width > 600 ? [17, 5] : [20, 2];
   const width_multipliers  = screen_width > 600 ? [4.5, 3] : [1.6, 2];
   const headingDims = [screen_width / width_multipliers[0], screen_height / height_multipliers[0]];
   const splashDims  = [screen_width / width_multipliers[1], screen_height / height_multipliers[1]];
