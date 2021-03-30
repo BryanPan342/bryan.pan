@@ -1,9 +1,10 @@
 import React from 'react';
+import { getIdealDims } from '../../../utils/page';
 import { HeadingProps } from './index';
 
 export function AboutHeading(props: HeadingProps): JSX.Element {
-  const { width } = props;
-  const height = width * .19;
+  const multiplier = 0.19;
+  const [width, height] = getIdealDims(props.width, props.height, multiplier);
 
   return (
     <svg width={width} height={height} viewBox="0 0 370 70" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -16,8 +17,8 @@ export function AboutHeading(props: HeadingProps): JSX.Element {
 }
 
 export function AboutSplash(props: HeadingProps): JSX.Element {
-  const { width } = props;
-  const height = width * .97;
+  const multiplier = 0.97;
+  const [width, height] = getIdealDims(props.width, props.height, multiplier);
 
   return (
     <svg width={width} height={height} viewBox="0 0 351 342" fill="none" xmlns="http://www.w3.org/2000/svg">

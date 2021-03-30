@@ -1,9 +1,10 @@
 import React from 'react';
+import { getIdealDims } from '../../../utils/page';
 import { HeadingProps } from './index';
 
 export function WorkHeading(props: HeadingProps): JSX.Element {
-  const { width } = props;
-  const height = width * .21;
+  const multiplier = 0.21;
+  const [width, height] = getIdealDims(props.width, props.height, multiplier);
 
   return (
     <svg width={width} height={height} viewBox="0 0 319 70" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -16,8 +17,8 @@ export function WorkHeading(props: HeadingProps): JSX.Element {
 }
 
 export function WorkSplash(props: HeadingProps): JSX.Element {
-  const { width } = props;
-  const height = width * 1.28;
+  const multiplier = 1.28;
+  const [width, height] = getIdealDims(props.width, props.height, multiplier);
 
   return (
     <svg width={width} height={height} viewBox="0 0 343 377" fill="none" xmlns="http://www.w3.org/2000/svg">

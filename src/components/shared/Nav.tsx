@@ -19,13 +19,15 @@ const path2Id: {[key: string]: string} = {
   '/work': 'work-link',
 };
 
-const getHoverProps = (page: PAGE, screen_width: number) => {
-  const width = screen_width / 3;
+const getHoverProps = (page: PAGE, screen_width: number, screen_height: number) => {
+  const height_multiplier = screen_width > 600 ? 5 : 2;
+  const width_multiplier  = screen_width > 600 ? 3 : 2;
+  const splashDims  = [screen_width / width_multiplier, screen_height / height_multiplier];
   const PAGE_MAP: {[key: string]: JSX.Element} = {
-    [PAGE.HOME]: <HomeSplash width={width} key={'home-splash'} />,
-    [PAGE.ABOUT]: <AboutSplash width={width} key={'home-splash'} />,
-    [PAGE.PROJECTS]: <ProjectsSplash width={width} key={'home-splash'} />,
-    [PAGE.WORK]: <WorkSplash width={width} key={'home-splash'} />,
+    [PAGE.HOME]: <HomeSplash width={splashDims[0]} height={splashDims[1]} key={'home-splash'} />,
+    [PAGE.ABOUT]: <AboutSplash width={splashDims[0]} height={splashDims[1]} key={'about-splash'} />,
+    [PAGE.PROJECTS]: <ProjectsSplash width={splashDims[0]} height={splashDims[1]} key={'home-splash'} />,
+    [PAGE.WORK]: <WorkSplash width={splashDims[0]} height={splashDims[1]} key={'home-splash'} />,
   };
   return PAGE_MAP[page];
 };
@@ -40,13 +42,14 @@ function Nav(props: NavProps): JSX.Element {
   const {isOn, handleToggle, setShowNav} = props;
 
   const size = useWindowSize();
+  const [width, height] = [size.width ?? screen.width, size.height ?? screen.height];
   const path = window.location.pathname;
   const id = path2Id[path];
   const curr_page = path2Page(path);
   const [currentRef, setCurrentRef] = useState<HTMLElement | null>(null);
   const [style, setStyle] = useState<React.CSSProperties>({});
   const [hoverState, setHoverState] = useState<PAGE | null>(null);
-  const [splash, setSplash] = useState(getHoverProps(curr_page, size.width ?? screen.width));
+  const [splash, setSplash] = useState(getHoverProps(curr_page, width, height));
 
   useEffect(() => {
     setCurrentRef(document.getElementById(id));
@@ -57,16 +60,16 @@ function Nav(props: NavProps): JSX.Element {
   useEffect(() => {
     if (currentRef) {
       const dim = currentRef.getBoundingClientRect();
-      const height = Math.max(dim.height - 50, 15);
-      const top = dim.top + (dim.height - height) / 2;
-      setStyle({width: dim.width + 10, height, top, left: dim.left - 5});
+      const h = Math.max(dim.height - 50, 15);
+      const top = dim.top + (dim.height - h) / 2;
+      setStyle({width: dim.width + 10, height: h, top, left: dim.left - 5});
       animate_highlight();
     }
   }, [currentRef, size]);
 
   useEffect(() => {
     const page = !hoverState ? curr_page : hoverState;
-    setSplash(getHoverProps(page, size.width ?? screen.width));
+    setSplash(getHoverProps(page, width, height));
   }, [hoverState]);
 
   return (

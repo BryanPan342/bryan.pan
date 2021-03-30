@@ -28,3 +28,28 @@
   height: 100%;
   width: calc(100vw * 0.66);
 }
+
+@media screen and (max-width: 600px) {
+  #splash-container {
+    flex-direction: column;
+    align-items: start;
+  }
+
+  #headline-container {
+    margin: 50px 32px 0;
+    width: calc(100vw - 64px);
+    justify-content: flex-start;
+  }
+
+  #heading {
+    margin-left: 0px;
+  }
+
+  .description {
+    max-width: calc(100vw - 64px);
+  }
+
+  #hero {
+    width: 100vw;
+  }
+}

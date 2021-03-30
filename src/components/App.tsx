@@ -15,13 +15,15 @@ import '../assets/Bryan_Pan_Resume.pdf';
 interface IAppContext {
   autoScroll: boolean;
   setAutoScroll: React.Dispatch<React.SetStateAction<boolean>>;
-  width?: number;
-  height?: number;
+  width: number;
+  height: number;
 }
 
 export const AppContext = createContext<IAppContext>({
   autoScroll: true,
   setAutoScroll: () => undefined,
+  width: window.innerWidth,
+  height: window.innerHeight,
 });
 
 function App(): JSX.Element {
@@ -42,8 +44,8 @@ function App(): JSX.Element {
       value={{
         autoScroll: autoScroll,
         setAutoScroll: setAutoScroll,
-        width: width,
-        height: height,
+        width: width ?? window.innerWidth,
+        height: height ?? window.innerHeight,
       }}>
       <Router>
         <Switch>

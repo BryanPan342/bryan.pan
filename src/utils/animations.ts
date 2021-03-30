@@ -18,7 +18,7 @@ function animate_left(targets: string, opacity?: number): void {
     opacity: opacity ?? 1,
     easing: 'easeInOutExpo',
     duration: 1000,
-    translateX: style.marginLeft,
+    translateX: window.innerWidth > 600 ? style.marginLeft : ['-25px', '0px'],
   });
 }
 

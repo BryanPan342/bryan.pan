@@ -150,3 +150,19 @@ $inner-shadow: inset 0px 0px 50px rgba(0,0,0,.03);
   z-index: 0;
   margin: 0 calc(#{$padding-horiz} + 2px);
 }
+
+@media screen and (max-width: 600px) {
+  .contents-container {
+    margin: 0;
+  }
+
+  #layout-container:before {
+    content: none;
+  }
+  
+  #nav-icon {
+    top: 32px;
+    right: 40px;
+    left: auto;
+  }
+}

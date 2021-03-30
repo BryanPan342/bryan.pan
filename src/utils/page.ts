@@ -17,3 +17,10 @@ export function path2Page (path: string): PAGE {
       return PAGE.HOME;
   }
 }
+
+export function getIdealDims(width: number, height: number, multiplier: number): number[] {
+  const t_height = width * multiplier;
+  const t_width = height / multiplier;
+
+  return width * t_height > height * t_width ? [width, t_height] : [t_width, height];
+}

@@ -119,7 +119,7 @@ function Layout(props: LayoutProps): JSX.Element {
           <span/>
         </div>
       </button>
-      {borderIds.map((id: string) => {
+      {screen.width > 600 && borderIds.map((id: string) => {
         const isHorizontal = id.includes('horiz');
         const w = isHorizontal ? borderWidth : 2;
         const h = isHorizontal ? 2 : borderHeight;
