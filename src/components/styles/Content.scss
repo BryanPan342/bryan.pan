@@ -24,6 +24,7 @@
 
 .contents-heading, .contents-description {
   font: $heading-bold-font;
+  margin-left: $main-margin-left;
   color: inherit;
   opacity: 0;
 }
