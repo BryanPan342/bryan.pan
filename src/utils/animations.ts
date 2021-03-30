@@ -1,5 +1,6 @@
 import anime from 'animejs';
 import style from '../components/styles/_variables.scss';
+import { PAGE } from './page';
 
 // SHARED
 function animate_up(targets: string, opacity?: number): void {
@@ -23,9 +24,10 @@ function animate_left(targets: string, opacity?: number): void {
 }
 
 // SPLASH
-export function animate_heading(): void {
+export function animate_heading(page: PAGE): void {
+  console.log(page);
   anime({
-    targets: '#heading .lines .words',
+    targets: `.${page} #heading .lines .words`,
     strokeDashoffset: [anime.setDashoffset, 0],
     easing: 'easeInOutExpo',
     duration: 1000,
@@ -34,7 +36,7 @@ export function animate_heading(): void {
     ],
   });
   anime({
-    targets: '#heading .lines .dot',
+    targets: `.${page} #heading .lines .dot`,
     strokeDashoffset: [anime.setDashoffset, 0],
     easing: 'easeInExpo',
     duration: 1000,
@@ -44,16 +46,16 @@ export function animate_heading(): void {
   });
 }
 
-export function animate_splash(isWork: boolean): void {
+export function animate_splash(page: PAGE): void {
   anime({
-    targets: '#hero .line',
+    targets: `.${page} #hero .line`,
     strokeDashoffset: [anime.setDashoffset, 0],
     easing: 'easeInOutExpo',
     duration: 2000,
   });
-  if (isWork) {
+  if (page === PAGE.WORK) {
     anime({
-      targets: '#hero .colors',
+      targets: `.${page} #hero .colors`,
       translateY: ['25px', '0px'],
       opacity: [0, 1],
       easing: 'easeInOutExpo',
@@ -63,7 +65,7 @@ export function animate_splash(isWork: boolean): void {
   }
   else {
     anime({
-      targets: '#hero .colors',
+      targets: `.${page} #hero .colors`,
       translateX: ['25px', '0px'],
       opacity: [0, 1],
       easing: 'easeInOutExpo',
@@ -73,11 +75,12 @@ export function animate_splash(isWork: boolean): void {
   }
 }
 
-// CONTENT
-export function animate_description(): void {
-  animate_left('.description', 0.75);
+export function animate_description(page: PAGE): void {
+  animate_left(`.${page} .description`, 0.75);
+  animate_left(`.${page} .link`, 0.75);
 }
 
+// CONTENT
 export function animate_background_image(targets: string): void {
   anime({
     targets,

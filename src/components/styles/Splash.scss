@@ -29,6 +29,29 @@
   width: calc(100vw * 0.66);
 }
 
+.splash-link {
+  font: $heading-bold-font;
+  font-size: 1.2rem;
+  margin-top: $main-margin-between;
+  opacity: 0;
+  width: fit-content;
+
+  &:after {
+    border-top: .5rem solid map-get($colors, 'yellow');
+    z-index: -1;
+    content: "";
+    position: absolute;
+    bottom: .5rem;
+    right: 100%;
+    left: 0;
+    transition: right .4s $bezier;
+  }
+
+  &:hover:after {
+    right: 0;
+  }
+}
+
 @media screen and (max-width: 600px) {
   #splash-container {
     flex-direction: column;

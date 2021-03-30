@@ -8,9 +8,10 @@ import { AboutHeading, AboutSplash } from './About';
 import { HomeHeading, HomeSplash } from './Home';
 import { ProjectsHeading, ProjectsSplash } from './Projects';
 import { WorkHeading, WorkSplash } from './Work';
+import { Link } from 'react-router-dom';
 
 const getPageProps = (page: PAGE, screen_width: number, screen_height: number) => {
-  const height_multipliers = screen_width > 600 ? [17, 5] : [20, 2];
+  const height_multipliers = screen_width > 600 ? [20, 5] : [20, 2];
   const width_multipliers  = screen_width > 600 ? [4.5, 3] : [1.6, 2];
   const headingDims = [screen_width / width_multipliers[0], screen_height / height_multipliers[0]];
   const splashDims  = [screen_width / width_multipliers[1], screen_height / height_multipliers[1]];
@@ -43,25 +44,50 @@ export interface HeadingProps {
 export interface SplashProps {
   page: PAGE;
   description: string;
+  id?: number
 }
 
 function Splash(props: SplashProps): JSX.Element {
+  const {page} = props;
   const { width, height } = useContext(AppContext);
-  const [ Heading, Hero ] = getPageProps(props.page, width, height);
+  const [ Heading, Hero ] = getPageProps(page, width, height);
 
   useEffect(() => {
-    animate_heading();
-    animate_description();
-    animate_splash(props.page === PAGE.WORK);
+    const splash_observer = new IntersectionObserver((entries, obs) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          animate_heading(page);
+          animate_description(page);
+          animate_splash(page);
+          obs.unobserve(entry.target);
+        }
+      });
+    }, { rootMargin: '0px 0px -100px 0px' });
+
+    document.querySelectorAll(`div.section.${page}`).forEach(p => {
+      splash_observer.observe(p);
+    });
+    
+    return () => splash_observer.disconnect();
   }, []);
 
   return (
-    <div id={'splash-container'} className={'section'}>
+    <div id={'splash-container'} className={`section ${page} ${props.id ?? ''}`}>
       <div id={'headline-container'}>
         <div id={'heading'}>
           { Heading }
         </div>
         <div className={'description'}>{props.description}</div>
+        {window.location.pathname === '/' && page !== PAGE.HOME &&
+          <Link
+            aria-label={page}
+            id={`${page}-link`}
+            to={`/${page.toLowerCase()}`}
+            className={'splash-link'}
+            key={page}>
+            LEARN MORE
+          </Link>
+        }
       </div>
       <div id={'hero'}>
         { Hero }

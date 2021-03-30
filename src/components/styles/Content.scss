@@ -101,12 +101,12 @@
   }
   
   a.text:after {
-    border-radius: 1rem;
-    border-top: .1rem solid;
+    border-top: .5rem solid map-get($colors, 'yellow');
+    z-index: -1;
     content: "";
     position: absolute;
+    bottom: .4rem;
     right: 100%;
-    bottom: .05rem;
     left: 0;
     transition: right .4s $bezier;
   }
