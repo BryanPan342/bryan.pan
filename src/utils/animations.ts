@@ -25,7 +25,6 @@ function animate_left(targets: string, opacity?: number): void {
 
 // SPLASH
 export function animate_heading(page: PAGE): void {
-  console.log(page);
   anime({
     targets: `.${page} #heading .lines .words`,
     strokeDashoffset: [anime.setDashoffset, 0],

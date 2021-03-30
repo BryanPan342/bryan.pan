@@ -1,4 +1,5 @@
 import React, { useContext, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import {animate_description, animate_heading, animate_splash} from '../../../utils/animations';
 import { PAGE } from '../../../utils/page';
 import '../../styles/Splash.scss';
@@ -8,7 +9,6 @@ import { AboutHeading, AboutSplash } from './About';
 import { HomeHeading, HomeSplash } from './Home';
 import { ProjectsHeading, ProjectsSplash } from './Projects';
 import { WorkHeading, WorkSplash } from './Work';
-import { Link } from 'react-router-dom';
 
 const getPageProps = (page: PAGE, screen_width: number, screen_height: number) => {
   const height_multipliers = screen_width > 600 ? [20, 5] : [20, 2];
@@ -67,7 +67,7 @@ function Splash(props: SplashProps): JSX.Element {
     document.querySelectorAll(`div.section.${page}`).forEach(p => {
       splash_observer.observe(p);
     });
-    
+
     return () => splash_observer.disconnect();
   }, []);
 
