@@ -77,7 +77,7 @@ export function animate_splash(page: PAGE): void {
 
 export function animate_description(page: PAGE): void {
   animate_left(`.${page} .description`, 0.75);
-  animate_left(`.${page} .link`, 0.75);
+  animate_left(`.${page} .splash-link`, 0.75);
 }
 
 // CONTENT
