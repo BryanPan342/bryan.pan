@@ -37,3 +37,13 @@
   height: 100%;
   width: calc(100vw * 0.66);
 }
+
+@media screen and (max-width: 600px) {
+  #nav-container {
+    justify-content: center;
+  }
+
+  #hero-preview {
+    visibility: hidden;
+  }
+}

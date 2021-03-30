@@ -48,3 +48,9 @@
   left: calc(100% - 2px);
   transform: translateX(-100%);
 }
+
+@media screen and (max-width: 600px) {
+  #toggle-container {
+    left: 0px;
+  }
+}
