@@ -61,19 +61,13 @@ function Progress(props: ProgressProps): JSX.Element {
   const length = Math.max(sections.current.length * 37 - 12, 0);
   const line_end = sections.current.length * 37 - size;
   const dims = isMobile ? [length, size] : [size, length];
-  const line_dims = isMobile ? [line_end, radius] : [radius, line_end];
+  const dpath = `M ${radius} ${radius} ${isMobile ? 'H' : 'V'} ${line_end}`;
 
   return (
     <div id={'progress-wrapper'}>
       <div id={'progress-container'}>
-        <svg width={dims[0]} height={dims[1]} className={'progress-line'}>
-          <line
-            x1={radius}
-            y1={radius}
-            x2={line_dims[0]}
-            y2={line_dims[1]}
-            stroke={'#1919194D'}
-            strokeWidth={2}/>
+        <svg width={dims[0]} height={dims[1]} viewBox={`0 0 ${dims[0]} ${dims[1]}`} className={'progress-line'}>
+          <path d={dpath} stroke={'#1919194D'} strokeWidth={2}/>
         </svg>
         {sections.current.map((_, i: number) =>
           <a
