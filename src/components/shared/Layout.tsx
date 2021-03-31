@@ -92,6 +92,8 @@ function Layout(props: LayoutProps): JSX.Element {
     if (showNav) {
       document.body.style.overflow = 'hidden';
       document.body.style.height = '100%';
+    } else {
+      document.body.style.overflow = '';
     }
 
     return () => {

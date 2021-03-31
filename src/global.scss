@@ -60,3 +60,9 @@ a {
   max-width: calc(100vw - 2 * #{$padding-horiz});
   height: calc(var(--vh, 1vh) * 100);
 }
+
+@media screen and (max-width: 600px) {
+  html {
+    font-size: 12px;
+  }
+}

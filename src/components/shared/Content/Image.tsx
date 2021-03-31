@@ -10,7 +10,7 @@ function Image(props: ImageProps): JSX.Element {
 
   return (
     <div className={'details image'}>
-      <img src={url} alt={alt}/>
+      <img className={'image'} style={{opacity: 1}} src={url} alt={alt}/>
     </div>
   );
 }

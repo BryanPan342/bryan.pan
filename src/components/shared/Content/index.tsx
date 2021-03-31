@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { HERO_COLORS } from '../../../utils/colors';
+import { AppContext } from '../../App';
 import '../../styles/Content.scss';
 
 export interface ContentProps {
@@ -13,6 +14,7 @@ export interface ContentProps {
 
 function Content(props: ContentProps): JSX.Element {
   const {heading, idx, heroColor} = props;
+  const {isMobile} = useContext(AppContext);
 
   const setWhite = [
     HERO_COLORS.FACEBOOK_BLUE,
@@ -20,7 +22,7 @@ function Content(props: ContentProps): JSX.Element {
     HERO_COLORS.STORYTIME_BLUE,
   ].includes(heroColor);
 
-  const background = `linear-gradient(to left, #f8f8f8 50%, ${heroColor} 50%) right`;
+  const background = isMobile ? heroColor : `linear-gradient(to left, #f8f8f8 50%, ${heroColor} 50%) right`;
 
   return (
     <div className={`section content-container ${idx}`} >
