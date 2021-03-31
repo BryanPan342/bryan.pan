@@ -140,6 +140,7 @@ function Layout(props: LayoutProps): JSX.Element {
           {props.children}
         </main>
       }
+      <div id={'credit'}>Art by <a href='https://amber-li.com' target='_blank' rel='noreferrer'>Amber Li</a></div>
     </div>
   );
 }

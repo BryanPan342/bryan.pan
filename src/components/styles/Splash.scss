@@ -48,6 +48,29 @@
   }
 }
 
+#credit {
+  font-size: .9rem;
+  position: absolute;
+  right: 64px;
+  bottom: 36px;
+  z-index: 2;
+
+  a {
+    position: relative;
+  }
+
+  a:after {
+    content: "";
+    border-top: .3rem solid map-get($colors, 'yellow');
+    z-index: -1;
+    position: absolute;
+    bottom: .3rem;
+    right: 0px;
+    left: 0px;
+    transition: right .4s $bezier;
+  }
+}
+
 @media screen and (max-width: 600px) {
   #splash-container {
     flex-direction: column;
@@ -70,5 +93,10 @@
 
   #hero {
     width: 100vw;
+  }
+
+  #credit {
+    right: 32px;
+    bottom: 24px;
   }
 }
