@@ -77,8 +77,8 @@
       z-index: -1;
       content: "";
       position: absolute;
-      top: .45rem;
-      bottom: .45rem;
+      top: .55rem;
+      bottom: .55rem;
       right: -2px;
       left: -2px;
       transition: top .4s, bottom .4s;
@@ -123,6 +123,13 @@
 
   #hero {
     width: 100vw;
+  }
+
+  .splash-link {
+    &:before, &:after {
+      top: .55rem;
+      bottom: .55rem;
+    }
   }
 
   #credit {
