@@ -91,25 +91,33 @@
 
 .link {
   a.text {
-    color: inherit;
     position: relative;
-    text-decoration: none;
-  }
+
+    &:before, &:after {
+      z-index: -1;
+      content: "";
+      position: absolute;
+      top: .5rem;
+      bottom: .5rem;
+      right: -10px;
+      left: -10px;
+      transition: top .4s, bottom .4s;
+    }
+
+    &:before {
+      border-right: .25rem solid map-get($colors, 'yellow');
+      border-bottom: .25rem solid map-get($colors, 'yellow');
+    }
   
-  a.text:hover {
-    right: 0;
-    text-decoration: none;
-  }
-  
-  a.text:after {
-    border-top: .5rem solid map-get($colors, 'yellow');
-    z-index: -1;
-    content: "";
-    position: absolute;
-    bottom: .4rem;
-    right: -5px;
-    left: -5px;
-    transition: right .4s $bezier;
+    &:after {
+      border-top: .25rem solid map-get($colors, 'yellow');
+      border-left: .25rem solid map-get($colors, 'yellow');
+    }
+
+    &:hover:before, &:hover:after {
+      bottom: -5px;
+      top: -5px;
+    }
   }
 }
 

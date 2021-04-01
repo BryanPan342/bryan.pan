@@ -36,15 +36,30 @@
   opacity: 0;
   width: fit-content;
 
-  &:after {
-    border-top: .5rem solid map-get($colors, 'yellow');
+  &:before, &:after {
     z-index: -1;
     content: "";
     position: absolute;
+    top: .5rem;
     bottom: .5rem;
-    right: -5px;
-    left: -5px;
-    transition: right .4s $bezier;
+    right: -10px;
+    left: -10px;
+    transition: top .4s, bottom .4s;
+  }
+
+  &:before {
+    border-right: .25rem solid map-get($colors, 'yellow');
+    border-bottom: .25rem solid map-get($colors, 'yellow');
+  }
+
+  &:after {
+    border-top: .25rem solid map-get($colors, 'yellow');
+    border-left: .25rem solid map-get($colors, 'yellow');
+  }
+
+  &:hover:before, &:hover:after {
+    bottom: -5px;
+    top: -5px;
   }
 }
 
@@ -57,17 +72,32 @@
 
   a {
     position: relative;
-  }
 
-  a:after {
-    content: "";
-    border-top: .3rem solid map-get($colors, 'yellow');
-    z-index: -1;
-    position: absolute;
-    bottom: .3rem;
-    right: 0px;
-    left: 0px;
-    transition: right .4s $bezier;
+    &:before, &:after {
+      z-index: -1;
+      content: "";
+      position: absolute;
+      top: .45rem;
+      bottom: .45rem;
+      right: -2px;
+      left: -2px;
+      transition: top .4s, bottom .4s;
+    }
+
+    &:before {
+      border-right: .15rem solid map-get($colors, 'yellow');
+      border-bottom: .15rem solid map-get($colors, 'yellow');
+    }
+  
+    &:after {
+      border-top: .15rem solid map-get($colors, 'yellow');
+      border-left: .15rem solid map-get($colors, 'yellow');
+    }
+  
+    &:hover:before, &:hover:after {
+      bottom: -2px;
+      top: -2px;
+    }
   }
 }
 
