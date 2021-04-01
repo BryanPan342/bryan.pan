@@ -6,6 +6,7 @@
 }
 
 #headline-container {
+  position: relative;
   display: flex;
   flex-direction: column;
 }
@@ -30,6 +31,7 @@
 }
 
 .splash-link {
+  position: relative;
   font: $heading-bold-font;
   font-size: 1.2rem;
   margin-top: $main-margin-between;
