@@ -1,7 +1,6 @@
 const {query} = require('./graphql');
 const fetch = require('node-fetch');
 const {writeFileSync, mkdirSync, existsSync} = require('fs');
-require('dotenv').config()
 
 const url = `https://graphql.contentful.com/content/v1/spaces/${process.env.SPACE_ID}`;
 
