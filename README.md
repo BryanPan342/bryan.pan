@@ -1,6 +1,6 @@
 # bryan.pan
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/012ef078-61ea-4d5e-988e-aa24b5428c9d/deploy-status)](https://app.netlify.com/sites/bryanpan/deploys)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/012ef078-61ea-4d5e-988e-aa24b5428c9d/deploy-status)](https://app.netlify.com/sites/bryan.pan/deploys)
 
 Welcome to my portfolio! I built it completely through React and Sass.
 
