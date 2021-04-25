@@ -1,14 +1,7 @@
 @import './components/styles/variables';
 
 html {
-  font-size: clamp(12px, 1.5vw, 16px)
-}
-
-body {
-  padding: 0;
-  margin: 0;
-  font: $body-reg-font;
-  background-color: map-get($colors, 'white');
+  font-size: clamp(12px, 1.5vw, 16px);
 
   -ms-overflow-style: none;  /* IE and Edge */
   scrollbar-width: none;  /* Firefox */
@@ -17,6 +10,13 @@ body {
   &::-webkit-scrollbar {
     display: none;
   }
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  font: $body-reg-font;
+  background-color: map-get($colors, 'white');
 }
 
 div {

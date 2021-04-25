@@ -78,15 +78,18 @@ function Splash(props: SplashProps): JSX.Element {
           { Heading }
         </div>
         <div className={'description'}>{props.description}</div>
+
         {window.location.pathname === '/' && page !== PAGE.HOME &&
-          <Link
-            aria-label={page}
-            id={`${page}-link`}
-            to={`/${page.toLowerCase()}`}
-            className={'splash-link'}
-            key={page}>
-            LEARN MORE
-          </Link>
+          <div>
+            <Link
+              aria-label={page}
+              id={`${page}-link`}
+              to={`/${page.toLowerCase()}`}
+              className={'splash-link'}
+              key={page}>
+              LEARN MORE
+            </Link>
+          </div>
         }
       </div>
       <div id={'hero'}>

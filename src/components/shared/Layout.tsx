@@ -30,8 +30,10 @@ function Layout(props: LayoutProps): JSX.Element {
     if (built.current) {
       window.fullpage_api.moveTo(index);
     } else {
+      const target = sections[index-1].getBoundingClientRect().top;
+      const base = sections[0].getBoundingClientRect().top;
       window.scrollTo({
-        top: sections[index-1].getBoundingClientRect().top,
+        top: target - base,
         behavior: 'smooth',
       });
     }
@@ -80,6 +82,7 @@ function Layout(props: LayoutProps): JSX.Element {
     });
 
     Array.from(document.getElementsByClassName('section')).forEach(p => {
+      console.log(p);
       sections.push(p);
     });
 
