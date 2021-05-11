@@ -1,4 +1,4 @@
-import React, { createContext, useState } from 'react';
+import React, { createContext, useEffect, useState } from 'react';
 import {
   BrowserRouter as Router,
   Switch,
@@ -31,6 +31,12 @@ export const AppContext = createContext<IAppContext>({
 function App(): JSX.Element {
   const [autoScroll, setAutoScroll] = useState(true);
   const {width, height} = useWindowSize();
+
+  useEffect(() => {
+    if (history.scrollRestoration) {
+      history.scrollRestoration = 'manual';
+    }
+  }, []);
 
   return (
     <AppContext.Provider

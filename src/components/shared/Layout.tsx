@@ -82,7 +82,6 @@ function Layout(props: LayoutProps): JSX.Element {
     });
 
     Array.from(document.getElementsByClassName('section')).forEach(p => {
-      console.log(p);
       sections.push(p);
     });
 
