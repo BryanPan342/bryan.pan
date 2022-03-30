@@ -26,15 +26,16 @@ module.exports = {
   rules: {
     'linebreak-style': [ 'error', 'unix' ],
 
-    '@typescript-eslint/no-require-imports': [ 'error' ],
+    // Always add a trailing new line to the end of a file (clean diffs)
+    'eol-last': [ 'error', 'unix' ],
 
-    '@typescript-eslint/no-unused-vars': [
-      'error',
-      { argsIgnorePattern: '^_' }
-    ],
+    '@typescript-eslint/no-require-imports': [ 'error' ],
 
     // 2 space indentation
     '@typescript-eslint/indent': [ 'error', 2 ],
+
+    // Variables should be used
+    '@typescript-eslint/no-unused-vars': ['error', { argsIgnorePattern: '^_' }],
 
     // Style
     'quotes': [ 'error', 'single', { avoidEscape: true } ],
