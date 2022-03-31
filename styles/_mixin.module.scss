@@ -2,9 +2,10 @@
   @font-face {
     font-family: $font-family;
     src: url($font-file+'.eot');
-    src: url($font-file+'.eot?#iefix') format('embedded-opentype'),
-         url($font-file+'.woff') format('woff'),
-         url($font-file+'.ttf') format('truetype'),
-         url($font-file+'.svg#'+$font-family) format('svg');
+    src:
+      url($font-file+'.eot?#iefix') format('embedded-opentype'),
+      url($font-file+'.woff') format('woff'),
+      url($font-file+'.ttf') format('truetype'),
+      url($font-file+'.svg#'+$font-family) format('svg');
   }
 }

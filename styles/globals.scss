@@ -36,7 +36,6 @@ button {
   background-color: transparent;
   font: $body-large;
   letter-spacing: 0.1em;
-  
   color: map-get($colors, 'black');
 
   // SIZING
@@ -53,10 +52,9 @@ a {
   text-decoration: none;
 }
 
-
 #root {
   height: 100%;
   width: 100vw;
   max-width: 1440px;
-  margin: 0px auto;
+  margin: 0 auto;
 }

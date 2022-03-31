@@ -4,10 +4,9 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-
   width: calc(100% - 2 * #{$nav-horiz-padding});
   height: $nav-height;
-  margin: 0px $nav-horiz-padding;
+  margin: 0 $nav-horiz-padding;
 }
 
 .icon {
