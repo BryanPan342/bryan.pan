@@ -1,0 +1,21 @@
+@use 'variables.module' as *;
+
+#navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  width: calc(100% - 2 * #{$nav-horiz-padding});
+  height: $nav-height;
+  margin: 0px $nav-horiz-padding;
+}
+
+.icon {
+  width: 32px;
+}
+
+#links > :not(:last-child) {
+  font: $body-large;
+  letter-spacing: 0.1em;
+  margin-right: 24px;
+}

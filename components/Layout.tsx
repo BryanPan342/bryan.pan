@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import React from 'react';
+import Navbar from './Navbar';
 
 export interface LayoutProps {
   children: React.ReactNode;
@@ -12,7 +13,7 @@ function Layout(props: LayoutProps): JSX.Element {
   const title = props.title ?? 'Bryan Pan';
   const description = props.description ?? 'I build beautiful solutions through software and design';
   return (
-    <>
+    <div id="root">
       <Head>
         <meta charSet="UTF-8" />
         <meta name="title" content="Bryan Pan" />
@@ -32,11 +33,17 @@ function Layout(props: LayoutProps): JSX.Element {
 
         <title>{title}</title>
         <link rel="icon" href="/favicon.ico" />
+
+        <link rel="preload" href="/fonts/Bodoni/Bodoni.woff" as="font" crossOrigin="" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
       </Head>
+      <Navbar />
       <main id={props.id}>
         {props.children}
       </main>
-    </>
+    </div>
   );
 }
 

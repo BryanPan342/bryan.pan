@@ -1,19 +1,51 @@
-html,
-body {
-  padding: 0;
+@use 'variables.module' as *;
+
+* {
   margin: 0;
-  font-family:
-    -apple-system,
-    BlinkMacSystemFont,
-    Segoe UI,
-    Roboto,
-    Oxygen,
-    Ubuntu,
-    Cantarell,
-    Fira Sans,
-    Droid Sans,
-    Helvetica Neue,
-    sans-serif;
+}
+
+body {
+  overflow-x: hidden;
+  padding: 0;
+  font: $body;
+  background-color: map-get($colors, 'white');
+}
+
+div {
+  color: map-get($colors, 'black');
+}
+
+h1 {
+  font: $header-1;
+}
+
+h2 {
+  font: $header-2;
+}
+
+h3 {
+  font: $body-large;
+  letter-spacing: 0.1em;
+}
+
+p {
+  line-height: 1.6em;
+}
+
+button {
+  background-color: transparent;
+  font: $body-large;
+  letter-spacing: 0.1em;
+  
+  color: map-get($colors, 'black');
+
+  // SIZING
+  padding: 4px $button-horiz-padding;
+  min-height: 32px;
+
+  // BORDER
+  border: 2px solid map-get($colors, 'black');
+  cursor: pointer;
 }
 
 a {
@@ -21,6 +53,10 @@ a {
   text-decoration: none;
 }
 
-* {
-  box-sizing: border-box;
+
+#root {
+  height: 100%;
+  width: 100vw;
+  max-width: 1440px;
+  margin: 0px auto;
 }
