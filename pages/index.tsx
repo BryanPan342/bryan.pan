@@ -1,5 +1,5 @@
+import { GetStaticProps } from 'next';
 import Image from 'next/image';
-import { GetStaticProps } from 'next/types';
 import React from 'react';
 import Layout from '../components/Layout';
 import Project, { ProjectProps } from '../components/Project';
@@ -33,7 +33,7 @@ export default function Home({projects}: HomeProps): JSX.Element {
           <h1>Selected feats of magic</h1>
         </div>
         <div id={styles.projects}>
-          {projects.map(props => <Project {...props} />)}
+          {projects.map((props: ProjectProps) => <Project key={props.title} {...props} />)}
         </div>
       </div>
     </Layout>
@@ -45,12 +45,12 @@ const dummyProject: ProjectProps = {
   body: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi ex tortor, commodo in dolor aliquet, tempus fringilla ipsum.',
   color: '#C4C4C4',
   cta: 'bryanpan.co',
-}
+};
 
 export const getStaticProps: GetStaticProps = () => {
   return {
     props: {
       projects: Array(5).fill(dummyProject),
-    }
-  }
-}
+    },
+  };
+};

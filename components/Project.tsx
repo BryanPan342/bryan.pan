@@ -22,5 +22,5 @@ export default function Project({body, color, cta, title}: ProjectProps): JSX.El
       <div className={styles['project-art']} style={{backgroundColor: color}}>
       </div>
     </div>
-  )
+  );
 }

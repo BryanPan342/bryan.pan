@@ -18,7 +18,8 @@ $magic-margin-top: $base;
   max-height: 1024px;
 }
 
-#splash-text, #work-header {
+#splash-text,
+#work-header {
   width: 50%;
 
   h3 {
@@ -40,7 +41,7 @@ $magic-margin-top: $base;
   position: absolute;
   font: $background;
   color: map-get($colors, 'white');
-  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
 }
 
 #developer {
@@ -56,13 +57,12 @@ $magic-margin-top: $base;
 #magic {
   position: absolute;
   width: 300px;
-
   margin-top: $magic-margin-top;
   margin-left: 50%;
 }
 
 #work-container {
-  margin: 240px 0px;
+  margin: 240px 0;
 }
 
 #projects {
