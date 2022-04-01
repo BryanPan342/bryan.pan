@@ -1,10 +1,56 @@
 @use 'variables.module' as *;
 
+$splash-margin-top: calc(35vh - #{$nav-height});
+$developer-margin-top: calc(#{$splash-margin-top} - 180px);
+$designer-margin-top: calc(#{$splash-margin-top} + 260px);
+$magic-margin-top: 35vh;
+
 #container {
   margin: 0 $content-horiz-padding;
 }
 
 #splash {
+  display: flex;
   width: 100%;
   height: calc(100vh - #{$nav-height});
+}
+
+.background-text {
+  z-index: -1;
+  position: absolute;
+  font: $background;
+  color: map-get($colors, 'white');
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+#designer {
+  margin-left: -5%;
+  margin-top: $designer-margin-top;
+}
+
+#developer {
+  margin-left: 18%;
+  margin-top: $developer-margin-top;
+}
+
+#splash-text {
+  width: 50%;
+  margin-top: $splash-margin-top;
+
+  h3 {
+    line-height: 1em;
+    margin-bottom: 24px;
+  }
+
+  h1 {
+    line-height: 1em;
+  }
+}
+
+#magic {
+  position: absolute;
+  width: 300px;
+
+  margin-top: $magic-margin-top;
+  margin-left: 50%;
 }
