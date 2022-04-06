@@ -3,10 +3,8 @@
 #footer {
   display: flex;
   flex-direction: column;
-
   width: calc(100% - 2 * #{$nav-horiz-padding});
   padding: 80px $nav-horiz-padding;
-
   background-color: map-get($colors, 'black');
   color: map-get($colors, 'white');
 }
@@ -26,19 +24,24 @@
     color: map-get($colors, 'white');
   }
 
-  textarea, input {
+  textarea {
+    min-height: 120px;
+  }
+
+  input {
+    min-height: 20px;
+  }
+
+  textarea,
+  input {
     line-height: 1.6em;
     margin-top: 2px;
     padding: 5px 10px;
-    min-height: 20px;
 
-    &:active, &:focus {
+    &:active,
+    &:focus {
       outline: none;
     }
-  }
-
-  textarea {
-    min-height: 120px;
   }
 }
 
@@ -55,5 +58,5 @@
 
   // BORDER
   border: 2px solid map-get($colors, 'white');
-  cursor: pointer;  
+  cursor: pointer;
 }
