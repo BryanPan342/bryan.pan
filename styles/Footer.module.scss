@@ -1,0 +1,59 @@
+@use 'variables.module' as *;
+
+#footer {
+  display: flex;
+  flex-direction: column;
+
+  width: calc(100% - 2 * #{$nav-horiz-padding});
+  padding: 80px $nav-horiz-padding;
+
+  background-color: map-get($colors, 'black');
+  color: map-get($colors, 'white');
+}
+
+.contact {
+  display: flex;
+  flex-direction: column;
+}
+
+.group {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-top: 10px;
+
+  label {
+    color: map-get($colors, 'white');
+  }
+
+  textarea, input {
+    line-height: 1.6em;
+    margin-top: 2px;
+    padding: 5px 10px;
+    min-height: 20px;
+
+    &:active, &:focus {
+      outline: none;
+    }
+  }
+
+  textarea {
+    min-height: 120px;
+  }
+}
+
+#submit {
+  background-color: transparent;
+  color: map-get($colors, 'white');
+  letter-spacing: 0.1em;
+  margin: 24px 0 0 auto;
+
+  // SIZING
+  width: 120px;
+  padding: 4px $button-horiz-padding;
+  min-height: 32px;
+
+  // BORDER
+  border: 2px solid map-get($colors, 'white');
+  cursor: pointer;  
+}
