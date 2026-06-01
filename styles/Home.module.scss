@@ -1,74 +1,221 @@
 @use 'variables.module' as *;
 
-$base: clamp(0px, 35vh, 400px);
-
-$splash-margin-top: calc(#{$base} - #{$nav-height});
-$developer-margin-top: calc(#{$splash-margin-top} - 180px);
-$designer-margin-top: calc(#{$splash-margin-top} + 260px);
-$magic-margin-top: $base;
-
 #container {
   margin: 0 $content-horiz-padding;
 }
 
 #splash {
-  display: flex;
-  width: 100%;
-  height: calc(100vh - #{$nav-height});
-  max-height: 1024px;
+  display: grid;
+  position: relative;
+  grid-template-columns: minmax(0, 1.05fr) minmax(320px, 0.95fr);
+  gap: clamp(32px, 8vw, 96px);
+  align-items: center;
+  min-height: calc(100vh - #{$nav-height});
+  padding: clamp(56px, 8vw, 112px) 0;
 }
 
-#splash-text,
-#work-header {
-  width: 50%;
-
-  h3 {
-    line-height: 1em;
-    margin-bottom: 24px;
-  }
+#splashText {
+  position: relative;
+  z-index: 2;
 
   h1 {
-    line-height: 1em;
+    max-width: 720px;
+    line-height: 0.92em;
   }
 }
 
-#splash-text {
-  margin-top: $splash-margin-top;
+.eyebrow {
+  margin-bottom: 24px;
+  font: $body-large;
+  letter-spacing: 0.18em;
+  color: map-get($colors, 'lilac');
+  text-transform: uppercase;
 }
 
-.background-text {
-  z-index: -1;
+.intro {
+  max-width: 620px;
+  margin-top: 28px;
+  color: map-get($colors, 'black-75');
+  font-size: 18px;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 24px;
+  margin-top: 40px;
+
+  a:last-child {
+    font: $body-large;
+    letter-spacing: 0.12em;
+    color: map-get($colors, 'black');
+  }
+}
+
+#heroCard {
+  position: relative;
+  z-index: 2;
+  align-self: stretch;
+  min-height: 520px;
+  padding: clamp(24px, 4vw, 48px);
+  border: 1px solid map-get($colors, 'black-10');
+  background: linear-gradient(135deg, map-get($colors, 'white') 0%, map-get($colors, 'paper') 100%);
+  box-shadow: 0 28px 80px rgba(19, 19, 19, 0.08);
+}
+
+#heroCard::before {
   position: absolute;
-  font: $background;
-  color: map-get($colors, 'white');
-  text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  top: 28px;
+  right: 28px;
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: map-get($colors, 'yellow');
+  content: '';
 }
 
-#developer {
-  margin-top: $developer-margin-top;
-  margin-left: 18%;
-}
-
-#designer {
-  margin-top: $designer-margin-top;
-  margin-left: -5%;
+#heroCard::after {
+  position: absolute;
+  right: 84px;
+  bottom: 120px;
+  width: 112px;
+  height: 112px;
+  background: map-get($colors, 'blue');
+  content: '';
 }
 
 #magic {
-  position: absolute;
-  width: 300px;
-  margin-top: $magic-margin-top;
-  margin-left: 700px;
+  position: relative;
+  z-index: 1;
+  width: min(82%, 360px);
+  margin: 64px auto 0;
+  filter: drop-shadow(0 24px 32px rgba(19, 19, 19, 0.18));
 }
 
-#work-container {
-  margin: 240px 0;
+.cardCopy {
+  position: absolute;
+  right: clamp(24px, 4vw, 48px);
+  bottom: clamp(24px, 4vw, 48px);
+  left: clamp(24px, 4vw, 48px);
+  z-index: 2;
+  max-width: 420px;
+  padding-top: 24px;
+  border-top: 1px solid map-get($colors, 'black-10');
+
+  span {
+    display: block;
+    margin-bottom: 10px;
+    font: $body-small;
+    letter-spacing: 0.18em;
+    color: map-get($colors, 'lilac');
+    text-transform: uppercase;
+  }
+
+  strong {
+    font: $body-xlarge;
+    line-height: 1.2em;
+  }
+}
+
+.backgroundText {
+  position: absolute;
+  z-index: 0;
+  font: $background;
+  color: map-get($colors, 'white');
+  line-height: 0.8em;
+  text-shadow: 0 1px 0 rgba(19, 19, 19, 0.18), 0 24px 36px rgba(19, 19, 19, 0.08);
+  pointer-events: none;
+}
+
+#developer {
+  top: 10%;
+  right: -20%;
+}
+
+#designer {
+  bottom: 7%;
+  left: -19%;
+}
+
+.capabilities {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  margin: 24px 0 clamp(120px, 16vw, 220px);
+  background: map-get($colors, 'black-10');
+
+  div {
+    min-height: 160px;
+    padding: 28px;
+    background: map-get($colors, 'white');
+  }
+
+  span {
+    display: block;
+    width: 24px;
+    height: 24px;
+    margin-bottom: 32px;
+    background: map-get($colors, 'lilac');
+  }
+
+  div:nth-child(2) span {
+    border-radius: 50%;
+    background: map-get($colors, 'yellow');
+  }
+
+  div:nth-child(3) span {
+    background: map-get($colors, 'blue');
+  }
+
+  p {
+    max-width: 280px;
+    font: $body-large;
+    line-height: 1.5em;
+  }
+}
+
+.workContainer {
+  margin: 0 0 clamp(120px, 18vw, 240px);
+}
+
+#workHeader {
+  display: grid;
+  grid-template-columns: minmax(0, 0.95fr) minmax(280px, 0.75fr);
+  gap: clamp(24px, 6vw, 80px);
+  align-items: end;
+
+  .eyebrow {
+    grid-column: 1 / -1;
+    margin-bottom: -8px;
+  }
+
+  h2 {
+    line-height: 0.95em;
+  }
+
+  p:last-child {
+    color: map-get($colors, 'black-75');
+  }
 }
 
 #projects {
+  display: grid;
+  gap: 32px;
   margin-top: 64px;
+}
 
-  & > * {
-    margin-top: 32px;
+@media (max-width: 900px) {
+  #splash,
+  #workHeader {
+    grid-template-columns: 1fr;
+  }
+
+  #heroCard {
+    min-height: 460px;
+  }
+
+  .capabilities {
+    grid-template-columns: 1fr;
   }
 }

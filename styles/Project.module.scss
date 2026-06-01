@@ -1,23 +1,120 @@
-.project-card {
-  display: flex;
+@use 'variables.module' as *;
+
+.projectCard {
+  display: grid;
   position: relative;
-  width: 100%;
-  height: 400px;
+  grid-template-columns: minmax(240px, 0.86fr) minmax(320px, 1.14fr);
+  gap: clamp(24px, 5vw, 72px);
+  align-items: center;
+  min-height: 360px;
+  padding: clamp(28px, 5vw, 56px);
+  border: 1px solid map-get($colors, 'black-10');
+  background: map-get($colors, 'white');
+  box-shadow: 0 24px 60px rgba(19, 19, 19, 0.06);
 }
 
-.project-text {
-  margin-top: 64px;
-  width: 45%;
-
+.projectText {
   & > :not(:last-child) {
     margin-bottom: 16px;
   }
+
+  span {
+    display: block;
+    font: $body-small;
+    letter-spacing: 0.18em;
+    color: map-get($colors, 'lilac');
+    text-transform: uppercase;
+  }
+
+  p {
+    color: map-get($colors, 'black-75');
+  }
+
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    padding: 0;
+    list-style: none;
+  }
+
+  li {
+    padding: 6px 10px;
+    font: $body-small;
+    letter-spacing: 0.08em;
+    border: 1px solid map-get($colors, 'black-10');
+    text-transform: uppercase;
+  }
+
+  a {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 8px;
+    font: $body-large;
+    letter-spacing: 0.12em;
+    color: map-get($colors, 'black');
+    text-transform: uppercase;
+  }
+
+  a::after {
+    content: '→';
+    transition: transform 160ms ease;
+  }
+
+  a:hover::after {
+    transform: translateX(4px);
+  }
 }
 
-.project-art {
-  position: absolute;
-  width: 70%;
-  height: 400px;
-  right: 0;
-  z-index: -1;
+.projectArt {
+  display: grid;
+  position: relative;
+  min-height: 248px;
+  overflow: hidden;
+  border: 1px solid rgba(19, 19, 19, 0.08);
+
+  &::before {
+    position: absolute;
+    inset: 28px;
+    border: 1px solid rgba(251, 250, 248, 0.5);
+    content: '';
+  }
+
+  &::after {
+    position: absolute;
+    right: -48px;
+    bottom: -64px;
+    width: 220px;
+    height: 220px;
+    border-radius: 50%;
+    background: rgba(251, 250, 248, 0.44);
+    content: '';
+  }
+
+  div:first-child {
+    width: 36%;
+    height: 36%;
+    margin: 52px 0 0 56px;
+    background: rgba(251, 250, 248, 0.42);
+  }
+
+  div:last-child {
+    position: absolute;
+    right: 72px;
+    bottom: 56px;
+    width: 38%;
+    height: 24px;
+    background: rgba(19, 19, 19, 0.14);
+  }
+}
+
+@media (max-width: 800px) {
+  .projectCard {
+    grid-template-columns: 1fr;
+  }
+
+  .projectArt {
+    min-height: 220px;
+  }
 }
