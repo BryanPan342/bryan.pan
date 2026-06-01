@@ -1,55 +1,75 @@
 @use 'variables.module' as *;
 
 * {
+  box-sizing: border-box;
   margin: 0;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   overflow-x: hidden;
   padding: 0;
   font: $body;
-  background-color: map-get($colors, 'white');
+  color: map-get($colors, 'black');
+  background:
+    radial-gradient(circle at top left, map-get($colors, 'yellow-25'), transparent 28rem),
+    linear-gradient(180deg, map-get($colors, 'white') 0%, map-get($colors, 'paper') 100%);
 }
 
-div {
-  color: map-get($colors, 'black');
+::selection {
+  color: map-get($colors, 'white');
+  background: map-get($colors, 'lilac');
 }
 
 h1 {
   font: $header-1;
+  letter-spacing: -0.04em;
 }
 
 h2 {
   font: $header-2;
+  letter-spacing: -0.035em;
 }
 
 h3 {
   font: $body-large;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.16em;
 }
 
 h4 {
   font: $body-xlarge;
-  letter-spacing: 0.08em;
+  letter-spacing: -0.02em;
 }
 
 p {
-  line-height: 1.6em;
+  line-height: 1.7em;
 }
 
-button {
+button,
+.button-link {
   background-color: transparent;
   font: $body-large;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.12em;
   color: map-get($colors, 'black');
+  text-transform: uppercase;
 
   // SIZING
-  padding: 4px $button-horiz-padding;
-  min-height: 32px;
+  padding: 8px $button-horiz-padding;
+  min-height: 36px;
 
   // BORDER
-  border: 2px solid map-get($colors, 'black');
+  border: 1px solid map-get($colors, 'black');
   cursor: pointer;
+  transition: background-color 160ms ease, color 160ms ease, border-color 160ms ease;
+}
+
+button:hover,
+.button-link:hover {
+  color: map-get($colors, 'white');
+  background-color: map-get($colors, 'black');
 }
 
 a {
@@ -58,8 +78,10 @@ a {
 }
 
 #root {
-  height: 100%;
+  min-height: 100%;
   width: 100vw;
   max-width: 1440px;
   margin: 0 auto;
+  background-color: map-get($colors, 'white');
+  box-shadow: 0 0 80px rgba(19, 19, 19, 0.08);
 }

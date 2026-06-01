@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="2500" viewBox="0 0 1440 2500">
+  <defs>
+    <style>
+      .bg{fill:#fbfaf8}.paper{fill:#f4f1ed}.ink{fill:#131313}.muted{fill:#6b6660}.lilac{fill:#8b5a89}.yellow{fill:#f6ca56}.blue{fill:#438fd4}.line{stroke:#131313;stroke-opacity:.12}.serif{font-family:Georgia,'Times New Roman',serif}.sans{font-family:Arial,Helvetica,sans-serif}.eyebrow{font:700 14px Arial;letter-spacing:3px;fill:#8b5a89}.body{font:400 18px Arial;fill:#4d4945}.nav{font:700 13px Arial;letter-spacing:2px}.big{font:700 94px Georgia}.h2{font:700 64px Georgia}.h3{font:700 30px Georgia}.small{font:700 12px Arial;letter-spacing:1.5px}</style>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="24" stdDeviation="24" flood-color="#131313" flood-opacity=".08"/></filter>
+  </defs>
+  <rect class="bg" width="1440" height="2500"/>
+  <circle cx="80" cy="60" r="360" fill="#f6ca56" opacity=".18"/>
+  <g transform="translate(120 42)">
+    <text class="serif ink" font-size="32" font-weight="700" x="0" y="18">BP</text>
+    <text class="nav ink" x="735" y="18">WORK</text>
+    <text class="nav ink" x="815" y="18">ABOUT</text>
+    <text class="nav ink" x="910" y="18">LINKEDIN</text>
+    <rect x="1030" y="-18" width="210" height="38" fill="none" stroke="#131313"/>
+    <text class="nav ink" x="1050" y="7">LET’S WORK TOGETHER</text>
+  </g>
+  <g transform="translate(120 210)">
+    <text class="serif" font-size="178" font-weight="700" fill="#fff" stroke="#131313" stroke-opacity=".18" x="635" y="70">DEVELOPER</text>
+    <text class="serif" font-size="178" font-weight="700" fill="#fff" stroke="#131313" stroke-opacity=".18" x="-130" y="735">DESIGNER</text>
+    <text class="eyebrow" x="0" y="0">BRYAN PAN · SEATTLE, WA</text>
+    <text class="big ink" x="0" y="125">I build thoughtful</text>
+    <text class="big ink" x="0" y="215">software with a</text>
+    <text class="big ink" x="0" y="305">little magic.</text>
+    <text class="body" x="0" y="375">I’m a software engineer who loves building for other people, meeting new</text>
+    <text class="body" x="0" y="405">collaborators, and turning ambiguous ideas into calm, useful product experiences.</text>
+    <rect x="0" y="455" width="145" height="42" fill="none" stroke="#131313"/>
+    <text class="nav ink" x="25" y="482">VIEW WORK</text>
+    <text class="nav ink" x="175" y="482">CONNECT ON LINKEDIN</text>
+    <g transform="translate(760 -20)" filter="url(#shadow)">
+      <rect width="430" height="560" class="paper" stroke="#131313" stroke-opacity=".12"/>
+      <circle cx="358" cy="70" r="38" class="yellow"/>
+      <rect x="272" y="352" width="112" height="112" class="blue"/>
+      <ellipse cx="215" cy="205" rx="108" ry="132" fill="#d6c5b2"/>
+      <circle cx="215" cy="125" r="72" fill="#c89f78"/>
+      <path d="M120 264 Q215 190 310 264 L335 370 L95 370 Z" fill="#6f5c46"/>
+      <line x1="42" x2="388" y1="430" y2="430" class="line"/>
+      <text class="small lilac" x="42" y="468">CURRENTLY</text>
+      <text class="sans ink" font-size="25" font-weight="700" x="42" y="508">Building human-centered software</text>
+      <text class="sans ink" font-size="25" font-weight="700" x="42" y="540">across product, web, and immersive</text>
+      <text class="sans ink" font-size="25" font-weight="700" x="42" y="572">experiences.</text>
+    </g>
+  </g>
+  <g transform="translate(120 945)">
+    <rect width="400" height="170" class="bg" stroke="#131313" stroke-opacity=".12"/><rect x="28" y="28" width="24" height="24" class="lilac"/><text class="nav ink" x="28" y="112">PRODUCT-MINDED ENGINEERING</text>
+    <g transform="translate(400 0)"><rect width="400" height="170" class="bg" stroke="#131313" stroke-opacity=".12"/><circle cx="40" cy="40" r="14" class="yellow"/><text class="nav ink" x="28" y="112">DESIGN SYSTEMS &amp; POLISHED INTERFACES</text></g>
+    <g transform="translate(800 0)"><rect width="400" height="170" class="bg" stroke="#131313" stroke-opacity=".12"/><rect x="28" y="28" width="24" height="24" class="blue"/><text class="nav ink" x="28" y="112">PROTOTYPING, SHIPPING, AND ITERATION</text></g>
+  </g>
+  <g transform="translate(120 1285)">
+    <text class="eyebrow" x="0" y="0">WORK</text>
+    <text class="h2 ink" x="0" y="85">Sorcery performed</text><text class="h2 ink" x="0" y="150">in real life.</text>
+    <text class="body" x="660" y="72">A first pass at reframing the portfolio around professional outcomes:</text>
+    <text class="body" x="660" y="104">systems that feel polished, products that ship, and interfaces with a point of view.</text>
+    <g transform="translate(0 240)">
+      <rect width="1200" height="360" class="bg" stroke="#131313" stroke-opacity=".12" filter="url(#shadow)"/><text class="small lilac" x="56" y="75">EXPERIENCE</text><text class="h3 ink" x="56" y="124">Reality Labs product engineering</text><text class="body" x="56" y="170">Contributed software craft in a research-heavy product environment where</text><text class="body" x="56" y="200">interaction quality, reliability, and cross-functional execution matter.</text><rect x="670" y="56" width="470" height="248" class="lilac"/><rect x="722" y="110" width="160" height="90" fill="#fff" opacity=".4"/><circle cx="1085" cy="287" r="96" fill="#fff" opacity=".35"/></g>
+    <g transform="translate(0 640)">
+      <rect width="1200" height="360" class="bg" stroke="#131313" stroke-opacity=".12" filter="url(#shadow)"/><text class="small lilac" x="56" y="75">BRAND &amp; WEB</text><text class="h3 ink" x="56" y="124">Portfolio design system</text><text class="body" x="56" y="170">Translated a high-fidelity visual direction into reusable typography, color,</text><text class="body" x="56" y="200">layout, and component patterns for a more mature personal brand.</text><rect x="670" y="56" width="470" height="248" class="yellow"/><rect x="722" y="110" width="160" height="90" fill="#fff" opacity=".4"/><circle cx="1085" cy="287" r="96" fill="#fff" opacity=".35"/></g>
+  </g>
+</svg>

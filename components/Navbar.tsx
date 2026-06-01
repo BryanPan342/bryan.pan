@@ -3,19 +3,22 @@ import React from 'react';
 import styles from '../styles/Navbar.module.scss';
 import Link from './Link';
 
-
 export default function Navbar(): JSX.Element {
   return (
     <header id={styles.navbar}>
       <Link href="/" className={styles.icon}>
-        <Image src="/icon.png" layout="responsive" width="53.53px" height="40px" />
+        <Image src="/icon.png" layout="responsive" width="53.53px" height="40px" alt="Bryan Pan monogram" />
       </Link>
-      <div id={styles.links}>
+      <nav id={styles.links} aria-label="Primary navigation">
+        <Link href="/#work">WORK</Link>
         <Link href="/about">ABOUT</Link>
-        <button>
-          CONTACT
-        </button>
-      </div>
+        <a href="https://www.linkedin.com/in/blpan/" target="_blank" rel="noreferrer">
+          LINKEDIN
+        </a>
+        <a className="button-link" href="#contact">
+          LET&apos;S WORK TOGETHER
+        </a>
+      </nav>
     </header>
   );
 }

@@ -1,12 +1,35 @@
 @use 'variables.module' as *;
 
-#footer {
-  display: flex;
-  flex-direction: column;
-  width: calc(100% - 2 * #{$nav-horiz-padding});
-  padding: 80px $nav-horiz-padding;
+.footer {
+  display: grid;
+  grid-template-columns: minmax(280px, 0.8fr) minmax(320px, 1fr);
+  gap: clamp(32px, 8vw, 96px);
+  width: 100%;
+  padding: clamp(64px, 8vw, 96px) $footer-horiz-padding 40px;
   background-color: map-get($colors, 'black');
   color: map-get($colors, 'white');
+}
+
+.footerIntro {
+  p {
+    margin-bottom: 24px;
+    font: $body-large;
+    letter-spacing: 0.18em;
+    color: map-get($colors, 'yellow');
+  }
+
+  h2 {
+    max-width: 640px;
+    line-height: 0.98em;
+  }
+
+  span {
+    display: block;
+    max-width: 520px;
+    margin-top: 24px;
+    color: map-get($colors, 'white-50');
+    line-height: 1.7em;
+  }
 }
 
 .contact {
@@ -14,49 +37,102 @@
   flex-direction: column;
 }
 
+.row {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
 .group {
   display: flex;
   flex-direction: column;
   width: 100%;
-  margin-top: 10px;
+  margin-top: 16px;
 
   label {
+    margin-bottom: 8px;
     color: map-get($colors, 'white');
+    font: $body-small;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
   }
 
   textarea {
-    min-height: 120px;
-  }
-
-  input {
-    min-height: 20px;
+    min-height: 148px;
+    resize: vertical;
   }
 
   textarea,
   input {
+    width: 100%;
     line-height: 1.6em;
-    margin-top: 2px;
-    padding: 5px 10px;
+    padding: 12px 14px;
+    border: 1px solid map-get($colors, 'white-25');
+    color: map-get($colors, 'white');
+    background: map-get($colors, 'white-25');
+
+    &::placeholder {
+      color: map-get($colors, 'white-50');
+    }
 
     &:active,
     &:focus {
-      outline: none;
+      outline: 1px solid map-get($colors, 'yellow');
     }
   }
 }
 
-#submit {
-  background-color: transparent;
-  color: map-get($colors, 'white');
-  letter-spacing: 0.1em;
+.submit {
+  align-self: flex-end;
+  min-height: 40px;
   margin: 24px 0 0 auto;
-
-  // SIZING
-  width: 120px;
-  padding: 4px $button-horiz-padding;
-  min-height: 32px;
-
-  // BORDER
-  border: 2px solid map-get($colors, 'white');
+  padding: 8px $button-horiz-padding;
+  border: 1px solid map-get($colors, 'white');
+  color: map-get($colors, 'white');
+  background-color: transparent;
+  font: $body-large;
+  letter-spacing: 0.12em;
   cursor: pointer;
+  transition: background-color 160ms ease, color 160ms ease;
+}
+
+.submit:hover {
+  color: map-get($colors, 'black');
+  background: map-get($colors, 'white');
+}
+
+.footerMeta {
+  display: flex;
+  grid-column: 1 / -1;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 48px;
+  padding-top: 28px;
+  border-top: 1px solid map-get($colors, 'white-25');
+
+  strong {
+    letter-spacing: 0.18em;
+  }
+
+  div {
+    display: flex;
+    gap: 20px;
+  }
+
+  a {
+    color: map-get($colors, 'white-50');
+  }
+}
+
+@media (max-width: 900px) {
+  .footer,
+  .row {
+    grid-template-columns: 1fr;
+  }
+
+  .footerMeta {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 20px;
+  }
 }
